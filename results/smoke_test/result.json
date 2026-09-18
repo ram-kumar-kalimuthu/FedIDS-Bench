@@ -97,9 +97,9 @@
     "resource_cost": {
       "num_parameters": 1268,
       "model_size_bytes": 5072,
-      "client_training_time_sec": 0.3943,
-      "server_aggregation_time_sec": 0.0078,
-      "inference_time_sec": 0.009
+      "client_training_time_sec": 0.2398,
+      "server_aggregation_time_sec": 0.0032,
+      "inference_time_sec": 0.0088
     },
     "partition_manifest": {
       "strategy": "iid",
@@ -176,7 +176,7 @@
           201,
           201
         ],
-        "aggregation_time_sec": 0.0062,
+        "aggregation_time_sec": 0.0014,
         "tier1_global_test_f1": 0.0
       },
       {
@@ -193,7 +193,7 @@
           200,
           201
         ],
-        "aggregation_time_sec": 0.0005,
+        "aggregation_time_sec": 0.0004,
         "tier1_global_test_f1": 0.0
       },
       {
@@ -210,7 +210,7 @@
           201,
           200
         ],
-        "aggregation_time_sec": 0.0004,
+        "aggregation_time_sec": 0.0005,
         "tier1_global_test_f1": 0.0
       },
       {
@@ -244,7 +244,7 @@
           201,
           200
         ],
-        "aggregation_time_sec": 0.0003,
+        "aggregation_time_sec": 0.0005,
         "tier1_global_test_f1": 0.859504132231405
       }
     ],
@@ -254,8 +254,8 @@
       "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
       "torch_version": "2.13.0+cpu",
       "numpy_version": "1.26.4",
-      "git_commit_hash": "unknown",
-      "timestamp_utc": "2026-09-10T09:08:23.961989+00:00"
+      "git_commit_hash": "4fc097996c7b992bdb20da6cb2d321dff5de62b0",
+      "timestamp_utc": "2026-09-18T05:47:47.613786+00:00"
     },
     "status": "completed"
   }

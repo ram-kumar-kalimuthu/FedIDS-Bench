@@ -11,7 +11,7 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-sys.path.insert(0, r"D:\Research paper\fedids-bench\src")
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
 from fedids_bench.config import (
     DatasetConfig, PartitioningConfig, ModelConfig,
