@@ -145,13 +145,6 @@ FedIDS-Bench/
 ├── configs/                  # Benchmark YAML manifests (smoke, standard, large)
 ├── docs/                     # Detailed architectural specifications & audit logs
 ├── notebooks/                # Google Colab / Jupyter interactive notebooks
-├── paper/                    # Official Springer LNCS & IEEE LaTeX sources and figures
-│   ├── llncs.cls             # Official Springer LNCS Class (v2.26)
-│   ├── splncs04.bst          # Official Springer LNCS BibTeX Style
-│   ├── fedids_bench_springer.tex # Springer source (>10 pages single-column)
-│   ├── fedids_bench_ieee.tex # IEEE source (two-column)
-│   ├── references.bib        # 21 validated BibTeX citations
-│   └── figures/              # 300-DPI high-resolution diagrams
 ├── results/                  # Pre-computed benchmark outputs, CSVs, and JSON logs
 ├── scripts/                  # Reproducibility runners and evaluation harnesses
 ├── src/                      # Modular Python package source

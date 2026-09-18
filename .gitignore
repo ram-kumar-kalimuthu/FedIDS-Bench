@@ -82,3 +82,8 @@ src/fedids_bench/data/UNSW_NB15/
 # Ignore raw data CSVs, but preserve benchmark results in results/
 *.csv
 !results/**/*.csv
+
+# Manuscript source files and drafts (kept locally, excluded from public repo)
+paper/
+*.zip
+
