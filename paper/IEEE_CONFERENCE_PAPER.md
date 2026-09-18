@@ -11,6 +11,7 @@
   5. **Ranjan Kumar.S.M** — *B.Tech AI&DS* (`ranjankumar.s.m2023ai-ds@sece.ac.in`)  
 *Sri Eshwar College of Engineering*  
 **Target Venues**: IEEE S&P / IEEE CNS / IEEE INFOCOM / IEEE GLOBECOM / IEEE TIFS  
+**Public Repository**: [https://github.com/ram-kumar-kalimuthu/FedIDS-Bench](https://github.com/ram-kumar-kalimuthu/FedIDS-Bench)  
 
 ---
 

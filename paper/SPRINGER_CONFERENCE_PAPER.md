@@ -11,6 +11,7 @@
   4. **Naveen Kumar .R** — *Department of B.Tech AI&DS* (`naveenkumar.r2023ai-ds@sece.ac.in`)  
   5. **Ranjan Kumar.S.M** — *Department of B.Tech AI&DS* (`ranjankumar.s.m2023ai-ds@sece.ac.in`)  
 *Sri Eshwar College of Engineering, Coimbatore, Tamil Nadu, India*  
+**Public Repository**: [https://github.com/ram-kumar-kalimuthu/FedIDS-Bench](https://github.com/ram-kumar-kalimuthu/FedIDS-Bench)  
 
 ---
 

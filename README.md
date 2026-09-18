@@ -77,7 +77,7 @@ Published research in FL-NIDS frequently suffers from data leakage (computing no
 Clone the repository and install requirements in an editable virtual environment:
 
 ```bash
-git clone https://github.com/<YourUsername>/FedIDS-Bench.git
+git clone https://github.com/ram-kumar-kalimuthu/FedIDS-Bench.git
 cd FedIDS-Bench
 
 # Create and activate virtual environment
