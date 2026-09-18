@@ -181,33 +181,7 @@ pytest tests/test_reproducibility.py -v
 
 ---
 
-## Citation
 
-If you use **FedIDS-Bench** in your research, please cite our paper:
-
-### Springer LNCS Format
-```bibtex
-@inproceedings{sowmiya2026fedidsbench,
-  author    = {Sowmiya, S. and Ram kumar, K. and Rahgul, S. A. and Naveen Kumar, R. and Ranjan Kumar, S. M.},
-  title     = {FedIDS-Bench: A Standardized Cross-Dataset, Cross-Algorithm, and Cross-Threat-Model Benchmark for Federated Intrusion Detection Systems},
-  booktitle = {Proceedings of the International Conference on Computer Science and Information Security},
-  series    = {Lecture Notes in Computer Science},
-  publisher = {Springer},
-  year      = {2026}
-}
-```
-
-### IEEE Format
-```bibtex
-@inproceedings{sowmiya2026fedids,
-  author    = {Sowmiya, S. and Ram kumar, K. and Rahgul, S. A. and Naveen Kumar, R. and Ranjan Kumar, S. M.},
-  title     = {FedIDS-Bench: A Standardized Cross-Dataset, Cross-Algorithm, and Cross-Threat-Model Benchmark for Federated Intrusion Detection Systems},
-  booktitle = {IEEE International Conference on Communications and Network Security (CNS)},
-  year      = {2026}
-}
-```
-
----
 
 ## License
 
