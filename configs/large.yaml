@@ -1,0 +1,40 @@
+experiment_id: large_benchmark
+seed: 42
+mode: federated
+
+dataset:
+  name: synthetic
+  n_samples: 50000
+  n_features: 40
+  n_classes: 5
+  test_fraction: 0.2
+  data_dir: data/raw
+
+partitioning:
+  strategy: dirichlet
+  num_clients: 20
+  heldout_client_fraction: 0.2
+  alpha: 0.1
+
+model:
+  architecture: mlp
+  hidden_dims: [128, 64]
+  learning_rate: 0.01
+
+federated:
+  algorithm: fedavg
+  rounds: 50
+  local_epochs: 5
+  batch_size: 64
+  clients_per_round: 20
+
+attack:
+  type: none
+  malicious_fraction: 0.0
+  start_round: 0
+  strength: 1.0
+
+defense:
+  type: none
+
+output_dir: results/large

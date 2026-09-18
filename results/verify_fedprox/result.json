@@ -1,0 +1,212 @@
+{
+  "config": {
+    "experiment_id": "verify_fedprox",
+    "seed": 42,
+    "mode": "federated",
+    "dataset": {
+      "name": "ton_iot",
+      "n_samples": 300,
+      "n_features": 20,
+      "n_classes": 4,
+      "test_fraction": 0.2,
+      "data_dir": "data/raw"
+    },
+    "partitioning": {
+      "strategy": "iid",
+      "num_clients": 3,
+      "heldout_client_fraction": 0.0,
+      "alpha": 0.5
+    },
+    "model": {
+      "architecture": "mlp",
+      "hidden_dims": [
+        16,
+        8
+      ],
+      "learning_rate": 0.01
+    },
+    "federated": {
+      "algorithm": "fedprox",
+      "rounds": 2,
+      "local_epochs": 1,
+      "batch_size": 32,
+      "clients_per_round": 3,
+      "trust_client_sample_counts": true,
+      "mu": 0.01,
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "tau": 0.001
+    },
+    "attack": {
+      "type": "none",
+      "malicious_fraction": 0.0,
+      "start_round": 0,
+      "strength": 1.0,
+      "target_label": null
+    },
+    "defense": {
+      "type": "none",
+      "clip_threshold": 5.0,
+      "trim_ratio": 0.2,
+      "krum_f": 1,
+      "krum_multi": false,
+      "krum_m": 1
+    },
+    "output_dir": "results/verify_fedprox"
+  },
+  "result": {
+    "experiment_id": "verify_fedprox",
+    "mode": "federated",
+    "dataset": "ton_iot",
+    "algorithm": "fedprox",
+    "model": "mlp",
+    "num_clients": 3,
+    "active_clients": 3,
+    "heldout_clients": 0,
+    "metrics": {
+      "accuracy": 0.8833333333333333,
+      "precision": 0.8983050847457628,
+      "recall": 0.9814814814814815,
+      "f1": 0.9380530973451328,
+      "balanced_accuracy": 0.49074074074074076,
+      "mcc": -0.043396303660274624,
+      "false_positive_rate": 1.0,
+      "false_negative_rate": 0.018518518518518517,
+      "benign_recall": 0.0,
+      "attack_recall": 0.9814814814814815,
+      "multiclass": {
+        "accuracy": 0.06666666666666667,
+        "macro_f1": 0.013559322033898305,
+        "weighted_f1": 0.00903954802259887,
+        "per_class_recall": {
+          "0": 0.0,
+          "1": 1.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.0
+        }
+      }
+    },
+    "tier2_heldout_clients_metrics": {},
+    "communication": {
+      "parameter_bytes": 1992,
+      "total_upload_bytes": 11952,
+      "total_download_bytes": 11952,
+      "total_communication_bytes": 23904,
+      "num_rounds_recorded": 2
+    },
+    "resource_cost": {
+      "num_parameters": 498,
+      "model_size_bytes": 1992,
+      "client_training_time_sec": 0.0545,
+      "server_aggregation_time_sec": 0.0008,
+      "inference_time_sec": 0.01
+    },
+    "partition_manifest": {
+      "strategy": "iid",
+      "num_clients": 3,
+      "heldout_clients_count": 0,
+      "heldout_client_ids": [],
+      "clients": {
+        "0": {
+          "client_id": 0,
+          "is_heldout": false,
+          "n_samples": 80,
+          "class_distribution": {
+            "0": 6,
+            "1": 10,
+            "2": 5,
+            "3": 17,
+            "4": 10,
+            "5": 10,
+            "6": 5,
+            "7": 9,
+            "8": 8,
+            "9": 0
+          }
+        },
+        "1": {
+          "client_id": 1,
+          "is_heldout": false,
+          "n_samples": 80,
+          "class_distribution": {
+            "0": 10,
+            "1": 8,
+            "2": 13,
+            "3": 17,
+            "4": 7,
+            "5": 6,
+            "6": 8,
+            "7": 9,
+            "8": 2,
+            "9": 0
+          }
+        },
+        "2": {
+          "client_id": 2,
+          "is_heldout": false,
+          "n_samples": 80,
+          "class_distribution": {
+            "0": 8,
+            "1": 6,
+            "2": 5,
+            "3": 21,
+            "4": 7,
+            "5": 5,
+            "6": 9,
+            "7": 5,
+            "8": 13,
+            "9": 1
+          }
+        }
+      }
+    },
+    "round_logs": [
+      {
+        "round_num": 1,
+        "participating_clients": [
+          2,
+          0,
+          1
+        ],
+        "sample_counts": [
+          80,
+          80,
+          80
+        ],
+        "aggregation_time_sec": 0.0004,
+        "tier1_global_test_f1": 0.9380530973451328
+      },
+      {
+        "round_num": 2,
+        "participating_clients": [
+          1,
+          0,
+          2
+        ],
+        "sample_counts": [
+          80,
+          80,
+          80
+        ],
+        "aggregation_time_sec": 0.0003,
+        "tier1_global_test_f1": 0.9380530973451328
+      }
+    ],
+    "environment": {
+      "python_version": "3.12.10",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+      "torch_version": "2.13.0+cpu",
+      "numpy_version": "1.26.4",
+      "git_commit_hash": "unknown",
+      "timestamp_utc": "2026-09-09T12:02:35.691845+00:00"
+    },
+    "status": "completed"
+  }
+}

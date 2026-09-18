@@ -1,0 +1,40 @@
+experiment_id: smoke_test
+seed: 42
+mode: federated
+
+dataset:
+  name: synthetic
+  n_samples: 1000
+  n_features: 20
+  n_classes: 4
+  test_fraction: 0.2
+  data_dir: data/raw
+
+partitioning:
+  strategy: iid
+  num_clients: 5
+  heldout_client_fraction: 0.2
+  alpha: 0.5
+
+model:
+  architecture: mlp
+  hidden_dims: [32, 16]
+  learning_rate: 0.1
+
+federated:
+  algorithm: fedavg
+  rounds: 5
+  local_epochs: 1
+  batch_size: 32
+  clients_per_round: 5
+
+attack:
+  type: none
+  malicious_fraction: 0.0
+  start_round: 0
+  strength: 1.0
+
+defense:
+  type: none
+
+output_dir: results/smoke_test
