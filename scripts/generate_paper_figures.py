@@ -67,10 +67,11 @@ def generate_dataset_figure():
     print("Successfully generated revised Figure 2: dataset_distribution.png")
 
 # -------------------------------------------------------------
-# Figure 4: Adversarial Robustness vs Defenses (Revised: Legend Outside, No Overlap)
+# -------------------------------------------------------------
+# Figure 4: Adversarial Robustness vs Defenses (Revised: Legend Under Graph)
 # -------------------------------------------------------------
 def generate_attack_defense_figure():
-    fig, ax = plt.subplots(figsize=(10.5, 4.4), dpi=300)
+    fig, ax = plt.subplots(figsize=(10.5, 4.6), dpi=300)
 
     attacks = [
         'Clean Baseline\n(0% Malicious)', 
@@ -109,8 +110,8 @@ def generate_attack_defense_figure():
            color=c_krum,  edgecolor='#0F172A', linewidth=0.8, zorder=3)
 
     ax.set_ylabel("Global Test F1-Score", fontsize=10.5, fontweight='bold', color='#1E293B')
-    ax.set_title("Adversarial Poisoning Attack Degradation and Robust Defense Recovery", 
-                 fontsize=11.5, fontweight='bold', pad=28, color='#0F172A')
+    ax.set_title("Adversarial Poisoning Attack Degradation and Defense Recovery", 
+                 fontsize=11.5, fontweight='bold', pad=12, color='#0F172A')
     ax.set_xticks(x)
     ax.set_xticklabels(attacks, fontsize=9.0, fontweight='bold', color='#1E293B')
     
@@ -121,8 +122,8 @@ def generate_attack_defense_figure():
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
 
-    # CRITICAL: Place legend completely outside the plot above the chart to avoid ANY bar overlap
-    ax.legend(fontsize=8.5, loc='upper center', bbox_to_anchor=(0.5, 1.15), 
+    # CRITICAL: Position legend UNDER the graph (below x-axis) with generous padding
+    ax.legend(fontsize=9.0, loc='upper center', bbox_to_anchor=(0.5, -0.19), 
               ncol=5, frameon=True, facecolor='#F8FAFC', edgecolor='#CBD5E1', framealpha=0.95)
 
     plt.tight_layout()
@@ -132,18 +133,19 @@ def generate_attack_defense_figure():
     print("Successfully generated revised Figure 4: attack_defense.png")
 
 # -------------------------------------------------------------
-# Figure 5: Edge Profiling (Revised: Headroom for Text, Clean Subplots)
+# Figure 5: Edge Profiling (Revised: Headroom for Text, Generous Subplot Spacing)
 # -------------------------------------------------------------
 def generate_edge_profiling_figure():
     devices = ['Raspberry Pi 4\n(Cortex-A72)', 'NVIDIA Jetson\nOrin Nano', 'Laptop CPU\n(Intel Core i7)']
     latency_ms = [0.706, 0.024, 0.095]      # ms per sample
     energy_mj =  [3.525, 0.357, 2.668]      # mJ per batch
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.6, 4.0), dpi=300)
+    # Expanded width and explicit w_pad for generous breathing room between subplots
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10.6, 4.2), dpi=300)
     colors = ['#2563EB', '#10B981', '#F59E0B']
 
     # Subplot (a): Latency
-    bars1 = ax1.bar(devices, latency_ms, color=colors, width=0.52, 
+    bars1 = ax1.bar(devices, latency_ms, color=colors, width=0.48, 
                     edgecolor='#0F172A', linewidth=0.9, zorder=3)
     ax1.set_ylabel("Per-Sample Latency (ms)", fontsize=10.0, fontweight='bold', color='#1E293B')
     ax1.set_title("(a) Edge Inference Latency", fontsize=11.0, fontweight='bold', pad=12, color='#0F172A')
@@ -159,7 +161,7 @@ def generate_edge_profiling_figure():
                  ha='center', va='bottom', fontsize=9.0, fontweight='bold', color='#0F172A')
 
     # Subplot (b): Energy
-    bars2 = ax2.bar(devices, energy_mj, color=colors, width=0.52, 
+    bars2 = ax2.bar(devices, energy_mj, color=colors, width=0.48, 
                     edgecolor='#0F172A', linewidth=0.9, zorder=3)
     ax2.set_ylabel("Batch Energy Consumption (mJ)", fontsize=10.0, fontweight='bold', color='#1E293B')
     ax2.set_title("(b) Batch Energy Consumption", fontsize=11.0, fontweight='bold', pad=12, color='#0F172A')
@@ -174,10 +176,12 @@ def generate_edge_profiling_figure():
         ax2.text(b.get_x() + b.get_width()/2, h + 0.12, f"{h:.3f} mJ", 
                  ha='center', va='bottom', fontsize=9.0, fontweight='bold', color='#0F172A')
 
-    plt.tight_layout()
+    # Generous w_pad ensures ax2 y-axis label never crowds ax1 x-tick labels
+    plt.tight_layout(w_pad=4.5)
     plt.savefig("paper/figures/edge_latency_energy.png", dpi=300, bbox_inches='tight')
     plt.savefig("fedids-bench/paper/figures/edge_latency_energy.png", dpi=300, bbox_inches='tight')
     plt.close()
+    print("Successfully generated revised Figure 5: edge_latency_energy.png")
     print("Successfully generated revised Figure 5: edge_latency_energy.png")
 
 if __name__ == "__main__":
