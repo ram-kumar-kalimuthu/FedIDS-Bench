@@ -1,0 +1,113 @@
+{
+  "config": {
+    "experiment_id": "standard_benchmark",
+    "seed": 42,
+    "mode": "centralized",
+    "dataset": {
+      "name": "iot23",
+      "n_samples": 10000,
+      "n_features": 5,
+      "n_classes": 5,
+      "test_fraction": 0.2,
+      "data_dir": "data/raw"
+    },
+    "partitioning": {
+      "strategy": "dirichlet",
+      "num_clients": 10,
+      "heldout_client_fraction": 0.2,
+      "alpha": 0.5
+    },
+    "model": {
+      "architecture": "mlp",
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "learning_rate": 0.01
+    },
+    "federated": {
+      "algorithm": "fedavg",
+      "rounds": 10,
+      "local_epochs": 1,
+      "batch_size": 64,
+      "clients_per_round": 10,
+      "trust_client_sample_counts": true,
+      "mu": 0.01,
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "tau": 0.001
+    },
+    "attack": {
+      "type": "none",
+      "malicious_fraction": 0.0,
+      "start_round": 0,
+      "strength": 1.0,
+      "target_label": null
+    },
+    "defense": {
+      "type": "none",
+      "clip_threshold": 5.0,
+      "trim_ratio": 0.2,
+      "krum_f": 1,
+      "krum_multi": false,
+      "krum_m": 1
+    },
+    "output_dir": "D:\\FedIDS-Bench\\fedids-bench\\results\\centralized_iot23"
+  },
+  "result": {
+    "experiment_id": "standard_benchmark",
+    "mode": "centralized",
+    "dataset": "iot23",
+    "metrics": {
+      "accuracy": 0.9995,
+      "precision": 0.9993606138107417,
+      "recall": 1.0,
+      "f1": 0.9996802046690119,
+      "balanced_accuracy": 0.9988558352402745,
+      "mcc": 0.9985358017705636,
+      "false_positive_rate": 0.002288329519450801,
+      "false_negative_rate": 0.0,
+      "benign_recall": 0.9977116704805492,
+      "attack_recall": 1.0,
+      "confusion_matrix": {
+        "tn": 436,
+        "fp": 1,
+        "fn": 0,
+        "tp": 1563
+      },
+      "auroc": 0.9988558352402745,
+      "multiclass": {
+        "accuracy": 0.9995,
+        "macro_f1": 0.9992673646483662,
+        "weighted_f1": 0.9994997935799897,
+        "per_class_recall": {
+          "0": 0.9977116704805492,
+          "1": 1.0
+        }
+      }
+    },
+    "communication": {
+      "parameter_bytes": 10120,
+      "total_upload_bytes": 0,
+      "total_download_bytes": 0,
+      "total_communication_bytes": 0
+    },
+    "resource_cost": {
+      "num_parameters": 2530,
+      "model_size_bytes": 10120,
+      "client_training_time_sec": 1.2161,
+      "server_aggregation_time_sec": 0.0,
+      "inference_time_sec": 0.0
+    },
+    "status": "completed",
+    "environment": {
+      "python_version": "3.12.10",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+      "torch_version": "2.13.0+cpu",
+      "numpy_version": "1.26.4",
+      "git_commit_hash": "unknown",
+      "timestamp_utc": "2026-10-05T15:13:00.254108+00:00"
+    }
+  }
+}

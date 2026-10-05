@@ -95,7 +95,22 @@ def deep_merge(base: dict, override: dict) -> dict:
 def load_config(config_path: str, overrides: Optional[dict] = None) -> ExperimentConfig:
     """Load config from YAML file, apply optional overrides, and validate via Pydantic."""
     if not os.path.exists(config_path):
-        raise FileNotFoundError(f"Configuration file not found at: {config_path}")
+        pkg_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+        candidates = [
+            os.path.join(pkg_root, config_path),
+            os.path.join(pkg_root, "configs", os.path.basename(config_path)),
+            os.path.join(os.getcwd(), "fedids-bench", config_path),
+            os.path.join(os.getcwd(), "fedids-bench", "configs", os.path.basename(config_path)),
+        ]
+        found = False
+        for c in candidates:
+            if os.path.exists(c):
+                config_path = c
+                found = True
+                break
+        if not found:
+            raise FileNotFoundError(f"Configuration file not found at: {config_path}")
+
 
     with open(config_path, 'r', encoding='utf-8') as f:
         raw_dict = yaml.safe_load(f) or {}

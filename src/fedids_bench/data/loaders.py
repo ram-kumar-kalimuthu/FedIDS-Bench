@@ -12,6 +12,15 @@ from fedids_bench.config import DatasetConfig
 # Package data directory
 DATA_DIR_BASE = os.path.dirname(os.path.abspath(__file__))
 
+FEATURE_MAPPING = {
+    'unsw_nb15': {'dur': 'duration', 'sbytes': 'fwd_bytes', 'dbytes': 'bwd_bytes', 'spkts': 'fwd_pkts', 'dpkts': 'bwd_pkts'},
+    'cicids2017': {' Flow Duration': 'duration', 'Total Length of Fwd Packets': 'fwd_bytes', ' Total Length of Bwd Packets': 'bwd_bytes', ' Total Fwd Packets': 'fwd_pkts', ' Total Backward Packets': 'bwd_pkts'},
+    'cse_cic_ids2018': {'Flow Duration': 'duration', 'TotLen Fwd Pkts': 'fwd_bytes', 'TotLen Bwd Pkts': 'bwd_bytes', 'Tot Fwd Pkts': 'fwd_pkts', 'Tot Bwd Pkts': 'bwd_pkts'},
+    'iot23': {'duration': 'duration', 'orig_bytes': 'fwd_bytes', 'resp_bytes': 'bwd_bytes'},
+    'ton_iot': {'duration': 'duration', 'src_bytes': 'fwd_bytes', 'dst_bytes': 'bwd_bytes', 'src_pkts': 'fwd_pkts', 'dst_pkts': 'bwd_pkts'}
+}
+COMMON_FEATURES = ['duration', 'fwd_bytes', 'bwd_bytes', 'fwd_pkts', 'bwd_pkts']
+
 
 def _resolve_data_path(config: DatasetConfig, folder_name: str, file_names: List[str]) -> Optional[str]:
     """
@@ -144,18 +153,26 @@ class UnswNb15Loader(BaseDatasetLoader):
             ["UNSW_NB15_training-set.csv", "UNSW_NB15_testing-set.csv", "unsw_nb15.csv"]
         )
         if not data_path:
-            return generate_synthetic_ids(config, seed=seed)
+            raise FileNotFoundError(f"Data for {self.__class__.__name__} not found")
         
         df = pd.read_csv(data_path)
         df.columns = df.columns.str.strip()
         label_col = 'attack_cat' if 'attack_cat' in df.columns else 'label'
         
         df = _sample_df(df, label_col, config.n_samples, seed)
-        y_raw, uniques = pd.factorize(df[label_col])
-        label_map = {i: str(val) for i, val in enumerate(uniques)}
         
-        drop_cols = [c for c in [label_col, 'label', 'attack_cat', 'id'] if c in df.columns]
-        X_df = df.drop(columns=drop_cols, errors='ignore').select_dtypes(include=[np.number]).fillna(0)
+        # Explicit Label Mapping: Normal -> 0, Attack -> 1
+        df['binary_label'] = df[label_col].apply(lambda x: 0 if str(x).strip().lower() in ['normal', '0', 'benign'] else 1)
+        y_raw = df['binary_label'].values
+        label_map = {0: "Benign", 1: "Attack"}
+        
+        df.columns = df.columns.str.strip()
+        df = df.rename(columns=FEATURE_MAPPING['unsw_nb15'])
+        for f in COMMON_FEATURES:
+            if f not in df.columns:
+                df[f] = 0.0
+                
+        X_df = df[COMMON_FEATURES].apply(pd.to_numeric, errors='coerce').fillna(0)
         X_raw = X_df.values
         feature_names = list(X_df.columns)
 
@@ -171,7 +188,7 @@ class CicIds2017Loader(BaseDatasetLoader):
             ["Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv", "cicids2017.csv"]
         )
         if not data_path:
-            return generate_synthetic_ids(config, seed=seed)
+            raise FileNotFoundError(f"Data for {self.__class__.__name__} not found")
         
         # Read dataset (sample row limit for reading huge CSVs efficiently)
         nrows = max(100000, config.n_samples * 10) if config.n_samples and config.n_samples > 0 else None
@@ -183,10 +200,17 @@ class CicIds2017Loader(BaseDatasetLoader):
         df = df.replace([np.inf, -np.inf], np.nan).fillna(0)
         df = _sample_df(df, label_col, config.n_samples, seed)
         
-        y_raw, uniques = pd.factorize(df[label_col])
-        label_map = {i: str(val) for i, val in enumerate(uniques)}
+        df['binary_label'] = df[label_col].apply(lambda x: 0 if str(x).strip().lower() in ['benign', 'normal', '0'] else 1)
+        y_raw = df['binary_label'].values
+        label_map = {0: "Benign", 1: "Attack"}
         
-        X_df = df.drop(columns=[label_col], errors='ignore').select_dtypes(include=[np.number]).fillna(0)
+        df.columns = df.columns.str.strip()
+        df = df.rename(columns=FEATURE_MAPPING['cicids2017'])
+        for f in COMMON_FEATURES:
+            if f not in df.columns:
+                df[f] = 0.0
+                
+        X_df = df[COMMON_FEATURES].apply(pd.to_numeric, errors='coerce').fillna(0)
         X_raw = X_df.values
         feature_names = list(X_df.columns)
 
@@ -202,7 +226,7 @@ class CseCicIds2018Loader(BaseDatasetLoader):
             ["02-21-2018.csv", "02-14-2018.csv", "cse_cic_ids2018.csv"]
         )
         if not data_path:
-            return generate_synthetic_ids(config, seed=seed)
+            raise FileNotFoundError(f"Data for {self.__class__.__name__} not found")
         
         nrows = max(50000, config.n_samples * 10) if config.n_samples and config.n_samples > 0 else None
         df = pd.read_csv(data_path, nrows=nrows, low_memory=False)
@@ -213,12 +237,17 @@ class CseCicIds2018Loader(BaseDatasetLoader):
         df = df[df[label_col].astype(str).str.lower() != 'label']
         df = _sample_df(df, label_col, config.n_samples, seed)
         
-        y_raw, uniques = pd.factorize(df[label_col])
-        label_map = {i: str(val) for i, val in enumerate(uniques)}
+        df['binary_label'] = df[label_col].apply(lambda x: 0 if str(x).strip().lower() in ['benign', 'normal', '0'] else 1)
+        y_raw = df['binary_label'].values
+        label_map = {0: "Benign", 1: "Attack"}
         
-        drop_cols = [label_col, 'Timestamp']
-        X_df = df.drop(columns=drop_cols, errors='ignore').apply(pd.to_numeric, errors='coerce').fillna(0)
-        X_df = X_df.replace([np.inf, -np.inf], 0).fillna(0)
+        df.columns = df.columns.str.strip()
+        df = df.rename(columns=FEATURE_MAPPING['cse_cic_ids2018'])
+        for f in COMMON_FEATURES:
+            if f not in df.columns:
+                df[f] = 0.0
+                
+        X_df = df[COMMON_FEATURES].apply(pd.to_numeric, errors='coerce').fillna(0)
         X_raw = X_df.values
         feature_names = list(X_df.columns)
 
@@ -234,7 +263,7 @@ class Iot23Loader(BaseDatasetLoader):
             ["dataset5.csv", "dataset1.csv", "iot23.csv"]
         )
         if not data_path:
-            return generate_synthetic_ids(config, seed=seed)
+            raise FileNotFoundError(f"Data for {self.__class__.__name__} not found")
         
         df = pd.read_csv(data_path)
         df.columns = df.columns.str.strip()
@@ -254,11 +283,17 @@ class Iot23Loader(BaseDatasetLoader):
                 df[col] = pd.to_numeric(df[col].replace('-', np.nan), errors='coerce').fillna(0)
                 
         df = _sample_df(df, label_col, config.n_samples, seed)
-        y_raw, uniques = pd.factorize(df[label_col])
-        label_map = {i: str(val) for i, val in enumerate(uniques)}
+        df['binary_label'] = df[label_col].apply(lambda x: 0 if str(x).strip().lower() in ['benign', 'normal', '0', '-'] else 1)
+        y_raw = df['binary_label'].values
+        label_map = {0: "Benign", 1: "Attack"}
         
-        drop_cols = [last_col, 'label_clean', 'uid', 'id.orig_h', 'id.resp_h', 'local_orig', 'local_resp']
-        X_df = df.drop(columns=drop_cols, errors='ignore').select_dtypes(include=[np.number]).fillna(0)
+        df.columns = df.columns.str.strip()
+        df = df.rename(columns=FEATURE_MAPPING['iot23'])
+        for f in COMMON_FEATURES:
+            if f not in df.columns:
+                df[f] = 0.0
+                
+        X_df = df[COMMON_FEATURES].apply(pd.to_numeric, errors='coerce').fillna(0)
         X_raw = X_df.values
         feature_names = list(X_df.columns)
 
@@ -274,18 +309,24 @@ class TonIotLoader(BaseDatasetLoader):
             ["train_test_network.csv", "ton_iot.csv"]
         )
         if not data_path:
-            return generate_synthetic_ids(config, seed=seed)
+            raise FileNotFoundError(f"Data for {self.__class__.__name__} not found")
         
         df = pd.read_csv(data_path)
         df.columns = df.columns.str.strip()
         label_col = 'type' if 'type' in df.columns else 'label'
         
         df = _sample_df(df, label_col, config.n_samples, seed)
-        y_raw, uniques = pd.factorize(df[label_col])
-        label_map = {i: str(val) for i, val in enumerate(uniques)}
+        df['binary_label'] = df[label_col].apply(lambda x: 0 if str(x).strip().lower() in ['normal', 'benign', '0'] else 1)
+        y_raw = df['binary_label'].values
+        label_map = {0: "Benign", 1: "Attack"}
         
-        drop_cols = [c for c in [label_col, 'label', 'type', 'src_ip', 'dst_ip', 'weird_name', 'weird_addl', 'weird_notice'] if c in df.columns]
-        X_df = df.drop(columns=drop_cols, errors='ignore').select_dtypes(include=[np.number]).fillna(0)
+        df.columns = df.columns.str.strip()
+        df = df.rename(columns=FEATURE_MAPPING['ton_iot'])
+        for f in COMMON_FEATURES:
+            if f not in df.columns:
+                df[f] = 0.0
+                
+        X_df = df[COMMON_FEATURES].apply(pd.to_numeric, errors='coerce').fillna(0)
         X_raw = X_df.values
         feature_names = list(X_df.columns)
 

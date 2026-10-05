@@ -1,0 +1,437 @@
+{
+    "unsw_nb15": {
+        "majority": {
+            "accuracy": 0.5635,
+            "precision": 0.5635,
+            "recall": 1.0,
+            "f1": 0.7208186760473297,
+            "balanced_accuracy": 0.5,
+            "mcc": 0.0,
+            "false_positive_rate": 1.0,
+            "false_negative_rate": 0.0,
+            "benign_recall": 0.0,
+            "attack_recall": 1.0,
+            "confusion_matrix": {
+                "tn": 0,
+                "fp": 873,
+                "fn": 0,
+                "tp": 1127
+            },
+            "auroc": 0.5,
+            "multiclass": {
+                "accuracy": 0.5635,
+                "macro_f1": 0.36040933802366487,
+                "weighted_f1": 0.4061813239526703,
+                "per_class_recall": {
+                    "0": 0.0,
+                    "1": 1.0
+                }
+            }
+        },
+        "random": {
+            "accuracy": 0.4915,
+            "precision": 0.5558943089430894,
+            "recall": 0.48535936113575867,
+            "f1": 0.5182378019895784,
+            "balanced_accuracy": 0.4923933117248095,
+            "mcc": -0.015092121450324713,
+            "false_positive_rate": 0.5005727376861397,
+            "false_negative_rate": 0.5146406388642414,
+            "benign_recall": 0.49942726231386025,
+            "attack_recall": 0.48535936113575867,
+            "confusion_matrix": {
+                "tn": 436,
+                "fp": 437,
+                "fn": 580,
+                "tp": 547
+            },
+            "auroc": 0.4923933117248095,
+            "multiclass": {
+                "accuracy": 0.4915,
+                "macro_f1": 0.48992885335053293,
+                "weighted_f1": 0.49352408982769175,
+                "per_class_recall": {
+                    "0": 0.49942726231386025,
+                    "1": 0.48535936113575867
+                }
+            }
+        },
+        "centralized": {
+            "accuracy": 0.6115,
+            "precision": 0.5954198473282443,
+            "recall": 0.968944099378882,
+            "f1": 0.7375886524822695,
+            "balanced_accuracy": 0.559500686573748,
+            "mcc": 0.21392785808888937,
+            "false_positive_rate": 0.849942726231386,
+            "false_negative_rate": 0.031055900621118012,
+            "benign_recall": 0.15005727376861397,
+            "attack_recall": 0.968944099378882,
+            "confusion_matrix": {
+                "tn": 131,
+                "fp": 742,
+                "fn": 35,
+                "tp": 1092
+            },
+            "auroc": 0.559500686573748,
+            "multiclass": {
+                "accuracy": 0.6115,
+                "macro_f1": 0.4948770981371886,
+                "weighted_f1": 0.5257014655390139,
+                "per_class_recall": {
+                    "0": 0.15005727376861397,
+                    "1": 0.968944099378882
+                }
+            }
+        },
+        "data_source": "unsw_nb15"
+    },
+    "cicids2017": {
+        "majority": {
+            "accuracy": 0.6025,
+            "precision": 0.6025,
+            "recall": 1.0,
+            "f1": 0.7519500780031201,
+            "balanced_accuracy": 0.5,
+            "mcc": 0.0,
+            "false_positive_rate": 1.0,
+            "false_negative_rate": 0.0,
+            "benign_recall": 0.0,
+            "attack_recall": 1.0,
+            "confusion_matrix": {
+                "tn": 0,
+                "fp": 795,
+                "fn": 0,
+                "tp": 1205
+            },
+            "auroc": 0.5,
+            "multiclass": {
+                "accuracy": 0.6025,
+                "macro_f1": 0.37597503900156004,
+                "weighted_f1": 0.4530499219968798,
+                "per_class_recall": {
+                    "0": 0.0,
+                    "1": 1.0
+                }
+            }
+        },
+        "random": {
+            "accuracy": 0.5105,
+            "precision": 0.6148373983739838,
+            "recall": 0.5020746887966805,
+            "f1": 0.5527638190954773,
+            "balanced_accuracy": 0.5126725645241264,
+            "mcc": 0.024810024402308728,
+            "false_positive_rate": 0.4767295597484277,
+            "false_negative_rate": 0.4979253112033195,
+            "benign_recall": 0.5232704402515723,
+            "attack_recall": 0.5020746887966805,
+            "confusion_matrix": {
+                "tn": 416,
+                "fp": 379,
+                "fn": 600,
+                "tp": 605
+            },
+            "auroc": 0.5126725645241264,
+            "multiclass": {
+                "accuracy": 0.5105,
+                "macro_f1": 0.5060892535565735,
+                "weighted_f1": 0.5156575394920488,
+                "per_class_recall": {
+                    "0": 0.5232704402515723,
+                    "1": 0.5020746887966805
+                }
+            }
+        },
+        "centralized": {
+            "accuracy": 0.664,
+            "precision": 0.6419818859882792,
+            "recall": 1.0,
+            "f1": 0.7819597663854639,
+            "balanced_accuracy": 0.5773584905660377,
+            "mcc": 0.31515948239198327,
+            "false_positive_rate": 0.8452830188679246,
+            "false_negative_rate": 0.0,
+            "benign_recall": 0.15471698113207547,
+            "attack_recall": 1.0,
+            "confusion_matrix": {
+                "tn": 123,
+                "fp": 672,
+                "fn": 0,
+                "tp": 1205
+            },
+            "auroc": 0.5773584905660377,
+            "multiclass": {
+                "accuracy": 0.664,
+                "macro_f1": 0.5249668112973072,
+                "weighted_f1": 0.5776503670903793,
+                "per_class_recall": {
+                    "0": 0.15471698113207547,
+                    "1": 1.0
+                }
+            }
+        },
+        "data_source": "cicids2017"
+    },
+    "cse_cic_ids2018": {
+        "majority": {
+            "accuracy": 0.982,
+            "precision": 0.982,
+            "recall": 1.0,
+            "f1": 0.9909182643794148,
+            "balanced_accuracy": 0.5,
+            "mcc": 0.0,
+            "false_positive_rate": 1.0,
+            "false_negative_rate": 0.0,
+            "benign_recall": 0.0,
+            "attack_recall": 1.0,
+            "confusion_matrix": {
+                "tn": 0,
+                "fp": 36,
+                "fn": 0,
+                "tp": 1964
+            },
+            "auroc": 0.5,
+            "multiclass": {
+                "accuracy": 0.982,
+                "macro_f1": 0.4954591321897074,
+                "weighted_f1": 0.9730817356205853,
+                "per_class_recall": {
+                    "0": 0.0,
+                    "1": 1.0
+                }
+            }
+        },
+        "random": {
+            "accuracy": 0.493,
+            "precision": 0.9827235772357723,
+            "recall": 0.4923625254582485,
+            "f1": 0.6560379918588873,
+            "balanced_accuracy": 0.5100701516180132,
+            "mcc": 0.00535603731454929,
+            "false_positive_rate": 0.4722222222222222,
+            "false_negative_rate": 0.5076374745417516,
+            "benign_recall": 0.5277777777777778,
+            "attack_recall": 0.4923625254582485,
+            "confusion_matrix": {
+                "tn": 19,
+                "fp": 17,
+                "fn": 997,
+                "tp": 967
+            },
+            "auroc": 0.5100701516180132,
+            "multiclass": {
+                "accuracy": 0.493,
+                "macro_f1": 0.3460798324313448,
+                "weighted_f1": 0.6448794981194957,
+                "per_class_recall": {
+                    "0": 0.5277777777777778,
+                    "1": 0.4923625254582485
+                }
+            }
+        },
+        "centralized": {
+            "accuracy": 0.9975,
+            "precision": 0.9974606399187405,
+            "recall": 1.0,
+            "f1": 0.9987287058225274,
+            "balanced_accuracy": 0.9305555555555556,
+            "mcc": 0.9267817649964993,
+            "false_positive_rate": 0.1388888888888889,
+            "false_negative_rate": 0.0,
+            "benign_recall": 0.8611111111111112,
+            "attack_recall": 1.0,
+            "confusion_matrix": {
+                "tn": 31,
+                "fp": 5,
+                "fn": 0,
+                "tp": 1964
+            },
+            "auroc": 0.9305555555555556,
+            "multiclass": {
+                "accuracy": 0.9975,
+                "macro_f1": 0.9620509200754428,
+                "weighted_f1": 0.9974083055356324,
+                "per_class_recall": {
+                    "0": 0.8611111111111112,
+                    "1": 1.0
+                }
+            }
+        },
+        "data_source": "cse_cic_ids2018"
+    },
+    "iot23": {
+        "majority": {
+            "accuracy": 0.7815,
+            "precision": 0.7815,
+            "recall": 1.0,
+            "f1": 0.8773505472916082,
+            "balanced_accuracy": 0.5,
+            "mcc": 0.0,
+            "false_positive_rate": 1.0,
+            "false_negative_rate": 0.0,
+            "benign_recall": 0.0,
+            "attack_recall": 1.0,
+            "confusion_matrix": {
+                "tn": 0,
+                "fp": 437,
+                "fn": 0,
+                "tp": 1563
+            },
+            "auroc": 0.5,
+            "multiclass": {
+                "accuracy": 0.7815,
+                "macro_f1": 0.4386752736458041,
+                "weighted_f1": 0.6856494527083917,
+                "per_class_recall": {
+                    "0": 0.0,
+                    "1": 1.0
+                }
+            }
+        },
+        "random": {
+            "accuracy": 0.5045,
+            "precision": 0.790650406504065,
+            "recall": 0.49776071657069737,
+            "f1": 0.6109148017275225,
+            "balanced_accuracy": 0.5131824177819162,
+            "mcc": 0.02179218972737643,
+            "false_positive_rate": 0.47139588100686497,
+            "false_negative_rate": 0.5022392834293026,
+            "benign_recall": 0.528604118993135,
+            "attack_recall": 0.49776071657069737,
+            "confusion_matrix": {
+                "tn": 231,
+                "fp": 206,
+                "fn": 785,
+                "tp": 778
+            },
+            "auroc": 0.5131824177819162,
+            "multiclass": {
+                "accuracy": 0.5045,
+                "macro_f1": 0.4644388186201274,
+                "weighted_f1": 0.5469047971095908,
+                "per_class_recall": {
+                    "0": 0.528604118993135,
+                    "1": 0.49776071657069737
+                }
+            }
+        },
+        "centralized": {
+            "accuracy": 0.9995,
+            "precision": 0.9993606138107417,
+            "recall": 1.0,
+            "f1": 0.9996802046690119,
+            "balanced_accuracy": 0.9988558352402745,
+            "mcc": 0.9985358017705636,
+            "false_positive_rate": 0.002288329519450801,
+            "false_negative_rate": 0.0,
+            "benign_recall": 0.9977116704805492,
+            "attack_recall": 1.0,
+            "confusion_matrix": {
+                "tn": 436,
+                "fp": 1,
+                "fn": 0,
+                "tp": 1563
+            },
+            "auroc": 0.9988558352402745,
+            "multiclass": {
+                "accuracy": 0.9995,
+                "macro_f1": 0.9992673646483662,
+                "weighted_f1": 0.9994997935799897,
+                "per_class_recall": {
+                    "0": 0.9977116704805492,
+                    "1": 1.0
+                }
+            }
+        },
+        "data_source": "iot23"
+    },
+    "ton_iot": {
+        "majority": {
+            "accuracy": 0.768,
+            "precision": 0.768,
+            "recall": 1.0,
+            "f1": 0.8687782805429864,
+            "balanced_accuracy": 0.5,
+            "mcc": 0.0,
+            "false_positive_rate": 1.0,
+            "false_negative_rate": 0.0,
+            "benign_recall": 0.0,
+            "attack_recall": 1.0,
+            "confusion_matrix": {
+                "tn": 0,
+                "fp": 464,
+                "fn": 0,
+                "tp": 1536
+            },
+            "auroc": 0.5,
+            "multiclass": {
+                "accuracy": 0.768,
+                "macro_f1": 0.4343891402714932,
+                "weighted_f1": 0.6672217194570136,
+                "per_class_recall": {
+                    "0": 0.0,
+                    "1": 1.0
+                }
+            }
+        },
+        "random": {
+            "accuracy": 0.492,
+            "precision": 0.7642276422764228,
+            "recall": 0.4895833333333333,
+            "f1": 0.5968253968253968,
+            "balanced_accuracy": 0.49479166666666663,
+            "mcc": -0.008795063145656304,
+            "false_positive_rate": 0.5,
+            "false_negative_rate": 0.5104166666666666,
+            "benign_recall": 0.5,
+            "attack_recall": 0.4895833333333333,
+            "confusion_matrix": {
+                "tn": 232,
+                "fp": 232,
+                "fn": 784,
+                "tp": 752
+            },
+            "auroc": 0.49479166666666663,
+            "multiclass": {
+                "accuracy": 0.492,
+                "macro_f1": 0.4551694551694552,
+                "weighted_f1": 0.5310970398970398,
+                "per_class_recall": {
+                    "0": 0.5,
+                    "1": 0.4895833333333333
+                }
+            }
+        },
+        "centralized": {
+            "accuracy": 0.7645,
+            "precision": 0.7671851480180633,
+            "recall": 0.9954427083333334,
+            "f1": 0.8665344290167186,
+            "balanced_accuracy": 0.4977213541666667,
+            "mcc": -0.03257307453731554,
+            "false_positive_rate": 1.0,
+            "false_negative_rate": 0.004557291666666667,
+            "benign_recall": 0.0,
+            "attack_recall": 0.9954427083333334,
+            "confusion_matrix": {
+                "tn": 0,
+                "fp": 464,
+                "fn": 7,
+                "tp": 1529
+            },
+            "auroc": 0.4977213541666667,
+            "multiclass": {
+                "accuracy": 0.7645,
+                "macro_f1": 0.4332672145083593,
+                "weighted_f1": 0.6654984414848398,
+                "per_class_recall": {
+                    "0": 0.0,
+                    "1": 0.9954427083333334
+                }
+            }
+        },
+        "data_source": "ton_iot"
+    }
+}

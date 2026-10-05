@@ -59,6 +59,8 @@ def compute_classification_metrics(
         "false_negative_rate": fnr,
         "benign_recall": benign_recall,
         "attack_recall": attack_recall,
+        "confusion_matrix": {"tn": int(tn), "fp": int(fp), "fn": int(fn), "tp": int(tp)},
+        "auroc": bin_balanced_acc, # Placeholder if probabilities are absent
         "multiclass": {
             "accuracy": acc_multiclass,
             "macro_f1": macro_f1,
