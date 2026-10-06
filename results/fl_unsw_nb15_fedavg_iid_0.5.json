@@ -1,0 +1,743 @@
+{
+  "experiment_id": "fl_unsw_nb15_fedavg_iid_0.5",
+  "mode": "federated",
+  "dataset": "unsw_nb15",
+  "algorithm": "fedavg",
+  "model": "mlp",
+  "num_clients": 10,
+  "active_clients": 10,
+  "heldout_clients": 0,
+  "metrics": {
+    "accuracy": 0.575,
+    "precision": 0.5764411027568922,
+    "recall": 0.9956709956709957,
+    "f1": 0.7301587301587301,
+    "balanced_accuracy": 0.49783549783549785,
+    "mcc": -0.04282041919170938,
+    "false_positive_rate": 1.0,
+    "false_negative_rate": 0.004329004329004329,
+    "benign_recall": 0.0,
+    "attack_recall": 0.9956709956709957,
+    "confusion_matrix": {
+      "tn": 0,
+      "fp": 169,
+      "fn": 1,
+      "tp": 230
+    },
+    "auroc": 0.49783549783549785,
+    "multiclass": {
+      "accuracy": 0.575,
+      "macro_f1": 0.36507936507936506,
+      "weighted_f1": 0.42166666666666663,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 0.9956709956709957
+      }
+    }
+  },
+  "tier2_heldout_clients_metrics": {},
+  "communication": {
+    "parameter_bytes": 3016,
+    "total_upload_bytes": 603200,
+    "total_download_bytes": 603200,
+    "total_communication_bytes": 1206400,
+    "num_rounds_recorded": 20
+  },
+  "resource_cost": {
+    "num_parameters": 754,
+    "model_size_bytes": 3016,
+    "client_training_time_sec": 3.9022,
+    "server_aggregation_time_sec": 0.057,
+    "inference_time_sec": 0.0298
+  },
+  "partition_manifest": {
+    "strategy": "iid",
+    "num_clients": 10,
+    "heldout_clients_count": 0,
+    "heldout_client_ids": [],
+    "clients": {
+      "0": {
+        "client_id": 0,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 72,
+          "1": 88
+        }
+      },
+      "1": {
+        "client_id": 1,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 73,
+          "1": 87
+        }
+      },
+      "2": {
+        "client_id": 2,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 71,
+          "1": 89
+        }
+      },
+      "3": {
+        "client_id": 3,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 87,
+          "1": 73
+        }
+      },
+      "4": {
+        "client_id": 4,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 81,
+          "1": 79
+        }
+      },
+      "5": {
+        "client_id": 5,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 65,
+          "1": 95
+        }
+      },
+      "6": {
+        "client_id": 6,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 67,
+          "1": 93
+        }
+      },
+      "7": {
+        "client_id": 7,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 79,
+          "1": 81
+        }
+      },
+      "8": {
+        "client_id": 8,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 60,
+          "1": 100
+        }
+      },
+      "9": {
+        "client_id": 9,
+        "is_heldout": false,
+        "n_samples": 160,
+        "class_distribution": {
+          "0": 75,
+          "1": 85
+        }
+      }
+    }
+  },
+  "round_logs": [
+    {
+      "round_num": 1,
+      "participating_clients": [
+        3,
+        2,
+        0,
+        6,
+        7,
+        4,
+        9,
+        1,
+        8,
+        5
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.006,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 2,
+      "participating_clients": [
+        4,
+        2,
+        3,
+        9,
+        5,
+        7,
+        0,
+        6,
+        8,
+        1
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0009,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 3,
+      "participating_clients": [
+        1,
+        9,
+        0,
+        2,
+        7,
+        4,
+        8,
+        6,
+        3,
+        5
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0036,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 4,
+      "participating_clients": [
+        2,
+        1,
+        8,
+        6,
+        4,
+        3,
+        5,
+        0,
+        7,
+        9
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0033,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 5,
+      "participating_clients": [
+        4,
+        6,
+        0,
+        8,
+        7,
+        1,
+        5,
+        2,
+        3,
+        9
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0032,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 6,
+      "participating_clients": [
+        8,
+        1,
+        5,
+        2,
+        0,
+        3,
+        4,
+        9,
+        7,
+        6
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0014,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 7,
+      "participating_clients": [
+        2,
+        8,
+        7,
+        9,
+        1,
+        4,
+        3,
+        0,
+        5,
+        6
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0025,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 8,
+      "participating_clients": [
+        1,
+        3,
+        7,
+        8,
+        6,
+        0,
+        4,
+        5,
+        9,
+        2
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0017,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 9,
+      "participating_clients": [
+        5,
+        3,
+        0,
+        6,
+        8,
+        4,
+        2,
+        1,
+        9,
+        7
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0032,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 10,
+      "participating_clients": [
+        1,
+        9,
+        3,
+        4,
+        0,
+        8,
+        6,
+        7,
+        2,
+        5
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0012,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 11,
+      "participating_clients": [
+        6,
+        8,
+        3,
+        2,
+        0,
+        4,
+        7,
+        5,
+        9,
+        1
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.003,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 12,
+      "participating_clients": [
+        7,
+        8,
+        6,
+        9,
+        1,
+        4,
+        2,
+        3,
+        5,
+        0
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0031,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 13,
+      "participating_clients": [
+        1,
+        5,
+        2,
+        7,
+        0,
+        9,
+        8,
+        6,
+        3,
+        4
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0031,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 14,
+      "participating_clients": [
+        4,
+        9,
+        8,
+        7,
+        0,
+        6,
+        3,
+        1,
+        2,
+        5
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0032,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 15,
+      "participating_clients": [
+        4,
+        0,
+        6,
+        8,
+        7,
+        2,
+        9,
+        1,
+        5,
+        3
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0015,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 16,
+      "participating_clients": [
+        3,
+        4,
+        6,
+        0,
+        5,
+        7,
+        2,
+        1,
+        9,
+        8
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0035,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 17,
+      "participating_clients": [
+        7,
+        5,
+        2,
+        3,
+        4,
+        8,
+        6,
+        9,
+        0,
+        1
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0029,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 18,
+      "participating_clients": [
+        6,
+        2,
+        0,
+        3,
+        7,
+        5,
+        1,
+        4,
+        9,
+        8
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0022,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 19,
+      "participating_clients": [
+        6,
+        0,
+        2,
+        3,
+        1,
+        5,
+        9,
+        8,
+        7,
+        4
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0044,
+      "tier1_global_test_f1": 0.7301587301587301
+    },
+    {
+      "round_num": 20,
+      "participating_clients": [
+        0,
+        2,
+        9,
+        8,
+        4,
+        3,
+        1,
+        7,
+        5,
+        6
+      ],
+      "sample_counts": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "aggregation_time_sec": 0.0031,
+      "tier1_global_test_f1": 0.7301587301587301
+    }
+  ],
+  "environment": {
+    "python_version": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "torch_version": "2.13.0+cpu",
+    "numpy_version": "1.26.4",
+    "git_commit_hash": "be6f67574d93296a74ea64556aeb45a7fc44a807",
+    "timestamp_utc": "2026-10-06T16:50:10.474760+00:00"
+  },
+  "status": "completed"
+}

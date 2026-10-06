@@ -16,7 +16,7 @@ FEATURE_MAPPING = {
     'unsw_nb15': {'dur': 'duration', 'sbytes': 'fwd_bytes', 'dbytes': 'bwd_bytes', 'spkts': 'fwd_pkts', 'dpkts': 'bwd_pkts'},
     'cicids2017': {' Flow Duration': 'duration', 'Total Length of Fwd Packets': 'fwd_bytes', ' Total Length of Bwd Packets': 'bwd_bytes', ' Total Fwd Packets': 'fwd_pkts', ' Total Backward Packets': 'bwd_pkts'},
     'cse_cic_ids2018': {'Flow Duration': 'duration', 'TotLen Fwd Pkts': 'fwd_bytes', 'TotLen Bwd Pkts': 'bwd_bytes', 'Tot Fwd Pkts': 'fwd_pkts', 'Tot Bwd Pkts': 'bwd_pkts'},
-    'iot23': {'duration': 'duration', 'orig_bytes': 'fwd_bytes', 'resp_bytes': 'bwd_bytes'},
+    'iot23': {'duration': 'duration', 'orig_bytes': 'fwd_bytes', 'resp_bytes': 'bwd_bytes', 'orig_pkts': 'fwd_pkts', 'resp_pkts': 'bwd_pkts'},
     'ton_iot': {'duration': 'duration', 'src_bytes': 'fwd_bytes', 'dst_bytes': 'bwd_bytes', 'src_pkts': 'fwd_pkts', 'dst_pkts': 'bwd_pkts'}
 }
 COMMON_FEATURES = ['duration', 'fwd_bytes', 'bwd_bytes', 'fwd_pkts', 'bwd_pkts']
@@ -277,8 +277,8 @@ class Iot23Loader(BaseDatasetLoader):
         df['label_clean'] = df[last_col].apply(_extract_label)
         label_col = 'label_clean'
         
-        # Parse duration, orig_bytes, resp_bytes
-        for col in ['duration', 'orig_bytes', 'resp_bytes']:
+        # Parse duration, orig_bytes, resp_bytes, orig_pkts, resp_pkts
+        for col in ['duration', 'orig_bytes', 'resp_bytes', 'orig_pkts', 'resp_pkts']:
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col].replace('-', np.nan), errors='coerce').fillna(0)
                 

@@ -1,0 +1,4 @@
+device,architecture,peak_gflops,tdp_watts,batch_size,inference_latency_ms_per_sample,batch_inference_latency_ms,batch_energy_mj,model_size_bytes,comm_round_trip_kb
+Raspberry Pi 4 (Cortex-A72),"ARM Cortex-A72 (4 cores, 1.5 GHz)",13.5,5.0,32,0.012,0.384,1.92,3016,6.03
+NVIDIA Jetson Orin Nano,6-core ARM Cortex-A78AE + Ampere GPU,625.0,10.0,32,0.002,0.064,0.64,3016,6.03
+Laptop Workstation (Intel Core i7),"x86_64 Core i7 (8 cores, 2.6 GHz)",220.0,45.0,32,0.004,0.128,5.76,3016,6.03

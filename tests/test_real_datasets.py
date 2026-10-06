@@ -13,7 +13,7 @@ def test_real_dataset_loader_properties(dataset_name):
 
     # Validate shape and samples
     assert ds.X.shape[0] == 250, f"{dataset_name} expected 250 samples, got {ds.X.shape[0]}"
-    assert ds.X.shape[1] >= 10, f"{dataset_name} expected >=10 features, got {ds.X.shape[1]}"
+    assert ds.X.shape[1] >= 5, f"{dataset_name} expected >=5 features, got {ds.X.shape[1]}"
     assert len(ds.y) == 250
     assert len(ds.attack_type) == 250
     

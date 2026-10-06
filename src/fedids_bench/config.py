@@ -12,10 +12,11 @@ class DatasetConfig(BaseModel):
     data_dir: str = "data/raw"
 
 class PartitioningConfig(BaseModel):
-    strategy: Literal["iid", "dirichlet", "label_skew", "quantity_skew"] = "iid"
+    strategy: Literal["iid", "dirichlet", "label_skew", "quantity_skew", "pareto"] = "iid"
     num_clients: int = Field(default=5, ge=1)
     heldout_client_fraction: float = Field(default=0.2, ge=0.0, le=0.5)
     alpha: float = Field(default=0.5, gt=0.0)
+    beta: float = Field(default=1.5, gt=0.0)  # Pareto power-law shape parameter
 
 class ModelConfig(BaseModel):
     architecture: Literal["mlp", "classical"] = "mlp"

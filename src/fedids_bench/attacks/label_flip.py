@@ -23,6 +23,9 @@ class LabelFlipAttack(BaseAttack):
             # Map all labels to target_label
             y_poisoned[:] = self.target_label
         else:
-            # Shift labels cyclically: (label + 1) % n_classes
-            y_poisoned = (y_poisoned + 1) % self.n_classes
+            # Shift labels cyclically: for binary (0/1), flip 0 <-> 1
+            if len(y) > 0 and np.max(y) <= 1:
+                y_poisoned = 1 - y_poisoned
+            else:
+                y_poisoned = (y_poisoned + 1) % self.n_classes
         return X.copy(), y_poisoned

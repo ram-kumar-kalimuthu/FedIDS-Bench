@@ -1,0 +1,6 @@
+dataset,native_features,native_classes,aligned_features,aligned_classes
+UNSW-NB15,39,10,5,2
+CICIDS2017,78,2,5,2
+CSE-CIC-2018,78,3,5,2
+IoT-23,11,2,5,2
+ToN_IoT,16,10,5,2

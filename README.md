@@ -18,13 +18,13 @@
 
 Published research in FL-NIDS frequently suffers from data leakage (computing normalization moments over entire datasets prior to train-test splitting), synthetic heterogeneity that fails to capture real telemetry dynamics, single-threat evaluations without defensive baselines, and a lack of physical edge benchmarking. **FedIDS-Bench** systematically resolves these issues across:
 
-- **5 Real Network & IoT Telemetry Corpora**: UNSW-NB15, CICIDS2017, CSE-CIC-IDS2018, IoT-23, and ToN_IoT.
+- **5 Real Network & IoT Telemetry Corpora**: UNSW-NB15, CICIDS2017, CSE-CIC-IDS2018, IoT-23, and ToN_IoT (standardized to a canonical 5-feature NetFlow core).
 - **Strict Zero-Leakage Preprocessing**: Fit-once normalization on training splits only, preventing statistical leakage.
-- **Controlled Non-IID Partitions**: Dirichlet label priors ($\alpha \in \{0.1, 0.5, 1.0\}$), disjoint label allocations, and Pareto volume skew.
+- **Controlled Non-IID Partitions**: Dirichlet label priors ($\alpha \in \{0.1, 0.5, \infty\}$), disjoint label allocations, and Pareto volume skew ($\beta=1.5$).
 - **Decoupled FL Optimizers**: FedAvg, FedProx, and FedAdam with strict client parameter encapsulation.
 - **Adversarial Threat Engine**: Label inversion, model sign-flipping/amplification, Byzantine Gaussian noise, flow watermarking (backdoor), and sample-count spoofing.
-- **Byzantine-Robust Defenses**: Coordinate-wise trimmed mean, coordinate median, norm-bounded gradient clipping, and Multi-Krum.
-- **Physical Edge Profiling**: Multi-tier telemetry on Raspberry Pi 4 (ARM Cortex-A72), NVIDIA Jetson Orin Nano, and workstation CPUs.
+- **Byzantine-Robust Defenses**: Coordinate-wise trimmed mean, coordinate median, norm-bounded gradient clipping, Krum, and uniform-weight FedAvg.
+- **Analytical Edge Hardware Profiling**: Model inference latency, bandwidth, and energy consumption analytically derived from peak FLOPs and manufacturer TDP across Raspberry Pi 4 (ARM Cortex-A72), NVIDIA Jetson Orin Nano, and workstation CPUs.
 - **Bitwise Multi-Process Determinism**: Hardened random seeding, determinism locks, and multi-process state isolation.
 
 ---
@@ -105,32 +105,26 @@ fedids-bench run --config configs/smoke.yaml
 ---
 
 ## Reproducing Paper Results
-
+ 
 To reproduce all experimental figures, tables, and findings reported in the manuscript:
 
-### 1. Execute Comprehensive Verification Harness
-Runs all phases (data ingestion, zero-leakage preprocessing, non-IID partitioning, optimization, poisoning defenses, and edge profiling):
+### 1. Execute End-to-End Paper Evaluation Suite
+Runs the complete multi-dataset experimental matrix across all five corpora, the adversarial defense grid, Pareto volume ablation, transferability matrix, and device profiling, outputting committed CSVs to `results/`:
 
 ```bash
-python scripts/verify_all_phases.py
+python scripts/run_all_paper_experiments.py
 ```
 
-### 2. Evaluate Baseline Optimization Algorithms (Table 3 & Fig. 3)
-Evaluates FedAvg, FedProx, and FedAdam across IID and Dirichlet ($\alpha=0.5, \alpha=0.1$) distributions:
+Generated outputs include:
+- `results/table3_fl_algorithms.csv` (Table 3: Multi-Dataset FL Benchmarks across all 5 corpora)
+- `results/table4_robustness.csv` (Table 4: Adversarial Defense Benchmarks with Uniform FedAvg)
+- `results/partitioning_ablation.csv` (Pareto $\beta=1.5$ & Label Skew Ablations)
+- `results/table6_transferability.csv` (Table 6: Cross-Dataset Transfer Matrix under aligned 5-feature core)
+- `results/figure3_convergence.csv` (Figure 3: Round-by-Round Convergence Trajectories)
+- `results/device_profiling.csv` (Table 5 & Figure 5: Edge Latency and Energy Analytical Estimates)
 
-```bash
-python scripts/test_optimizer_fl.py
-```
-
-### 3. Evaluate Adversarial Threat & Defense Matrix (Table 4 & Fig. 4)
-Simulates label flipping, model sign inversion, Gaussian noise, backdoor trigger embedding, and sample inflation across all four Byzantine aggregators:
-
-```bash
-python scripts/evaluate_baselines.py
-```
-
-### 4. Re-generate High-Resolution Paper Figures
-Generates publication-quality 300-DPI figures in `paper/figures/`:
+### 2. Generate Publication-Quality Figures (Figs 2, 3, 4, 5)
+Directly renders high-resolution 300-DPI paper figures in `paper/figures/` from the committed result CSV files (fails fast if any CSV is missing):
 
 ```bash
 python scripts/generate_paper_figures.py

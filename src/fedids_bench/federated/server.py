@@ -20,7 +20,8 @@ class FederatedServer:
         self.comm_tracker = CommunicationTracker(global_model)
         self.resource_tracker = ResourceTracker(global_model)
         
-        self.attack = get_attack(config.attack, n_classes=config.dataset.n_classes)
+        n_cls = getattr(global_model, "n_classes", config.dataset.n_classes)
+        self.attack = get_attack(config.attack, n_classes=n_cls)
         self.defense = get_defense(config.defense)
 
         if config.federated.algorithm == "fedadam":

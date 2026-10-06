@@ -1,0 +1,700 @@
+{
+  "experiment_id": "fl_cicids2017_fedavg_dirichlet_0.5",
+  "mode": "federated",
+  "dataset": "cicids2017",
+  "algorithm": "fedavg",
+  "model": "mlp",
+  "num_clients": 10,
+  "active_clients": 9,
+  "heldout_clients": 0,
+  "metrics": {
+    "accuracy": 0.59,
+    "precision": 0.59,
+    "recall": 1.0,
+    "f1": 0.7421383647798742,
+    "balanced_accuracy": 0.5,
+    "mcc": 0.0,
+    "false_positive_rate": 1.0,
+    "false_negative_rate": 0.0,
+    "benign_recall": 0.0,
+    "attack_recall": 1.0,
+    "confusion_matrix": {
+      "tn": 0,
+      "fp": 164,
+      "fn": 0,
+      "tp": 236
+    },
+    "auroc": 0.5,
+    "multiclass": {
+      "accuracy": 0.59,
+      "macro_f1": 0.3710691823899371,
+      "weighted_f1": 0.4378616352201257,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 1.0
+      }
+    }
+  },
+  "tier2_heldout_clients_metrics": {},
+  "communication": {
+    "parameter_bytes": 3016,
+    "total_upload_bytes": 542880,
+    "total_download_bytes": 542880,
+    "total_communication_bytes": 1085760,
+    "num_rounds_recorded": 20
+  },
+  "resource_cost": {
+    "num_parameters": 754,
+    "model_size_bytes": 3016,
+    "client_training_time_sec": 4.5657,
+    "server_aggregation_time_sec": 0.0545,
+    "inference_time_sec": 0.0309
+  },
+  "partition_manifest": {
+    "strategy": "dirichlet",
+    "num_clients": 10,
+    "heldout_clients_count": 0,
+    "heldout_client_ids": [],
+    "clients": {
+      "0": {
+        "client_id": 0,
+        "is_heldout": false,
+        "n_samples": 239,
+        "class_distribution": {
+          "0": 90,
+          "1": 149
+        }
+      },
+      "1": {
+        "client_id": 1,
+        "is_heldout": false,
+        "n_samples": 179,
+        "class_distribution": {
+          "0": 0,
+          "1": 179
+        }
+      },
+      "2": {
+        "client_id": 2,
+        "is_heldout": false,
+        "n_samples": 20,
+        "class_distribution": {
+          "0": 2,
+          "1": 18
+        }
+      },
+      "3": {
+        "client_id": 3,
+        "is_heldout": false,
+        "n_samples": 273,
+        "class_distribution": {
+          "0": 112,
+          "1": 161
+        }
+      },
+      "4": {
+        "client_id": 4,
+        "is_heldout": false,
+        "n_samples": 448,
+        "class_distribution": {
+          "0": 194,
+          "1": 254
+        }
+      },
+      "5": {
+        "client_id": 5,
+        "is_heldout": false,
+        "n_samples": 111,
+        "class_distribution": {
+          "0": 106,
+          "1": 5
+        }
+      },
+      "6": {
+        "client_id": 6,
+        "is_heldout": false,
+        "n_samples": 12,
+        "class_distribution": {
+          "0": 12,
+          "1": 0
+        }
+      },
+      "7": {
+        "client_id": 7,
+        "is_heldout": false,
+        "n_samples": 0,
+        "class_distribution": {}
+      },
+      "8": {
+        "client_id": 8,
+        "is_heldout": false,
+        "n_samples": 142,
+        "class_distribution": {
+          "0": 1,
+          "1": 141
+        }
+      },
+      "9": {
+        "client_id": 9,
+        "is_heldout": false,
+        "n_samples": 176,
+        "class_distribution": {
+          "0": 95,
+          "1": 81
+        }
+      }
+    }
+  },
+  "round_logs": [
+    {
+      "round_num": 1,
+      "participating_clients": [
+        2,
+        0,
+        5,
+        3,
+        8,
+        1,
+        6,
+        9,
+        4
+      ],
+      "sample_counts": [
+        20,
+        239,
+        111,
+        273,
+        142,
+        179,
+        12,
+        176,
+        448
+      ],
+      "aggregation_time_sec": 0.0023,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 2,
+      "participating_clients": [
+        8,
+        2,
+        3,
+        9,
+        0,
+        5,
+        6,
+        1,
+        4
+      ],
+      "sample_counts": [
+        142,
+        20,
+        273,
+        176,
+        239,
+        111,
+        12,
+        179,
+        448
+      ],
+      "aggregation_time_sec": 0.003,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 3,
+      "participating_clients": [
+        0,
+        1,
+        9,
+        3,
+        6,
+        8,
+        2,
+        4,
+        5
+      ],
+      "sample_counts": [
+        239,
+        179,
+        176,
+        273,
+        12,
+        142,
+        20,
+        448,
+        111
+      ],
+      "aggregation_time_sec": 0.0021,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 4,
+      "participating_clients": [
+        6,
+        9,
+        4,
+        2,
+        3,
+        0,
+        5,
+        8,
+        1
+      ],
+      "sample_counts": [
+        12,
+        176,
+        448,
+        20,
+        273,
+        239,
+        111,
+        142,
+        179
+      ],
+      "aggregation_time_sec": 0.0033,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 5,
+      "participating_clients": [
+        3,
+        6,
+        5,
+        9,
+        4,
+        1,
+        2,
+        8,
+        0
+      ],
+      "sample_counts": [
+        273,
+        12,
+        111,
+        176,
+        448,
+        179,
+        20,
+        142,
+        239
+      ],
+      "aggregation_time_sec": 0.0023,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 6,
+      "participating_clients": [
+        4,
+        1,
+        0,
+        2,
+        3,
+        8,
+        6,
+        5,
+        9
+      ],
+      "sample_counts": [
+        448,
+        179,
+        239,
+        20,
+        273,
+        142,
+        12,
+        111,
+        176
+      ],
+      "aggregation_time_sec": 0.0033,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 7,
+      "participating_clients": [
+        6,
+        1,
+        8,
+        3,
+        2,
+        0,
+        4,
+        5,
+        9
+      ],
+      "sample_counts": [
+        12,
+        179,
+        142,
+        273,
+        20,
+        239,
+        448,
+        111,
+        176
+      ],
+      "aggregation_time_sec": 0.0011,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 8,
+      "participating_clients": [
+        4,
+        6,
+        2,
+        0,
+        5,
+        3,
+        9,
+        1,
+        8
+      ],
+      "sample_counts": [
+        448,
+        12,
+        20,
+        239,
+        111,
+        273,
+        176,
+        179,
+        142
+      ],
+      "aggregation_time_sec": 0.0035,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 9,
+      "participating_clients": [
+        0,
+        2,
+        4,
+        3,
+        5,
+        1,
+        9,
+        6,
+        8
+      ],
+      "sample_counts": [
+        239,
+        20,
+        448,
+        273,
+        111,
+        179,
+        176,
+        12,
+        142
+      ],
+      "aggregation_time_sec": 0.0029,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 10,
+      "participating_clients": [
+        9,
+        2,
+        0,
+        6,
+        8,
+        5,
+        1,
+        4,
+        3
+      ],
+      "sample_counts": [
+        176,
+        20,
+        239,
+        12,
+        142,
+        111,
+        179,
+        448,
+        273
+      ],
+      "aggregation_time_sec": 0.0032,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 11,
+      "participating_clients": [
+        2,
+        1,
+        6,
+        4,
+        5,
+        9,
+        8,
+        0,
+        3
+      ],
+      "sample_counts": [
+        20,
+        179,
+        12,
+        448,
+        111,
+        176,
+        142,
+        239,
+        273
+      ],
+      "aggregation_time_sec": 0.0032,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 12,
+      "participating_clients": [
+        3,
+        8,
+        9,
+        5,
+        1,
+        2,
+        4,
+        0,
+        6
+      ],
+      "sample_counts": [
+        273,
+        142,
+        176,
+        111,
+        179,
+        20,
+        448,
+        239,
+        12
+      ],
+      "aggregation_time_sec": 0.0027,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 13,
+      "participating_clients": [
+        8,
+        1,
+        0,
+        9,
+        6,
+        4,
+        2,
+        3,
+        5
+      ],
+      "sample_counts": [
+        142,
+        179,
+        239,
+        176,
+        12,
+        448,
+        20,
+        273,
+        111
+      ],
+      "aggregation_time_sec": 0.0028,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 14,
+      "participating_clients": [
+        5,
+        3,
+        9,
+        8,
+        6,
+        1,
+        2,
+        4,
+        0
+      ],
+      "sample_counts": [
+        111,
+        273,
+        176,
+        142,
+        12,
+        179,
+        20,
+        448,
+        239
+      ],
+      "aggregation_time_sec": 0.0033,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 15,
+      "participating_clients": [
+        5,
+        6,
+        8,
+        1,
+        9,
+        0,
+        4,
+        3,
+        2
+      ],
+      "sample_counts": [
+        111,
+        12,
+        142,
+        179,
+        176,
+        239,
+        448,
+        273,
+        20
+      ],
+      "aggregation_time_sec": 0.0028,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 16,
+      "participating_clients": [
+        2,
+        9,
+        3,
+        4,
+        1,
+        0,
+        8,
+        6,
+        5
+      ],
+      "sample_counts": [
+        20,
+        176,
+        273,
+        448,
+        179,
+        239,
+        142,
+        12,
+        111
+      ],
+      "aggregation_time_sec": 0.0032,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 17,
+      "participating_clients": [
+        9,
+        8,
+        2,
+        5,
+        4,
+        6,
+        0,
+        1,
+        3
+      ],
+      "sample_counts": [
+        176,
+        142,
+        20,
+        111,
+        448,
+        12,
+        239,
+        179,
+        273
+      ],
+      "aggregation_time_sec": 0.0031,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 18,
+      "participating_clients": [
+        0,
+        4,
+        2,
+        5,
+        1,
+        3,
+        8,
+        6,
+        9
+      ],
+      "sample_counts": [
+        239,
+        448,
+        20,
+        111,
+        179,
+        273,
+        142,
+        12,
+        176
+      ],
+      "aggregation_time_sec": 0.0016,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 19,
+      "participating_clients": [
+        2,
+        9,
+        0,
+        4,
+        8,
+        6,
+        5,
+        3,
+        1
+      ],
+      "sample_counts": [
+        20,
+        176,
+        239,
+        448,
+        142,
+        12,
+        111,
+        273,
+        179
+      ],
+      "aggregation_time_sec": 0.0021,
+      "tier1_global_test_f1": 0.7421383647798742
+    },
+    {
+      "round_num": 20,
+      "participating_clients": [
+        0,
+        4,
+        6,
+        2,
+        9,
+        8,
+        3,
+        5,
+        1
+      ],
+      "sample_counts": [
+        239,
+        448,
+        12,
+        20,
+        176,
+        142,
+        273,
+        111,
+        179
+      ],
+      "aggregation_time_sec": 0.003,
+      "tier1_global_test_f1": 0.7421383647798742
+    }
+  ],
+  "environment": {
+    "python_version": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "torch_version": "2.13.0+cpu",
+    "numpy_version": "1.26.4",
+    "git_commit_hash": "be6f67574d93296a74ea64556aeb45a7fc44a807",
+    "timestamp_utc": "2026-10-06T16:50:53.437871+00:00"
+  },
+  "status": "completed"
+}

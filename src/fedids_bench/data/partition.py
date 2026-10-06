@@ -171,6 +171,45 @@ class QuantitySkewPartitioner(BasePartitioner):
         return PartitionResult(client_indices, heldout_client_ids, manifest)
 
 
+class ParetoPartitioner(BasePartitioner):
+    """
+    Partition dataset according to a Pareto (power-law) distribution over client sample quantities.
+    Samples client weights w_i ~ Pareto(beta) and allocates training indices proportionally.
+    """
+    def partition(self, dataset: PreparedDataset, config: PartitioningConfig, seed: int = 42) -> PartitionResult:
+        rng = np.random.default_rng(seed)
+        
+        train_indices = np.where(dataset.split == 0)[0]
+        rng.shuffle(train_indices)
+        
+        num_clients = config.num_clients
+        n_heldout = _calculate_heldout_count(num_clients, config.heldout_client_fraction)
+        
+        all_client_ids = list(range(num_clients))
+        heldout_client_ids = list(all_client_ids[:n_heldout])
+        active_client_ids = list(all_client_ids[n_heldout:])
+        n_active = len(active_client_ids)
+        
+        client_indices: Dict[int, np.ndarray] = {cid: np.array([], dtype=np.int64) for cid in all_client_ids}
+        
+        if n_active > 0:
+            beta = getattr(config, "beta", 1.5)
+            weights = rng.pareto(a=beta, size=n_active) + 1.0
+            proportions = weights / weights.sum()
+            split_points = (np.cumsum(proportions) * len(train_indices)).astype(int)[:-1]
+            
+            c_splits = np.split(train_indices, split_points)
+            for i, cid in enumerate(active_client_ids):
+                client_indices[cid] = c_splits[i]
+
+        manifest = _build_partition_manifest("pareto", dataset, client_indices, heldout_client_ids, config)
+        manifest["beta"] = getattr(config, "beta", 1.5)
+        active_counts = [len(client_indices[cid]) for cid in active_client_ids]
+        manifest["min_client_samples"] = int(min(active_counts)) if active_counts else 0
+        manifest["max_client_samples"] = int(max(active_counts)) if active_counts else 0
+        return PartitionResult(client_indices, heldout_client_ids, manifest)
+
+
 def _build_partition_manifest(
     strategy: str,
     dataset: PreparedDataset,
@@ -205,7 +244,8 @@ PARTITIONER_REGISTRY: Dict[str, Type[BasePartitioner]] = {
     "iid": IIDPartitioner,
     "dirichlet": DirichletPartitioner,
     "label_skew": LabelSkewPartitioner,
-    "quantity_skew": QuantitySkewPartitioner
+    "quantity_skew": QuantitySkewPartitioner,
+    "pareto": ParetoPartitioner
 }
 
 def get_partitioner(strategy: str) -> BasePartitioner:
