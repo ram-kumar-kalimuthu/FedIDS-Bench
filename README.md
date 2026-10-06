@@ -176,7 +176,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-## Contact & Correspondence
 
-- **Ms. Sowmiya .S** (*Assistant Professor & Corresponding Author*): `sowmiya.s@sece.ac.in`  
-- **Department of B.Tech AI&DS**, Sri Eshwar College of Engineering, Coimbatore, Tamil Nadu, India.
