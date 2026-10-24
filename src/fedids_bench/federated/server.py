@@ -1,5 +1,5 @@
 import time
-from typing import List, Dict, Tuple, Any
+from typing import List, Dict, Tuple, Any, Optional
 import numpy as np
 import torch
 
@@ -11,12 +11,14 @@ from fedids_bench.attacks.factory import get_attack
 from fedids_bench.defenses.factory import get_defense
 from fedids_bench.evaluation.communication import CommunicationTracker
 from fedids_bench.evaluation.resource_cost import ResourceTracker
-from fedids_bench.config import ExperimentConfig
+from fedids_bench.config import ExperimentConfig, n_malicious
+from fedids_bench.utils.reproducibility import derive_seed
 
 class FederatedServer:
     def __init__(self, global_model: IDSModel, config: ExperimentConfig):
         self.global_model = global_model
         self.config = config
+        self.class_weights: Optional[np.ndarray] = None   # set by the runner when federated.class_weight == 'balanced'
         self.comm_tracker = CommunicationTracker(global_model)
         self.resource_tracker = ResourceTracker(global_model)
         
@@ -29,17 +31,25 @@ class FederatedServer:
                 beta1=config.federated.beta1,
                 beta2=config.federated.beta2,
                 tau=config.federated.tau,
-                lr=config.model.learning_rate
+                lr=(config.federated.server_lr if config.federated.server_lr is not None
+                    else config.model.learning_rate)
             )
         else:
             self.fedadam_optimizer = None
 
     def select_clients(self, active_clients: List[FederatedClient], round_num: int, seed: int) -> List[FederatedClient]:
         """Select a subset of active clients for this round."""
-        rng = np.random.default_rng(seed + round_num)
+        rng = np.random.default_rng(derive_seed(seed, round_num))
         k = min(self.config.federated.clients_per_round, len(active_clients))
         selected_idx = rng.choice(len(active_clients), size=k, replace=False)
         return [active_clients[i] for i in selected_idx]
+
+    def malicious_ids(self, active_clients: List[FederatedClient]) -> List[int]:
+        """Ids of the malicious clients: the first ``n_malicious`` ACTIVE clients (by id); [] when there is no attack."""
+        if self.config.attack.type == "none":
+            return []
+        n = n_malicious(len(active_clients), self.config.attack.malicious_fraction)
+        return sorted(c.client_id for c in active_clients)[:n]
 
     def run_round(
         self,
@@ -52,9 +62,10 @@ class FederatedServer:
 
         self.comm_tracker.record_round(round_num, num_participating)
 
-        # Determine total malicious count across active clients
-        num_malicious = int(len(active_clients) * self.config.attack.malicious_fraction)
-        malicious_client_ids = set(range(num_malicious))
+        # The malicious clients are the first ``num_malicious`` ACTIVE clients (by id).  The previous code used
+        # ``set(range(num_malicious))``, which points at held-out clients whenever ``heldout_client_fraction`` > 0
+        # (the shipped smoke / standard / large configs): the attack then never touched a single participating client.
+        malicious_client_ids = set(self.malicious_ids(active_clients))
 
         attack_active = (self.config.attack.type != "none") and (round_num >= self.config.attack.start_round)
 
@@ -73,8 +84,12 @@ class FederatedServer:
                 algorithm=self.config.federated.algorithm,
                 mu=self.config.federated.mu,
                 attack=self.attack,
-                is_malicious=is_mal
+                is_malicious=is_mal,
+                momentum=self.config.federated.client_momentum,
+                class_weights=self.class_weights,
             )
+            if is_mal and self.config.attack.type == "sample_inflation":
+                n_k = int(self.config.attack.reported_count)     # only the REPORTED count lies
             client_updates.append(update_weights)
             sample_counts.append(n_k)
             self.resource_tracker.add_client_training_time(train_duration)

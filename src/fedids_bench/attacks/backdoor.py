@@ -19,15 +19,22 @@ class BackdoorAttack(BaseAttack):
         self.trigger_val = trigger_val
         self.trigger_dims = trigger_dims
 
-    def inject_trigger(self, X: np.ndarray, y: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+    def inject_trigger(self, X: np.ndarray, y: np.ndarray, seed: Optional[int] = None) -> Tuple[np.ndarray, np.ndarray]:
+        """Stamp the trigger on ``trigger_fraction`` of the rows and relabel them ``target_label``.
+
+        With a ``seed`` the poisoned rows are a RANDOM subset.  (Without one they are the first rows, the legacy behavior:
+        partitioners that concatenate class by class -- ``label_skew``, ``single_domain`` -- then poison one class only,
+        e.g. benign rows relabelled benign, which is no backdoor at all.)"""
         X_triggered = X.copy()
         y_triggered = y.copy()
         n = len(X)
         num_poisoned = int(n * self.trigger_fraction)
         if num_poisoned > 0:
+            idx = (np.arange(num_poisoned) if seed is None
+                   else np.random.default_rng(seed).choice(n, size=num_poisoned, replace=False))
             dims = min(self.trigger_dims, X.shape[1])
-            X_triggered[:num_poisoned, :dims] = self.trigger_val
-            y_triggered[:num_poisoned] = self.target_label
+            X_triggered[idx, :dims] = self.trigger_val
+            y_triggered[idx] = self.target_label
         return X_triggered, y_triggered
 
     def apply_data_attack(
@@ -37,4 +44,4 @@ class BackdoorAttack(BaseAttack):
         client_id: int,
         seed: int
     ) -> Tuple[np.ndarray, np.ndarray]:
-        return self.inject_trigger(X, y)
+        return self.inject_trigger(X, y, seed=seed)

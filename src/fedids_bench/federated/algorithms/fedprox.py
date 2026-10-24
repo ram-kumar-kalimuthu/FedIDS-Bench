@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 import numpy as np
 from torch.utils.data import DataLoader
 from fedids_bench.models.base import IDSModel
@@ -15,7 +15,9 @@ def train_local_fedprox(
     batch_size: int,
     lr: float,
     mu: float,
-    seed: int
+    seed: int,
+    momentum: float = 0.0,
+    class_weights: Optional[np.ndarray] = None,
 ) -> Tuple[Dict[str, torch.Tensor], int]:
     """
     Perform local training for a client using FedProx (Li et al. 2020).
@@ -30,8 +32,9 @@ def train_local_fedprox(
 
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=True, generator=g)
 
-    optimizer = torch.optim.SGD(model.parameters(), lr=lr)
-    criterion = nn.CrossEntropyLoss()
+    optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=momentum)
+    weight = None if class_weights is None else torch.tensor(np.asarray(class_weights), dtype=torch.float32)
+    criterion = nn.CrossEntropyLoss(weight=weight)
 
     # Freeze reference global parameters for proximal term
     global_params = {k: v.detach().clone() for k, v in global_model.state_dict().items()}

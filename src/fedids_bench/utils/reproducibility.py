@@ -18,6 +18,17 @@ def set_seed(seed: int) -> None:
     torch.use_deterministic_algorithms(True, warn_only=True)
 
 
+def derive_seed(*parts: int) -> int:
+    """Independent 32-bit seed for a tuple of integers, e.g. ``derive_seed(run_seed, client_id, round_num)``.
+
+    The former ``seed + 10000 * client + round`` arithmetic collides across runs: (seed 0, round 1) and (seed 1, round 0) of the
+    same client shared one random stream, which silently correlates the "independent" seeds behind every confidence interval.
+    ``SeedSequence`` mixes the integers, so two different tuples give unrelated streams.
+    """
+    entropy = [int(p) & 0xFFFFFFFFFFFFFFFF for p in parts]
+    return int(np.random.SeedSequence(entropy).generate_state(1, dtype=np.uint32)[0])
+
+
 def get_environment_info() -> Dict[str, Any]:
     """Capture runtime environment metadata for reproducibility."""
     git_hash = "unknown"

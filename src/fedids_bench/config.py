@@ -9,14 +9,34 @@ class DatasetConfig(BaseModel):
     n_features: int = Field(default=20, ge=2)
     n_classes: int = Field(default=4, ge=2)
     test_fraction: float = Field(default=0.2, ge=0.01, le=0.5)
+    val_fraction: float = Field(default=0.0, ge=0.0, le=0.3)  # 0 = no validation split (legacy behavior)
+    feature_set: Literal["core", "core22", "core5"] = "core"  # harmonized feature set (real corpora only): 31 / 22 / 5
+    deduplicate: bool = True                                   # drop exact duplicate flows BEFORE splitting
+    pool: Literal["first", "all"] = "first"                    # "all": pool every matching file of the corpus folder
+    use_cache: bool = True                                     # cache the canonical pool next to the data (see loaders.py)
+    cache_dir: Optional[str] = None                            # default: <data_dir>/.fedids_cache
+    eval_on: Literal["test", "val"] = "test"                   # split used for the reported metrics (tuning uses "val")
+    # Row roles keep hyper-parameter tuning away from every reported test row: with "tune" / "report" the pool is split
+    # by a hash of each row's CONTENT (so exact duplicates can never straddle the two roles); "all" = no split.
+    row_role: Literal["all", "tune", "report"] = "all"
+    tune_row_fraction: float = Field(default=0.2, gt=0.0, lt=0.5)
     data_dir: str = "data/raw"
 
+    @model_validator(mode="after")
+    def _check_fractions(self) -> "DatasetConfig":
+        if self.val_fraction + self.test_fraction >= 0.9:
+            raise ValueError("val_fraction + test_fraction must leave at least 10% of the data for training.")
+        if self.eval_on == "val" and self.val_fraction <= 0.0:
+            raise ValueError("eval_on='val' requires val_fraction > 0.")
+        return self
+
 class PartitioningConfig(BaseModel):
-    strategy: Literal["iid", "dirichlet", "label_skew", "quantity_skew", "pareto"] = "iid"
+    strategy: Literal["iid", "dirichlet", "label_skew", "quantity_skew", "pareto", "single_domain"] = "iid"
     num_clients: int = Field(default=5, ge=1)
     heldout_client_fraction: float = Field(default=0.2, ge=0.0, le=0.5)
     alpha: float = Field(default=0.5, gt=0.0)
     beta: float = Field(default=1.5, gt=0.0)  # Pareto power-law shape parameter
+    max_classes: int = Field(default=2, ge=1)  # single_domain: max attack-category groups (incl. benign) per client
 
 class ModelConfig(BaseModel):
     architecture: Literal["mlp", "classical"] = "mlp"
@@ -34,13 +54,25 @@ class FederatedConfig(BaseModel):
     beta1: float = Field(default=0.9, ge=0.0, le=1.0)  # FedAdam momentum
     beta2: float = Field(default=0.999, ge=0.0, le=1.0)  # FedAdam velocity
     tau: float = Field(default=1e-3, gt=0.0)  # FedAdam adaptivity parameter
+    server_lr: Optional[float] = Field(default=None, gt=0.0)  # FedAdam server step; None -> model.learning_rate (legacy)
+    client_momentum: float = Field(default=0.0, ge=0.0, lt=1.0)  # local SGD momentum
+    class_weight: Literal["none", "balanced"] = "none"        # "balanced": global inverse-frequency CE weights
 
 class AttackConfig(BaseModel):
-    type: Literal["none", "label_flip", "model_poison", "byzantine", "backdoor"] = "none"
+    type: Literal["none", "label_flip", "model_poison", "byzantine", "backdoor", "sample_inflation"] = "none"
     malicious_fraction: float = Field(default=0.0, ge=0.0, le=1.0)
     start_round: int = Field(default=0, ge=0)
     strength: float = Field(default=1.0, ge=0.0)
     target_label: Optional[int] = None
+    # backdoor trigger: the first `trigger_dims` (standardized) features of a `trigger_fraction` share of the
+    # malicious client's samples are set to `trigger_value` and relabelled `target_label` (default: benign).
+    trigger_value: float = Field(default=5.0, ge=0.0)
+    trigger_dims: int = Field(default=2, ge=1)
+    trigger_fraction: float = Field(default=0.2, gt=0.0, le=1.0)
+    # sample_inflation: malicious clients REPORT this many samples (their update may stay honest
+    # or be poisoned as well, see combine_with).
+    reported_count: int = Field(default=1_000_000, ge=1)
+    combine_with: Literal["none", "label_flip", "model_poison", "byzantine", "backdoor"] = "none"
 
 class DefenseConfig(BaseModel):
     type: Literal["none", "clipping", "trimmed_mean", "median", "krum"] = "none"
@@ -49,6 +81,21 @@ class DefenseConfig(BaseModel):
     krum_f: int = Field(default=1, ge=0)
     krum_multi: bool = False
     krum_m: int = Field(default=1, ge=1)
+
+
+def n_malicious(num_active: int, fraction: float) -> int:
+    """Number of malicious clients among ``num_active`` participating (non-held-out) clients.
+
+    One rule for the server, the config validation and the result files, so the number of attackers a table reports is
+    the number of attackers that were simulated."""
+    return int(num_active * fraction + 1e-9)
+
+
+def n_heldout_clients(num_clients: int, fraction: float) -> int:
+    """Number of held-out clients (same rule as the partitioners: at least one when ``fraction`` > 0, never all of them)."""
+    if fraction <= 0.0 or num_clients < 2:
+        return 0
+    return min(max(1, int(-(-num_clients * fraction // 1))), num_clients - 1)
 
 
 class ExperimentConfig(BaseModel):
@@ -71,13 +118,17 @@ class ExperimentConfig(BaseModel):
                 f"num_clients ({self.partitioning.num_clients})."
             )
         
-        # Defense validation check (e.g. Krum requires > 2*f + 2 clients)
-        if self.defense.type == "krum" and self.attack.type != "none":
-            f = int(self.partitioning.num_clients * self.attack.malicious_fraction)
-            if self.partitioning.num_clients <= 2 * f + 2:
+        # Krum needs n > 2f + 2 PARTICIPATING clients, where f is what the defense assumes (krum_f) or the number of
+        # attackers actually simulated, whichever is larger (a mis-specified f is allowed, an impossible one is not).
+        if self.defense.type == "krum":
+            n_active = self.partitioning.num_clients - n_heldout_clients(
+                self.partitioning.num_clients, self.partitioning.heldout_client_fraction)
+            attackers = 0 if self.attack.type == "none" else n_malicious(n_active, self.attack.malicious_fraction)
+            f = max(self.defense.krum_f, attackers)
+            if n_active <= 2 * f + 2:
                 raise ValueError(
                     f"Krum defense requires num_clients > 2*f + 2. "
-                    f"Got num_clients={self.partitioning.num_clients}, f={f}."
+                    f"Got {n_active} participating clients, f={f}."
                 )
         return self
 

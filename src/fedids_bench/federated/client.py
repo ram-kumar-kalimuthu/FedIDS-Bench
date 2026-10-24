@@ -6,6 +6,7 @@ from fedids_bench.models.base import IDSModel
 from fedids_bench.federated.trainer import train_local
 from fedids_bench.federated.algorithms.fedprox import train_local_fedprox
 from fedids_bench.attacks.base import BaseAttack
+from fedids_bench.utils.reproducibility import derive_seed
 
 class FederatedClient:
     def __init__(self, client_id: int, X: np.ndarray, y: np.ndarray, is_heldout: bool = False):
@@ -29,7 +30,9 @@ class FederatedClient:
         algorithm: str = "fedavg",
         mu: float = 0.01,
         attack: Optional[BaseAttack] = None,
-        is_malicious: bool = False
+        is_malicious: bool = False,
+        momentum: float = 0.0,
+        class_weights: Optional[np.ndarray] = None,
     ) -> Tuple[Dict[str, torch.Tensor], int, float]:
         """
         Perform client local training.
@@ -38,7 +41,7 @@ class FederatedClient:
         if self.is_heldout or self.num_samples == 0:
             raise ValueError(f"Client {self.client_id} is heldout or has no training data.")
 
-        client_round_seed = base_seed + (self.client_id * 10000) + round_num
+        client_round_seed = derive_seed(base_seed, self.client_id, round_num)     # independent across runs, clients and rounds
 
         X_train, y_train = self.X, self.y
         if is_malicious and attack is not None:
@@ -59,7 +62,9 @@ class FederatedClient:
                 batch_size=batch_size,
                 lr=lr,
                 mu=mu,
-                seed=client_round_seed
+                seed=client_round_seed,
+                momentum=momentum,
+                class_weights=class_weights,
             )
         else:
             updated_weights, n_k = train_local(
@@ -69,7 +74,9 @@ class FederatedClient:
                 epochs=epochs,
                 batch_size=batch_size,
                 lr=lr,
-                seed=client_round_seed
+                seed=client_round_seed,
+                momentum=momentum,
+                class_weights=class_weights,
             )
 
         if is_malicious and attack is not None:

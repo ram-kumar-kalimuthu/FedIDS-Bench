@@ -23,7 +23,10 @@ class MedianDefense(BaseDefense):
 
         for name in first_keys:
             stacked = torch.stack([update[name] for update in client_updates], dim=0)
-            median_vals, _ = torch.median(stacked, dim=0)
-            aggregated[name] = median_vals
+            # torch.median returns the LOWER of the two middle values for an even count, a systematic downward bias with the
+            # usual 10 clients; the textbook coordinate-wise median averages them.
+            ordered, _ = torch.sort(stacked, dim=0)
+            mid = num_clients // 2
+            aggregated[name] = ordered[mid] if num_clients % 2 == 1 else 0.5 * (ordered[mid - 1] + ordered[mid])
 
         return aggregated

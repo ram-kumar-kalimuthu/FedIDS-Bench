@@ -1,0 +1,24 @@
+# Table "FL algorithms" and the convergence figure.
+# centralized reference + FedAvg / FedProx / FedAdam x {IID, Dirichlet(0.5), Dirichlet(0.1)}.
+# 5 corpora x 10 variants x 5 seeds = 250 runs.  Hyper-parameters come from results/tuned_hparams.json (scripts/tune_hparams.py).
+name: main
+datasets: [unsw_nb15, cicids2017, cse_cic_ids2018, iot23, ton_iot]
+seeds: [0, 1, 2, 3, 4]
+base:
+  dataset: {n_samples: 50000, test_fraction: 0.15, val_fraction: 0.15, eval_on: test, row_role: report, pool: all, feature_set: core, deduplicate: true}
+  partitioning: {num_clients: 10, heldout_client_fraction: 0.0}
+  model: {architecture: mlp, hidden_dims: [64, 32]}
+  federated: {rounds: 20, clients_per_round: 10, trust_client_sample_counts: true}
+variants:
+  - {name: centralized, group: centralized, overrides: {mode: centralized}, factors: {algorithm: centralized, partition: none}}
+matrix:
+  prefix: fl
+  factors:
+    algorithm:
+      - {name: fedavg,  group: fedavg,  overrides: {federated: {algorithm: fedavg}}}
+      - {name: fedprox, group: fedprox, overrides: {federated: {algorithm: fedprox}}}
+      - {name: fedadam, group: fedadam, overrides: {federated: {algorithm: fedadam}}}
+    partition:
+      - {name: iid,    overrides: {partitioning: {strategy: iid}}}
+      - {name: dir0.5, overrides: {partitioning: {strategy: dirichlet, alpha: 0.5}}}
+      - {name: dir0.1, overrides: {partitioning: {strategy: dirichlet, alpha: 0.1}}}

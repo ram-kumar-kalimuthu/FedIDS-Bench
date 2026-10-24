@@ -85,9 +85,13 @@ src/fedids_bench/data/UNSW_NB15/
 !results/**/*.csv
 
 # Manuscript source files and drafts (kept locally, excluded from public repo)
-paper/
+# `paper/*` (not `paper/`) so that the exceptions below work: git cannot re-include a file whose parent directory is ignored.
+paper/*
 !paper/figures/
 !paper/figures/*
 !paper/rebuttal_letter.md
+# reference-check records cited by the response letter (R1.7, R1.8)
+!paper/refs_verified.bib
+!paper/references_verification.md
 *.zip
 

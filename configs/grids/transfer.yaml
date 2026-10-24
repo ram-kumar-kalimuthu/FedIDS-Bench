@@ -1,0 +1,15 @@
+# Strict zero-shot cross-corpus transfer (Table "transferability").  One FedAvg model per (source corpus, seed), evaluated on the
+# held-out test split of EVERY corpus: strict (source-train scaler), legacy (target-train scaler) and a column-shuffled control.
+# 5 sources x 5 seeds = 25 federated trainings (each seed reuses the 5 loaded corpora).
+name: transfer
+datasets: [unsw_nb15, cicids2017, cse_cic_ids2018, iot23, ton_iot]
+seeds: [0, 1, 2, 3, 4]
+group: fedavg
+base:
+  dataset: {n_samples: 50000, test_fraction: 0.15, val_fraction: 0.15, eval_on: test, row_role: report, pool: all, feature_set: core, deduplicate: true}
+  partitioning: {num_clients: 10, heldout_client_fraction: 0.0}
+  model: {architecture: mlp, hidden_dims: [64, 32]}
+  federated: {rounds: 20, clients_per_round: 10, trust_client_sample_counts: true}
+overrides:
+  partitioning: {strategy: dirichlet, alpha: 0.5}
+  federated: {algorithm: fedavg}

@@ -1,0 +1,29 @@
+# Partitioning ablation: how the data is split across the 10 clients, and what uniform (equal) aggregation weights cost.
+# FedAvg, 7 partitions x {sample-count weights, equal weights}; 5 corpora x 14 variants x 5 seeds = 350 runs.
+#   dir*           Dirichlet label skew (alpha 0.5 / 0.1)
+#   quantity       Dirichlet quantity skew (alpha 0.5): same class mix, very different client sizes
+#   pareto1.5      Pareto(beta = 1.5) quantity skew: a few large clients, many tiny ones
+#   domain2/domain1  single-domain clients: benign + ONE attack category / strictly one category per client
+name: partitioning
+datasets: [unsw_nb15, cicids2017, cse_cic_ids2018, iot23, ton_iot]
+seeds: [0, 1, 2, 3, 4]
+base:
+  dataset: {n_samples: 50000, test_fraction: 0.15, val_fraction: 0.15, eval_on: test, row_role: report, pool: all, feature_set: core, deduplicate: true}
+  partitioning: {num_clients: 10, heldout_client_fraction: 0.0}
+  model: {architecture: mlp, hidden_dims: [64, 32]}
+  federated: {algorithm: fedavg, rounds: 20, clients_per_round: 10}
+matrix:
+  prefix: part
+  group: fedavg
+  factors:
+    partition:
+      - {name: iid,       overrides: {partitioning: {strategy: iid}}}
+      - {name: dir0.5,    overrides: {partitioning: {strategy: dirichlet, alpha: 0.5}}}
+      - {name: dir0.1,    overrides: {partitioning: {strategy: dirichlet, alpha: 0.1}}}
+      - {name: quantity,  overrides: {partitioning: {strategy: quantity_skew, alpha: 0.5}}}
+      - {name: pareto1.5, overrides: {partitioning: {strategy: pareto, beta: 1.5}}}
+      - {name: domain2,   overrides: {partitioning: {strategy: single_domain, max_classes: 2}}}
+      - {name: domain1,   overrides: {partitioning: {strategy: single_domain, max_classes: 1}}}
+    weights:
+      - {name: weighted, overrides: {federated: {trust_client_sample_counts: true}}}
+      - {name: uniform,  overrides: {federated: {trust_client_sample_counts: false}}}

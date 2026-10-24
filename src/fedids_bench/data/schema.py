@@ -10,6 +10,7 @@ class PreparedDataset:
     split: np.ndarray         # int8 [n_samples] (0=train, 1=val, 2=test)
     manifest: Dict[str, Any]  # Metadata sidecar
     protocol: Optional[np.ndarray] = None  # int64 [n_samples] where available
+    X_feat: Optional[np.ndarray] = None    # float32 [n_samples, n_features], BEFORE scaling (for cross-corpus rescaling)
 
     def __post_init__(self):
         assert self.X.dtype == np.float32, f"X must be float32, got {self.X.dtype}"

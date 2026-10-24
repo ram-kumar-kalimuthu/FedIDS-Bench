@@ -3,7 +3,6 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Reproducibility](https://img.shields.io/badge/Reproducibility-Bitwise%20Verified-brightgreen.svg)]()
 
 > **Official Repository for the Paper**:  
 > *"FedIDS-Bench: A Standardized Cross-Dataset, Cross-Algorithm, and Cross-Threat-Model Benchmark for Federated Intrusion Detection Systems"*  
@@ -14,18 +13,20 @@
 
 ## Overview
 
-**FedIDS-Bench** is an end-to-end, standardized benchmarking platform designed to eliminate methodological discrepancies and reproducibility failures in Federated Learning for Network Intrusion Detection Systems (FL-NIDS).
+**FedIDS-Bench** is an end-to-end, standardized benchmarking platform for Federated Learning for Network Intrusion Detection Systems (FL-NIDS). It targets the methodological problems that make published FL-NIDS numbers hard to compare: normalization statistics computed before the train/test split, synthetic heterogeneity, single-threat evaluation without defensive baselines, hyper-parameters never tuned or tuned on the test set, and edge-cost figures that are typed in rather than computed.
 
-Published research in FL-NIDS frequently suffers from data leakage (computing normalization moments over entire datasets prior to train-test splitting), synthetic heterogeneity that fails to capture real telemetry dynamics, single-threat evaluations without defensive baselines, and a lack of physical edge benchmarking. **FedIDS-Bench** systematically resolves these issues across:
+- **5 real corpora**: UNSW-NB15, CICIDS2017, CSE-CIC-IDS2018, IoT-23 and ToN_IoT, mapped onto one harmonized **31-feature flow core** (log-scaled volumes, packet sizes, byte/packet asymmetry and rates, one-hot protocol, service group, destination-port range and connection outcome). Fields a corpus does not ship become an explicit `unknown` category, never an invented number. The old 5-volume-feature core (`core5`) is kept only as an ablation.
+- **Leakage control**: de-duplication before splitting, stratified train/validation/test splits, `StandardScaler` fitted on the training rows only, and a *content-hashed* `tune` / `report` row split so that the rows used to choose hyper-parameters can never appear in a reported test set.
+- **Partitions**: IID, Dirichlet label skew (alpha 0.1 / 0.5), Pareto quantity skew (beta 1.5), plain quantity skew and a *single-domain* partitioner (each client holds benign traffic plus at most `L-1` attack categories). `label_skew` is a stratified IID split and is documented as such.
+- **FL algorithms**: FedAvg, FedProx and FedAdam (plus a centralized reference), with hyper-parameters selected per (corpus, algorithm) on the validation split by one shared random-search protocol.
+- **Threat engine**: label flipping, model poisoning, Byzantine noise, backdoor (with attack-success-rate), and **sample-count spoofing** (a client reports an inflated `n_k`).
+- **Defenses**: coordinate-wise trimmed mean, coordinate median, norm clipping, Krum, and equal-weight (uniform) FedAvg.
+- **Metrics**: balanced accuracy, MCC, F1 on the attack class, a real AUROC computed from model scores, and the majority-class baseline next to every result. Statistics are mean +/- 95 % Student-t confidence interval over 5 seeds, with paired comparisons and an explicit "beats the majority baseline" test.
+- **Cross-dataset transfer**: strict zero-shot evaluation (source-corpus scaler), the target-scaler convention as an ablation, and a column-shuffled control that must collapse if the model uses feature semantics.
+- **Edge cost model**: parameters, FLOPs, latency, energy and per-round traffic are *computed* from the trained model and reported as ranges (`eta` in [0.01, 0.10]); a wall-clock / RAPL measurement on the local machine can be added. Raspberry Pi 4 and workstation figures are assumptions unless you supply cited values (`--device-file`).
+- **Determinism**: all RNGs are seeded per run. Results are repeatable for the same seed, library versions and thread configuration; bitwise identity across different hardware is *not* claimed.
 
-- **5 Real Network & IoT Telemetry Corpora**: UNSW-NB15, CICIDS2017, CSE-CIC-IDS2018, IoT-23, and ToN_IoT (standardized to a canonical 5-feature NetFlow core).
-- **Strict Zero-Leakage Preprocessing**: Fit-once normalization on training splits only, preventing statistical leakage.
-- **Controlled Non-IID Partitions**: Dirichlet label priors ($\alpha \in \{0.1, 0.5, \infty\}$), disjoint label allocations, and Pareto volume skew ($\beta=1.5$).
-- **Decoupled FL Optimizers**: FedAvg, FedProx, and FedAdam with strict client parameter encapsulation.
-- **Adversarial Threat Engine**: Label inversion, model sign-flipping/amplification, Byzantine Gaussian noise, flow watermarking (backdoor), and sample-count spoofing.
-- **Byzantine-Robust Defenses**: Coordinate-wise trimmed mean, coordinate median, norm-bounded gradient clipping, Krum, and uniform-weight FedAvg.
-- **Analytical Edge Hardware Profiling**: Model inference latency, bandwidth, and energy consumption analytically derived from peak FLOPs and manufacturer TDP across Raspberry Pi 4 (ARM Cortex-A72), NVIDIA Jetson Orin Nano, and workstation CPUs.
-- **Bitwise Multi-Process Determinism**: Hardened random seeding, determinism locks, and multi-process state isolation.
+> **Status of results.** Every number, table and figure of the camera-ready paper is produced by `make reproduce` from the run files in `results/runs/` (`make report` refuses incomplete grids and never fills a gap). The CSV/JSON files at the top level of `results/` are from the first submission, were produced by the older pipeline and are **superseded — do not cite them** (see `docs/audit_findings.md`).
 
 ---
 
@@ -33,38 +34,39 @@ Published research in FL-NIDS frequently suffers from data leakage (computing no
 
 ```
 +-----------------------------------------------------------------------------------+
-|                            Stage 1: Multi-Corpora Ingestion                        |
-|   [UNSW-NB15 (39f)] [CICIDS2017 (78f)] [CSE-CIC-2018 (78f)] [IoT-23 (11f)] [ToN] |
+|                      Stage 1: Multi-Corpora Ingestion + Harmonization              |
+|  [UNSW-NB15] [CICIDS2017] [CSE-CIC-2018] [IoT-23] [ToN_IoT]  -->  canonical flow   |
+|  fields (duration, bytes/packets fwd+bwd, protocol, dst port, service, outcome)    |
 +-----------------------------------------------------------------------------------+
                                          |
                                          v
 +-----------------------------------------------------------------------------------+
-|               Stage 2: Strict Zero-Leakage Train-Test Isolation                   |
-|           Fit: mu_train, sigma_train on S_train ONLY  ==> Transform S_test        |
+|        Stage 2: De-duplication, Stratified Splits, Zero-Leakage Scaling            |
+|   tune/report row roles | Fit: mu_train, sigma_train on S_train ONLY => transform  |
 +-----------------------------------------------------------------------------------+
                                          |
                                          v
 +-----------------------------------------------------------------------------------+
-|                   Stage 3: Multi-Domain Non-IID Partitioner                       |
-|   Dirichlet Class Skew Dir(alpha) | Single-Domain Bounds | Pareto Volume Imbalance |
+|                   Stage 3: Non-IID Partitioner                                     |
+|   IID | Dirichlet(alpha) | Pareto / quantity skew | Single-domain                   |
 +-----------------------------------------------------------------------------------+
                                          |
                                          v
 +-----------------------------------------------------------------------------------+
-|                   Stage 4: Edge Workers & Adversarial Threat Engine               |
-|   Clients 1..K (FedAvg / FedProx / FedAdam) | Model Inversion | Byzantine Noise   |
+|                   Stage 4: Clients & Adversarial Threat Engine                     |
+|   FedAvg / FedProx / FedAdam | label flip | poison | Byzantine | backdoor | n_k lie |
 +-----------------------------------------------------------------------------------+
                                          |
                                          v
 +-----------------------------------------------------------------------------------+
-|                   Stage 5: Central Coordinator & Robust Aggregators               |
-|      Norm Clipping | Trimmed Mean | Coordinate Median | Multi-Krum                |
+|                   Stage 5: Coordinator & Robust Aggregators                        |
+|        Norm clipping | Trimmed mean | Coordinate median | Krum | Uniform weights  |
 +-----------------------------------------------------------------------------------+
                                          |
                                          v
 +-----------------------------------------------------------------------------------+
-|              Stage 6: Multi-Tier Edge Profiler & Reproducibility Engine           |
-|      F1/Precision/Recall | Network Uplink/Downlink | Latency (ms) | Energy (mJ)   |
+|        Stage 6: Evaluation, Statistics, Edge Cost Model, Report Generator          |
+|   bal. acc | MCC | F1 | AUROC | majority baseline | mean +/- 95 % CI | edge table  |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -74,61 +76,59 @@ Published research in FL-NIDS frequently suffers from data leakage (computing no
 
 ### 1. Installation
 
-Clone the repository and install requirements in an editable virtual environment:
-
 ```bash
 git clone https://github.com/ram-kumar-kalimuthu/FedIDS-Bench.git
 cd FedIDS-Bench
 
-# Create and activate virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 
-# Install dependencies and CLI
 pip install -e .[dev]
 ```
 
-### 2. Fast Smoke Test (Synthetic Telemetry)
-
-Verify all components in less than 30 seconds:
+### 2. Fast smoke test (synthetic telemetry, < 30 s)
 
 ```bash
 python scripts/run_smoke.py
+# or
+fedids-bench run --config configs/smoke.yaml
 ```
 
-Or execute via the `fedids-bench` CLI:
+### 3. Unit tests
 
 ```bash
-fedids-bench run --config configs/smoke.yaml
+pytest tests/ -q          # 5 tests are skipped unless the real corpora are available (FEDIDS_DATA_DIR=...)
 ```
 
 ---
 
-## Reproducing Paper Results
- 
-To reproduce all experimental figures, tables, and findings reported in the manuscript:
+## Reproducing the paper
 
-### 1. Execute End-to-End Paper Evaluation Suite
-Runs the complete multi-dataset experimental matrix across all five corpora, the adversarial defense grid, Pareto volume ablation, transferability matrix, and device profiling, outputting committed CSVs to `results/`:
+The corpora are **not** shipped (size and licenses); see [`docs/DATA.md`](docs/DATA.md) for the files each loader expects and
+[`docs/REPRODUCE.md`](docs/REPRODUCE.md) for the step-by-step runbook, expected run times and troubleshooting.
 
 ```bash
-python scripts/run_all_paper_experiments.py
+# 0. 30-60 minute end-to-end check on small settings; writes only to results/rehearsal/ and stamps its report NOT PAPER-GRADE
+make reproduce-quick DATA=/path/to/corpora JOBS=4
+
+# 1. the real thing (resumable; hours, see docs/REPRODUCE.md)
+make reproduce DATA=/path/to/corpora JOBS=8
+#    = data-check -> tune -> grids -> transfer -> edge -> report
 ```
 
-Generated outputs include:
-- `results/table3_fl_algorithms.csv` (Table 3: Multi-Dataset FL Benchmarks across all 5 corpora)
-- `results/table4_robustness.csv` (Table 4: Adversarial Defense Benchmarks with Uniform FedAvg)
-- `results/partitioning_ablation.csv` (Pareto $\beta=1.5$ & Label Skew Ablations)
-- `results/table6_transferability.csv` (Table 6: Cross-Dataset Transfer Matrix under aligned 5-feature core)
-- `results/figure3_convergence.csv` (Figure 3: Round-by-Round Convergence Trajectories)
-- `results/device_profiling.csv` (Table 5 & Figure 5: Edge Latency and Energy Analytical Estimates)
+| Step | Command | Output |
+|---|---|---|
+| Inspect the data | `make data-check` | `results/dataset_description.{json,csv}`, `results/signal_check.csv` |
+| Select hyper-parameters (validation split, tuning rows only) | `make tune` | `results/tuned_hparams.json`, `results/tuning/{trials,selected}.csv` |
+| Five run grids | `make grids` | `results/runs/{main,partitioning,robustness,inflation,sweeps}/*.json` (2,475 runs) |
+| Zero-shot transfer | `make transfer` | `results/runs/transfer/*.json` |
+| Edge cost | `make edge` | `results/edge_profile.csv` |
+| Tables, figures, claims | `make report` | `results/report/*.tex`, `*.csv`, `*.pdf` (vector), `claims.md` |
 
-### 2. Generate Publication-Quality Figures (Figs 2, 3, 4, 5)
-Directly renders high-resolution 300-DPI paper figures in `paper/figures/` from the committed result CSV files (fails fast if any CSV is missing):
-
-```bash
-python scripts/generate_paper_figures.py
-```
+`results/report/claims.md` is written by the report generator: for every (corpus, method, partition) cell it states whether
+balanced accuracy is above the majority baseline with 95 % confidence, lists the paired differences that survive Holm correction,
+and summarizes the equal-weight, inflation and transfer findings — negative findings first. Write the paper text from that file,
+not the other way round.
 
 ---
 
@@ -136,31 +136,30 @@ python scripts/generate_paper_figures.py
 
 ```
 FedIDS-Bench/
-├── configs/                  # Benchmark YAML manifests (smoke, standard, large)
-├── docs/                     # Detailed architectural specifications & audit logs
-├── notebooks/                # Google Colab / Jupyter interactive notebooks
-├── results/                  # Pre-computed benchmark outputs, CSVs, and JSON logs
-├── scripts/                  # Reproducibility runners and evaluation harnesses
-├── src/                      # Modular Python package source
-│   └── fedids_bench/
-│       ├── attacks/          # Adversarial attack implementations
-│       ├── data/             # Split-isolated loaders & non-IID partitioners
-│       ├── defenses/         # Byzantine-robust aggregators
-│       ├── evaluation/       # Performance, bandwidth & edge profilers
-│       ├── federated/        # Client/Server coordinators (FedAvg, FedProx, FedAdam)
-│       └── models/           # Neural network architectures (SmallMLP, DeepMLP)
-├── tests/                    # Unit & integration test suite (pytest)
-├── LICENSE                   # MIT License
-├── Makefile                  # Automation shortcuts
-├── pyproject.toml            # Python packaging manifest
-└── requirements.txt          # Python dependency specifications
+├── configs/                  # smoke / standard / large manifests and grids/ (the five paper grids + transfer)
+├── docs/                     # DATA.md (corpora), REPRODUCE.md (runbook), audit_findings.md, codebase catalog
+├── notebooks/                # interactive notebooks
+├── results/                  # runs/, tuning/, report/ (generated); top-level legacy files are superseded
+├── scripts/                  # describe_datasets, signal_check, tune_hparams, run_grid, run_transfer, profile_edge, make_report
+├── src/fedids_bench/
+│   ├── attacks/              # label flip, poison, Byzantine, backdoor, sample-count spoofing
+│   ├── data/                 # features.py (harmonized core), loaders, partitioners
+│   ├── defenses/             # Byzantine-robust aggregators
+│   ├── evaluation/           # metrics, cross-dataset transfer, edge cost model, backdoor success
+│   ├── experiments/          # runner, grid executor, tuning protocol, transfer study, statistics
+│   ├── federated/            # clients and server (FedAvg, FedProx, FedAdam)
+│   ├── models/               # SmallMLP, DeepMLP
+│   └── reporting/            # tables, vector figures, claim checks
+├── tests/                    # pytest suite
+├── LICENSE
+├── Makefile
+├── pyproject.toml
+└── requirements.txt
 ```
 
 ---
 
-## Verified Bitwise Determinism
-
-To verify that model weights, partitioning permutations, and gradient updates match across separate hardware runs at the bitwise level:
+## Determinism check
 
 ```bash
 pytest tests/test_reproducibility.py -v
@@ -168,12 +167,6 @@ pytest tests/test_reproducibility.py -v
 
 ---
 
-
-
 ## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
-
-

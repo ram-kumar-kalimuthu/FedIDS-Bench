@@ -1,0 +1,33 @@
+# Attack x defense table: 20% of the 10 clients are malicious (2 clients).  FedAvg + Dirichlet(0.5).
+#   label_flip      malicious clients flip their labels            model_poison  update = global + (-gamma) * delta, gamma = 5
+#   byzantine       Gaussian noise rescaled to the honest update norm x sigma, sigma = 1
+#   backdoor        2-feature trigger (value 5.0) on 20% of the malicious client's flows, relabelled benign; success rate in bd_asr
+# Defenses: sample-count FedAvg, equal-weight FedAvg, norm clipping (tau = 5), trimmed mean (beta = 0.2), coordinate median,
+# Krum with f = 2 = the true number of attackers (Krum needs n > 2f + 2; with f = 1 it would be mis-specified).
+# 5 corpora x 6 attacks x 6 defenses x 5 seeds = 900 runs.
+name: robustness
+datasets: [unsw_nb15, cicids2017, cse_cic_ids2018, iot23, ton_iot]
+seeds: [0, 1, 2, 3, 4]
+base:
+  dataset: {n_samples: 50000, test_fraction: 0.15, val_fraction: 0.15, eval_on: test, row_role: report, pool: all, feature_set: core, deduplicate: true}
+  partitioning: {strategy: dirichlet, alpha: 0.5, num_clients: 10, heldout_client_fraction: 0.0}
+  model: {architecture: mlp, hidden_dims: [64, 32]}
+  federated: {algorithm: fedavg, rounds: 20, clients_per_round: 10}
+matrix:
+  prefix: rob
+  group: fedavg
+  factors:
+    attack:
+      - {name: clean,     overrides: {attack: {type: none, malicious_fraction: 0.0}}}
+      - {name: labelflip, overrides: {attack: {type: label_flip, malicious_fraction: 0.2}}}
+      - {name: poison5,   overrides: {attack: {type: model_poison, malicious_fraction: 0.2, strength: 5.0}}}
+      - {name: byz1,      overrides: {attack: {type: byzantine, malicious_fraction: 0.2, strength: 1.0}}}
+      - {name: backdoor,  overrides: {attack: {type: backdoor, malicious_fraction: 0.2}}}
+      - {name: inflate,   overrides: {attack: {type: sample_inflation, malicious_fraction: 0.2, reported_count: 1000000, combine_with: model_poison, strength: 5.0}}}
+    defense:
+      - {name: fedavg,   overrides: {defense: {type: none},                                    federated: {trust_client_sample_counts: true}}}
+      - {name: uniform,  overrides: {defense: {type: none},                                    federated: {trust_client_sample_counts: false}}}
+      - {name: clipping, overrides: {defense: {type: clipping, clip_threshold: 5.0},           federated: {trust_client_sample_counts: true}}}
+      - {name: trimmed,  overrides: {defense: {type: trimmed_mean, trim_ratio: 0.2},           federated: {trust_client_sample_counts: true}}}
+      - {name: median,   overrides: {defense: {type: median},                                  federated: {trust_client_sample_counts: true}}}
+      - {name: krum,     overrides: {defense: {type: krum, krum_f: 2},                         federated: {trust_client_sample_counts: true}}}

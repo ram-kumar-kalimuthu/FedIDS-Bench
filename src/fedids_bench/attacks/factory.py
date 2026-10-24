@@ -21,6 +21,14 @@ def get_attack(config: AttackConfig, n_classes: int = 4) -> BaseAttack:
         return ByzantineAttack(strength=config.strength)
     elif attack_type == "backdoor":
         target = config.target_label if config.target_label is not None else 0
-        return BackdoorAttack(target_label=target)
+        return BackdoorAttack(target_label=target, trigger_fraction=config.trigger_fraction,
+                              trigger_val=config.trigger_value, trigger_dims=config.trigger_dims)
+    elif attack_type == "sample_inflation":
+        # The lie is in the REPORTED sample count (applied by the server).  The malicious client's
+        # update is honest unless it is combined with another attack via `combine_with`.
+        if config.combine_with == "none":
+            return BaseAttack()
+        combined = config.model_copy(update={"type": config.combine_with})
+        return get_attack(combined, n_classes=n_classes)
     else:
         raise ValueError(f"Unknown attack type: '{config.type}'")

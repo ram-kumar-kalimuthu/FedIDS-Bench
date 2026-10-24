@@ -60,8 +60,26 @@ def test_backdoor_attack():
     y = np.ones(10, dtype=int)
     attack = BackdoorAttack(target_label=0, trigger_fraction=0.5, trigger_val=9.0, trigger_dims=2)
     X_trig, y_trig = attack.apply_data_attack(X, y, client_id=0, seed=42)
-    assert np.all(X_trig[:5, :2] == 9.0)
-    assert np.all(y_trig[:5] == 0)
+    poisoned = np.where(y_trig == 0)[0]
+    assert len(poisoned) == 5                                   # trigger_fraction of the rows, exactly
+    assert np.all(X_trig[poisoned, :2] == 9.0)                  # trigger stamped on the first trigger_dims features
+    assert np.all(X_trig[poisoned, 2:] == 0.0)                  # ... and nowhere else
+    clean = np.setdiff1d(np.arange(10), poisoned)
+    assert np.all(X_trig[clean] == 0.0) and np.all(y_trig[clean] == 1)   # untouched rows keep their label
+
+    # a seed picks a random, reproducible subset (not "the first rows", which is one class when partitions are class-sorted).
+    # 100 rows, not 10: with only C(10,5)=252 subsets two seeds can coincide by chance (seeds 42 and 43 do).
+    X100, y100 = np.zeros((100, 5), dtype=np.float32), np.ones(100, dtype=int)
+    first = attack.apply_data_attack(X100, y100, client_id=0, seed=42)[1]
+    again = attack.apply_data_attack(X100, y100, client_id=0, seed=42)[1]
+    other = attack.apply_data_attack(X100, y100, client_id=0, seed=43)[1]
+    assert np.array_equal(first, again)
+    assert not np.array_equal(first, other)
+    assert (first == 0).sum() == (other == 0).sum() == 50
+    assert not np.all(first[:50] == 0)                          # not simply "the first half"
+    # without a seed the legacy behavior (first rows) is kept
+    legacy_X, legacy_y = attack.inject_trigger(X, y)
+    assert np.all(legacy_y[:5] == 0) and np.all(legacy_y[5:] == 1)
 
 def test_attack_factory():
     cfg = AttackConfig(type="label_flip", target_label=2)

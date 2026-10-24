@@ -2,18 +2,21 @@ from typing import Dict, Any, Optional
 import numpy as np
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
-    balanced_accuracy_score, matthews_corrcoef, confusion_matrix
+    balanced_accuracy_score, matthews_corrcoef, confusion_matrix, roc_auc_score
 )
 
 def compute_classification_metrics(
     y_true: np.ndarray,
     y_pred: np.ndarray,
-    label_map: Optional[Dict[int, str]] = None
+    label_map: Optional[Dict[int, str]] = None,
+    y_score: Optional[np.ndarray] = None,
 ) -> Dict[str, Any]:
     """
     Compute full suite of classification metrics.
     Trained model outputs multiclass predictions (0=Benign, >0=Attacks).
     Binary metrics are derived by collapsing all attack classes (>0) into 1.
+    ``y_score`` (optional) is the model's attack score (e.g. 1 - P(benign)); when given, a REAL
+    AUROC is reported.  Without scores AUROC is None -- it used to be a copy of balanced accuracy.
     """
     if len(y_true) == 0:
         return {}
@@ -41,6 +44,13 @@ def compute_classification_metrics(
         bin_mcc = 0.0
 
     tn, fp, fn, tp = confusion_matrix(y_true_bin, y_pred_bin, labels=[0, 1]).ravel()
+
+    auroc = None
+    if y_score is not None and len(np.unique(y_true_bin)) == 2:
+        try:
+            auroc = float(roc_auc_score(y_true_bin, np.asarray(y_score, dtype=np.float64)))
+        except ValueError:
+            auroc = None
     
     # HIGH-1 FIX: Return None when denominator is zero rather than misleading 0.0
     fpr = float(fp / (fp + tn)) if (fp + tn) > 0 else None
@@ -60,7 +70,8 @@ def compute_classification_metrics(
         "benign_recall": benign_recall,
         "attack_recall": attack_recall,
         "confusion_matrix": {"tn": int(tn), "fp": int(fp), "fn": int(fn), "tp": int(tp)},
-        "auroc": bin_balanced_acc, # Placeholder if probabilities are absent
+        "auroc": auroc,
+        "attack_prevalence": float(y_true_bin.mean()),
         "multiclass": {
             "accuracy": acc_multiclass,
             "macro_f1": macro_f1,

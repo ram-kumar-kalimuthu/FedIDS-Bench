@@ -109,7 +109,10 @@ class DirichletPartitioner(BasePartitioner):
 
 
 class LabelSkewPartitioner(BasePartitioner):
-    """Partition dataset such that each active client receives a subset of attack classes."""
+    """
+    NOTE: despite its name this is a CLASS-STRATIFIED IID split -- every active client receives an equal
+    slice of EVERY class.  It does not skew labels.  Use ``single_domain`` for disjoint sensing domains.
+    """
     def partition(self, dataset: PreparedDataset, config: PartitioningConfig, seed: int = 42) -> PartitionResult:
         rng = np.random.default_rng(seed)
         
@@ -210,6 +213,64 @@ class ParetoPartitioner(BasePartitioner):
         return PartitionResult(client_indices, heldout_client_ids, manifest)
 
 
+class SingleDomainPartitioner(BasePartitioner):
+    """
+    Disjoint sensing domains (paper Sec. 3.2): a client holds at most ``max_classes`` attack-category groups.
+
+    Groups are the dataset's ``attack_type`` codes (0 = benign).  With max_classes = 1 every client is
+    strictly single-class (benign-only or one-attack-only); with max_classes = L >= 2 every client holds
+    benign traffic plus L-1 attack categories assigned round-robin, so each category is covered by at
+    least one client.  A category's samples are split evenly among the clients that hold it.
+    """
+    def partition(self, dataset: PreparedDataset, config: PartitioningConfig, seed: int = 42) -> PartitionResult:
+        rng = np.random.default_rng(seed)
+        train_indices = np.where(dataset.split == 0)[0]
+        cats = dataset.attack_type[train_indices]
+        cat_ids = [int(c) for c in np.unique(cats)]
+        attack_cats = [c for c in cat_ids if c != 0]
+
+        num_clients = config.num_clients
+        n_heldout = _calculate_heldout_count(num_clients, config.heldout_client_fraction)
+        all_client_ids = list(range(num_clients))
+        heldout_client_ids = list(all_client_ids[:n_heldout])
+        active_client_ids = list(all_client_ids[n_heldout:])
+        n_active = len(active_client_ids)
+
+        client_indices: Dict[int, np.ndarray] = {cid: np.array([], dtype=np.int64) for cid in all_client_ids}
+        client_cats: Dict[int, List[int]] = {}
+
+        if n_active > 0:
+            L = int(config.max_classes)
+            if L == 1:
+                order = list(cat_ids)
+                rng.shuffle(order)
+                for i, cid in enumerate(active_client_ids):
+                    client_cats[cid] = [order[i % len(order)]]
+            else:
+                for i, cid in enumerate(active_client_ids):
+                    picks: List[int] = [0] if 0 in cat_ids else []
+                    k = L - len(picks)
+                    for j in range(k):
+                        if attack_cats:
+                            picks.append(attack_cats[(i * k + j) % len(attack_cats)])
+                    client_cats[cid] = list(dict.fromkeys(picks))
+
+            for c in cat_ids:
+                holders = [cid for cid in active_client_ids if c in client_cats[cid]]
+                if not holders:                       # category nobody holds -> give it to one random client
+                    holders = [active_client_ids[int(rng.integers(n_active))]]
+                    client_cats[holders[0]].append(c)
+                idx = train_indices[cats == c].copy()
+                rng.shuffle(idx)
+                for h, part in zip(holders, np.array_split(idx, len(holders))):
+                    client_indices[h] = np.concatenate([client_indices[h], part])
+
+        manifest = _build_partition_manifest("single_domain", dataset, client_indices, heldout_client_ids, config)
+        manifest["max_classes"] = int(config.max_classes)
+        manifest["client_attack_categories"] = {int(k): [int(x) for x in v] for k, v in client_cats.items()}
+        return PartitionResult(client_indices, heldout_client_ids, manifest)
+
+
 def _build_partition_manifest(
     strategy: str,
     dataset: PreparedDataset,
@@ -245,7 +306,8 @@ PARTITIONER_REGISTRY: Dict[str, Type[BasePartitioner]] = {
     "dirichlet": DirichletPartitioner,
     "label_skew": LabelSkewPartitioner,
     "quantity_skew": QuantitySkewPartitioner,
-    "pareto": ParetoPartitioner
+    "pareto": ParetoPartitioner,
+    "single_domain": SingleDomainPartitioner,
 }
 
 def get_partitioner(strategy: str) -> BasePartitioner:

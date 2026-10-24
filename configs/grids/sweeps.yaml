@@ -1,0 +1,49 @@
+# Sensitivity sweeps (FedAvg, Dirichlet(0.5), 10 clients).  27 variants x 5 corpora x 5 seeds = 675 runs.
+#   gamma     model-poisoning strength  {1, 5, 10}     x {no defense, median}      (20% attackers)
+#   sigma     Byzantine noise scale     {0.5, 1, 5}    x {no defense, median}      (20% attackers)
+#   fraction  attacker share {10,20,30,40}% with model poisoning gamma = 5 x {no defense, median, trimmed mean (beta 0.2), Krum (f = #attackers)}
+#             Krum needs n > 2f + 2, so (40%, Krum) is not a valid configuration and is excluded.
+name: sweeps
+datasets: [unsw_nb15, cicids2017, cse_cic_ids2018, iot23, ton_iot]
+seeds: [0, 1, 2, 3, 4]
+base:
+  dataset: {n_samples: 50000, test_fraction: 0.15, val_fraction: 0.15, eval_on: test, row_role: report, pool: all, feature_set: core, deduplicate: true}
+  partitioning: {strategy: dirichlet, alpha: 0.5, num_clients: 10, heldout_client_fraction: 0.0}
+  model: {architecture: mlp, hidden_dims: [64, 32]}
+  federated: {algorithm: fedavg, rounds: 20, clients_per_round: 10, trust_client_sample_counts: true}
+matrices:
+  - prefix: gamma
+    group: fedavg
+    factors:
+      gamma:
+        - {name: g1,  overrides: {attack: {type: model_poison, malicious_fraction: 0.2, strength: 1.0}}}
+        - {name: g5,  overrides: {attack: {type: model_poison, malicious_fraction: 0.2, strength: 5.0}}}
+        - {name: g10, overrides: {attack: {type: model_poison, malicious_fraction: 0.2, strength: 10.0}}}
+      defense:
+        - {name: fedavg, overrides: {defense: {type: none}}}
+        - {name: median, overrides: {defense: {type: median}}}
+  - prefix: sigma
+    group: fedavg
+    factors:
+      sigma:
+        - {name: s0.5, overrides: {attack: {type: byzantine, malicious_fraction: 0.2, strength: 0.5}}}
+        - {name: s1,   overrides: {attack: {type: byzantine, malicious_fraction: 0.2, strength: 1.0}}}
+        - {name: s5,   overrides: {attack: {type: byzantine, malicious_fraction: 0.2, strength: 5.0}}}
+      defense:
+        - {name: fedavg, overrides: {defense: {type: none}}}
+        - {name: median, overrides: {defense: {type: median}}}
+  - prefix: frac
+    group: fedavg
+    factors:
+      fraction:
+        - {name: m10, overrides: {attack: {type: model_poison, malicious_fraction: 0.1, strength: 5.0}, defense: {krum_f: 1}}}
+        - {name: m20, overrides: {attack: {type: model_poison, malicious_fraction: 0.2, strength: 5.0}, defense: {krum_f: 2}}}
+        - {name: m30, overrides: {attack: {type: model_poison, malicious_fraction: 0.3, strength: 5.0}, defense: {krum_f: 3}}}
+        - {name: m40, overrides: {attack: {type: model_poison, malicious_fraction: 0.4, strength: 5.0}, defense: {krum_f: 4}}}
+      defense:
+        - {name: fedavg,  overrides: {defense: {type: none}}}
+        - {name: median,  overrides: {defense: {type: median}}}
+        - {name: trimmed, overrides: {defense: {type: trimmed_mean, trim_ratio: 0.2}}}
+        - {name: krum,    overrides: {defense: {type: krum}}}
+    exclude:
+      - {fraction: m40, defense: krum}

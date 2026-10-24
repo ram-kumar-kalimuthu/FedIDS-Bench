@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 from fedids_bench.models.base import IDSModel
 
 class NumPyDataset(Dataset):
@@ -24,10 +24,14 @@ def train_local(
     epochs: int,
     batch_size: int,
     lr: float,
-    seed: int
+    seed: int,
+    momentum: float = 0.0,
+    class_weights: Optional[np.ndarray] = None,
 ) -> Tuple[Dict[str, torch.Tensor], int]:
     """
     Perform local training for a client.
+    `class_weights` (optional) are inverse-frequency cross-entropy weights shared by the server;
+    `momentum` is plain SGD momentum (0.0 = the original behavior).
     Creates a FRESH optimizer instance for every local training pass.
     Uses strict seed setting for DataLoader shuffle determinism.
     """
@@ -46,8 +50,9 @@ def train_local(
     )
 
     # Fresh optimizer per client local training pass
-    optimizer = torch.optim.SGD(model.parameters(), lr=lr)
-    criterion = nn.CrossEntropyLoss()
+    optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=momentum)
+    weight = None if class_weights is None else torch.tensor(np.asarray(class_weights), dtype=torch.float32)
+    criterion = nn.CrossEntropyLoss(weight=weight)
 
     model.train()
     for _ in range(epochs):
