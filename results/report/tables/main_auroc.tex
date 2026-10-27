@@ -1,0 +1,34 @@
+\begin{table}[t]
+\caption{Detection quality (AUROC) of the centralized reference and the three federated algorithms.}
+\label{tab:main_auroc}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{llcccc}
+\toprule
+Corpus & Partition & Central. & FedAvg & FedProx & FedAdam \\
+\midrule
+UNSW-NB15 & IID & .959$\pm$.001 & .949$\pm$.002 & \textbf{.950$\pm$.002} & .943$\pm$.002 \\
+ & Dir(0.5) &  & \textbf{.947$\pm$.003} & .945$\pm$.003 & .940$\pm$.004 \\
+ & Dir(0.1) &  & \textbf{.911$\pm$.046} & .909$\pm$.046 & .905$\pm$.050 \\
+\midrule
+CICIDS2017 & IID & .999$\pm$.000 & \textbf{.999$\pm$.001} & .999$\pm$.001 & .997$\pm$.001 \\
+ & Dir(0.5) &  & .998$\pm$.001 & \textbf{.999$\pm$.000} & .998$\pm$.001 \\
+ & Dir(0.1) &  & \textbf{.995$\pm$.006} & .994$\pm$.007 & .972$\pm$.042 \\
+\midrule
+CSE-CIC-IDS2018 & IID & .974$\pm$.004 & .973$\pm$.003 & \textbf{.973$\pm$.003} & .968$\pm$.004 \\
+ & Dir(0.5) &  & \textbf{.969$\pm$.003} & .969$\pm$.003 & .964$\pm$.001 \\
+ & Dir(0.1) &  & \textbf{.958$\pm$.008} & .956$\pm$.008 & .950$\pm$.013 \\
+\midrule
+IoT-23 & IID & .998$\pm$.001 & \textbf{.999$\pm$.001} & .999$\pm$.001 & .998$\pm$.001 \\
+ & Dir(0.5) &  & \textbf{.999$\pm$.001} & .999$\pm$.001 & .994$\pm$.012 \\
+ & Dir(0.1) &  & \textbf{.998$\pm$.001} & .998$\pm$.001 & .998$\pm$.001 \\
+\midrule
+ToN-IoT & IID & .999$\pm$.001 & \textbf{.999$\pm$.001} & .999$\pm$.001 & .998$\pm$.001 \\
+ & Dir(0.5) &  & .998$\pm$.001 & \textbf{.998$\pm$.001} & .994$\pm$.006 \\
+ & Dir(0.1) &  & .996$\pm$.006 & \textbf{.997$\pm$.002} & .981$\pm$.036 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% Student-$t$ CI over 5 seeds, AUROC on the held-out test split. The majority-class baseline scores 0.5. $^{\ast}$ = not above that baseline with 95\% confidence. Bold = highest mean among the federated algorithms (differences are tested in the paired table). The centralized model does not depend on the partition.}
+\end{table}

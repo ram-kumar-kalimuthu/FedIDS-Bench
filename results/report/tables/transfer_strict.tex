@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{Cross-corpus transfer (balanced accuracy), strict zero-shot (source-train standardization).}
+\label{tab:transfer_strict}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lccccc}
+\toprule
+Source $\downarrow$ / target & UNSW & CIC17 & CSE18 & IoT23 & ToN \\
+\midrule
+UNSW & \textbf{.856$\pm$.005} & .524$\pm$.026 & .542$\pm$.031 & .447$\pm$.085 & .472$\pm$.101 \\
+CIC17 & .500$\pm$.000 & \textbf{.980$\pm$.011} & .475$\pm$.057 & .502$\pm$.004 & .581$\pm$.021 \\
+CSE18 & .501$\pm$.012 & .514$\pm$.024 & \textbf{.932$\pm$.004} & .472$\pm$.127 & .595$\pm$.148 \\
+IoT23 & .463$\pm$.090 & .530$\pm$.108 & .684$\pm$.101 & \textbf{.979$\pm$.004} & .489$\pm$.108 \\
+ToN & .490$\pm$.028 & .475$\pm$.091 & .654$\pm$.055 & .489$\pm$.021 & \textbf{.984$\pm$.007} \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize One FedAvg model per source corpus and seed; bold diagonal = in-domain test split of the same model. Mean $\pm$ 95\% CI over seeds; chance = 0.5. Short corpus names as in the paired-difference table.}
+\end{table}

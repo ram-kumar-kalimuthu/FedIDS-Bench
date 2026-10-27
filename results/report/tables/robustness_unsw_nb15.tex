@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Robustness on UNSW-NB15: balanced accuracy.}
+\label{tab:robust_unsw_nb15}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcccccc}
+\toprule
+Attack & FedAvg & Equal-w. & Clip & Trim & Median & Krum \\
+\midrule
+None & \textbf{.856$\pm$.005} & .852$\pm$.007 & .855$\pm$.004 & .851$\pm$.007 & .850$\pm$.006 & .793$\pm$.077 \\
+Label flip & .776$\pm$.148 & .822$\pm$.018 & .821$\pm$.047 & \textbf{.836$\pm$.018} & .833$\pm$.010 & .804$\pm$.027 \\
+Poison ($\gamma{=}5$) & .555$\pm$.153 & .500$\pm$.000 & .768$\pm$.086 & .798$\pm$.039 & \textbf{.820$\pm$.020} & .806$\pm$.024 \\
+Byzantine ($\sigma{=}1$) & .837$\pm$.031 & .839$\pm$.025 & .838$\pm$.031 & .840$\pm$.012 & \textbf{.843$\pm$.009} & .808$\pm$.023 \\
+Backdoor & .853$\pm$.008 & .850$\pm$.007 & \textbf{.855$\pm$.006} & .850$\pm$.008 & .850$\pm$.006 & .815$\pm$.033 \\
+Inflate+poison & .500$\pm$.000 & .500$\pm$.000 & .500$\pm$.000 & .798$\pm$.039 & \textbf{.820$\pm$.020} & .806$\pm$.024 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over 5 seeds; 20\% of the clients are malicious (Krum: $f{=}2$). Bold = best defense for that attack. }
+\end{table}

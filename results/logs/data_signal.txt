@@ -1,0 +1,19 @@
+unsw_nb15        core5   ( 5 feats)  logreg: bal-acc 0.669  AUROC 0.722 [WEAK]   boosted_trees: bal-acc 0.881  AUROC 0.960 [OK]
+unsw_nb15        core22  (22 feats)  logreg: bal-acc 0.710  AUROC 0.787 [OK]   boosted_trees: bal-acc 0.887  AUROC 0.965 [OK]
+unsw_nb15        core    (31 feats)  logreg: bal-acc 0.720  AUROC 0.800 [OK]   boosted_trees: bal-acc 0.888  AUROC 0.965 [OK]
+cicids2017       core5   ( 5 feats)  logreg: bal-acc 0.818  AUROC 0.883 [OK]   boosted_trees: bal-acc 0.987  AUROC 0.998 [OK]
+cicids2017       core22  (22 feats)  logreg: bal-acc 0.937  AUROC 0.979 [OK]   boosted_trees: bal-acc 0.990  AUROC 0.999 [OK]
+cicids2017       core    (31 feats)  logreg: bal-acc 0.940  AUROC 0.981 [OK]   boosted_trees: bal-acc 0.990  AUROC 0.999 [OK]
+cse_cic_ids2018  core5   ( 5 feats)  logreg: bal-acc 0.722  AUROC 0.753 [OK]   boosted_trees: bal-acc 0.951  AUROC 0.974 [OK]
+cse_cic_ids2018  core22  (22 feats)  logreg: bal-acc 0.902  AUROC 0.942 [OK]   boosted_trees: bal-acc 0.967  AUROC 0.981 [OK]
+cse_cic_ids2018  core    (31 feats)  logreg: bal-acc 0.912  AUROC 0.951 [OK]   boosted_trees: bal-acc 0.966  AUROC 0.984 [OK]
+iot23            core5   ( 5 feats)  logreg: bal-acc 0.835  AUROC 0.795 [OK]   boosted_trees: bal-acc 0.979  AUROC 0.992 [OK]
+iot23            core22  (22 feats)  logreg: bal-acc 0.973  AUROC 0.986 [OK]   boosted_trees: bal-acc 0.991  AUROC 0.999 [OK]
+iot23            core    (31 feats)  logreg: bal-acc 0.970  AUROC 0.993 [OK]   boosted_trees: bal-acc 0.993  AUROC 1.000 [OK]
+ton_iot          core5   ( 5 feats)  logreg: bal-acc 0.899  AUROC 0.907 [OK]   boosted_trees: bal-acc 0.988  AUROC 0.999 [OK]
+ton_iot          core22  (22 feats)  logreg: bal-acc 0.929  AUROC 0.967 [OK]   boosted_trees: bal-acc 0.993  AUROC 1.000 [OK]
+ton_iot          core    (31 feats)  logreg: bal-acc 0.972  AUROC 0.990 [OK]   boosted_trees: bal-acc 0.994  AUROC 1.000 [OK]
+
+wrote results\signal_check.csv
+
+[data_signal] exit 0 after 413 s -> results/logs/data_signal.txt

@@ -1,0 +1,22 @@
+\begin{table}[t]
+\caption{FedAvg (balanced accuracy) under 7 ways of splitting the data over 10 clients (count-weighted aggregation).}
+\label{tab:partition_level}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lccccc}
+\toprule
+Partition & UNSW & CIC17 & CSE18 & IoT23 & ToN \\
+\midrule
+IID & .861$\pm$.002 & .988$\pm$.003 & .940$\pm$.005 & .979$\pm$.004 & .987$\pm$.001 \\
+Dir(0.5) & .856$\pm$.005 & .980$\pm$.011 & .932$\pm$.004 & .979$\pm$.004 & .984$\pm$.007 \\
+Dir(0.1) & .766$\pm$.097 & .945$\pm$.045 & .860$\pm$.115 & .978$\pm$.003 & .950$\pm$.052 \\
+Qty-skew & .862$\pm$.018 & .988$\pm$.003 & .944$\pm$.011 & .979$\pm$.004 & .989$\pm$.002 \\
+Pareto(1.5) & .863$\pm$.005 & .988$\pm$.002 & .942$\pm$.009 & .978$\pm$.004 & .989$\pm$.002 \\
+Domain-2 & .779$\pm$.007 & .837$\pm$.065 & .861$\pm$.029 & .977$\pm$.006 & .961$\pm$.002 \\
+Domain-1 & .616$\pm$.137$^{\ast}$ & .874$\pm$.115 & .719$\pm$.249$^{\ast}$ & .971$\pm$.008 & .853$\pm$.053 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over seeds. $^{\ast}$ = not above the majority baseline (0.5) with 95\% confidence. Dir = Dirichlet label skew; Qty-skew = Dirichlet quantity skew ($\alpha{=}0.5$); Pareto(1.5) = Pareto quantity skew; Domain-$L$ = every client holds benign traffic plus $L{-}1$ attack categories (Domain-1: strictly one category).}
+\end{table}

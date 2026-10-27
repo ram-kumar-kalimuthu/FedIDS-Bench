@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Robustness on ToN-IoT: balanced accuracy.}
+\label{tab:robust_ton_iot}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcccccc}
+\toprule
+Attack & FedAvg & Equal-w. & Clip & Trim & Median & Krum \\
+\midrule
+None & .984$\pm$.007 & \textbf{.985$\pm$.004} & .980$\pm$.016 & .982$\pm$.005 & .982$\pm$.006 & .935$\pm$.049 \\
+Label flip & .977$\pm$.020 & .941$\pm$.061 & .919$\pm$.148 & \textbf{.980$\pm$.009} & .977$\pm$.017 & .938$\pm$.083 \\
+Poison ($\gamma{=}5$) & .500$\pm$.000 & .500$\pm$.000 & .919$\pm$.131 & \textbf{.969$\pm$.024} & .941$\pm$.095 & .942$\pm$.085 \\
+Byzantine ($\sigma{=}1$) & .979$\pm$.016 & \textbf{.984$\pm$.004} & .978$\pm$.017 & .981$\pm$.008 & .971$\pm$.029 & .912$\pm$.103 \\
+Backdoor & .980$\pm$.015 & \textbf{.984$\pm$.004} & .980$\pm$.015 & .983$\pm$.005 & .980$\pm$.009 & .945$\pm$.045 \\
+Inflate+poison & .500$\pm$.000 & .500$\pm$.000 & .536$\pm$.099 & \textbf{.969$\pm$.024} & .941$\pm$.095 & .942$\pm$.085 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over 5 seeds; 20\% of the clients are malicious (Krum: $f{=}2$). Bold = best defense for that attack. }
+\end{table}

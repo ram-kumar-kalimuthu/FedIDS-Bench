@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Sample-count spoofing: 20\% of the clients report $10^6$ samples. Balanced accuracy, macro-average over corpora.}
+\label{tab:inflation}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{llccc}
+\toprule
+Malicious update & Partition & Count-weighted & Equal-weight & Equal $-$ count \\
+\midrule
+Honest update & Dir(0.5) & .939$\pm$.010 & .947$\pm$.002 & .008$\pm$.009 \\
+ & Pareto(1.5) & .947$\pm$.005 & .951$\pm$.001 & .004$\pm$.004 \\
++ label flip & Dir(0.5) & .121$\pm$.052 & .860$\pm$.051 & .740$\pm$.083 \\
+ & Pareto(1.5) & .084$\pm$.014 & .889$\pm$.044 & .805$\pm$.050 \\
++ poison ($\gamma{=}5$) & Dir(0.5) & .500$\pm$.000 & .500$\pm$.000 & .000$\pm$.000 \\
+ & Pareto(1.5) & .500$\pm$.000 & .498$\pm$.004 & -.002$\pm$.004 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Equal-weight FedAvg ignores reported counts, so it is unaffected by the lie by construction; its column shows the cost of equal weights when the same malicious updates are present. Mean $\pm$ 95\% CI over seeds.}
+\end{table}

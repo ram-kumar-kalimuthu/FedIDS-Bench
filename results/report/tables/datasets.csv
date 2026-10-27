@@ -1,0 +1,6 @@
+dataset,n_files,n_rows,n_native_columns,native_label_classes,attack_share,data_directory,files_expected,file_count_ok,canonical_duplicate_rate,duplicate_pool_rows,used_n_samples,used_split_counts,used_n_features,used_n_duplicates_dropped
+unsw_nb15,2,257673,45,10,0.6391,D:\Research paper\fedids-bench\src\fedids_bench\data\UNSW_NB15,2.0,True,0.5094,250000,50000,"{""train"": 34999, ""val"": 7501, ""test"": 7500}",31,113488
+cicids2017,8,2830743,79,15,0.197,D:\Research paper\fedids-bench\src\fedids_bench\data\Network Intrusion dataset(CIC-IDS- 2017),8.0,True,0.1085,249998,50000,"{""train"": 34999, ""val"": 7501, ""test"": 7500}",31,71737
+cse_cic_ids2018,10,16232943,80,15,0.1693,D:\Research paper\fedids-bench\src\fedids_bench\data\IDS 2018 Intrusion CSVs (CSE-CIC-IDS2018),10.0,True,0.1522,249988,50000,"{""train"": 34999, ""val"": 7501, ""test"": 7500}",31,100137
+iot23,23,325309946,21,17,0.9051,D:\Research paper\fedids-bench\src\fedids_bench\data\IOT-23 Full Dataset,,True,0.973,250486,12274,"{""train"": 8591, ""val"": 1841, ""test"": 1842}",31,598048
+ton_iot,1,211043,44,10,0.7631,D:\Research paper\fedids-bench\src\fedids_bench\data\TON_IoT Network Dataset,1.0,True,0.513,211043,50000,"{""train"": 34999, ""val"": 7501, ""test"": 7500}",31,86105

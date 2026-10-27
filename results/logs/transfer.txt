@@ -1,0 +1,554 @@
+[2026-10-27 08:15:35] [fedids_bench] [INFO] Starting experiment: transfer__unsw_nb15__s1 (mode=federated)
+[2026-10-27 08:15:35] [fedids_bench] [INFO] Starting experiment: transfer__unsw_nb15__s0 (mode=federated)
+[2026-10-27 08:15:35] [fedids_bench] [INFO] Starting experiment: transfer__unsw_nb15__s2 (mode=federated)
+[2026-10-27 08:15:41] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.7796 - Aggregation Time: 0.0021s
+[2026-10-27 08:15:41] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.7432 - Aggregation Time: 0.0021s
+[2026-10-27 08:15:42] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.7981 - Aggregation Time: 0.0036s
+[2026-10-27 08:15:47] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8114 - Aggregation Time: 0.002s
+[2026-10-27 08:15:47] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8063 - Aggregation Time: 0.0022s
+[2026-10-27 08:15:48] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8054 - Aggregation Time: 0.002s
+[2026-10-27 08:15:53] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8010 - Aggregation Time: 0.0018s
+[2026-10-27 08:15:54] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.7796 - Aggregation Time: 0.0018s
+[2026-10-27 08:15:54] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8190 - Aggregation Time: 0.002s
+[2026-10-27 08:15:59] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8175 - Aggregation Time: 0.0023s
+[2026-10-27 08:16:00] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8282 - Aggregation Time: 0.0035s
+[2026-10-27 08:16:00] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8237 - Aggregation Time: 0.002s
+[2026-10-27 08:16:06] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8269 - Aggregation Time: 0.002s
+[2026-10-27 08:16:06] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8316 - Aggregation Time: 0.0035s
+[2026-10-27 08:16:07] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8138 - Aggregation Time: 0.0035s
+[2026-10-27 08:16:12] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8314 - Aggregation Time: 0.002s
+[2026-10-27 08:16:13] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8316 - Aggregation Time: 0.0019s
+[2026-10-27 08:16:13] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8309 - Aggregation Time: 0.0019s
+[2026-10-27 08:16:18] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8424 - Aggregation Time: 0.0019s
+[2026-10-27 08:16:19] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8420 - Aggregation Time: 0.0021s
+[2026-10-27 08:16:19] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8344 - Aggregation Time: 0.0036s
+[2026-10-27 08:16:24] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8310 - Aggregation Time: 0.002s
+[2026-10-27 08:16:25] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8361 - Aggregation Time: 0.0033s
+[2026-10-27 08:16:25] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8235 - Aggregation Time: 0.002s
+[2026-10-27 08:16:31] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8400 - Aggregation Time: 0.0026s
+[2026-10-27 08:16:31] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8416 - Aggregation Time: 0.0019s
+[2026-10-27 08:16:32] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8302 - Aggregation Time: 0.0019s
+[2026-10-27 08:16:37] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8323 - Aggregation Time: 0.0022s
+[2026-10-27 08:16:37] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8441 - Aggregation Time: 0.0019s
+[2026-10-27 08:16:38] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8271 - Aggregation Time: 0.0019s
+[2026-10-27 08:16:43] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8369 - Aggregation Time: 0.0034s
+[2026-10-27 08:16:44] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8442 - Aggregation Time: 0.0036s
+[2026-10-27 08:16:44] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8431 - Aggregation Time: 0.002s
+[2026-10-27 08:16:49] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8477 - Aggregation Time: 0.0023s
+[2026-10-27 08:16:50] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8507 - Aggregation Time: 0.0019s
+[2026-10-27 08:16:51] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8343 - Aggregation Time: 0.0031s
+[2026-10-27 08:16:55] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8383 - Aggregation Time: 0.0021s
+[2026-10-27 08:16:56] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8454 - Aggregation Time: 0.002s
+[2026-10-27 08:16:57] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8295 - Aggregation Time: 0.002s
+[2026-10-27 08:17:02] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8282 - Aggregation Time: 0.0018s
+[2026-10-27 08:17:02] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8408 - Aggregation Time: 0.002s
+[2026-10-27 08:17:03] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8380 - Aggregation Time: 0.0023s
+[2026-10-27 08:17:08] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8500 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:09] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8489 - Aggregation Time: 0.002s
+[2026-10-27 08:17:10] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8341 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:14] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8516 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:15] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8447 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:16] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8379 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:20] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8466 - Aggregation Time: 0.002s
+[2026-10-27 08:17:21] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8481 - Aggregation Time: 0.0034s
+[2026-10-27 08:17:22] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8433 - Aggregation Time: 0.002s
+[2026-10-27 08:17:26] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8451 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:27] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8531 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:28] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8356 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:32] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8468 - Aggregation Time: 0.0034s
+[2026-10-27 08:17:33] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8527 - Aggregation Time: 0.002s
+[2026-10-27 08:17:35] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8448 - Aggregation Time: 0.002s
+[2026-10-27 08:17:38] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8437 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:40] [fedids_bench] [INFO] Starting experiment: transfer__cicids2017__s0 (mode=federated)
+[2026-10-27 08:17:40] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8502 - Aggregation Time: 0.002s
+[2026-10-27 08:17:40] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8418 - Aggregation Time: 0.0018s
+[2026-10-27 08:17:41] [fedids_bench] [INFO] Starting experiment: transfer__cicids2017__s2 (mode=federated)
+[2026-10-27 08:17:42] [fedids_bench] [INFO] Starting experiment: transfer__cicids2017__s1 (mode=federated)
+[2026-10-27 08:17:42] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.7634 - Aggregation Time: 0.0022s
+[2026-10-27 08:17:44] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.0000 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:44] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9347 - Aggregation Time: 0.0018s
+[2026-10-27 08:17:44] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9246 - Aggregation Time: 0.0031s
+[2026-10-27 08:17:46] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8489 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:47] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9345 - Aggregation Time: 0.002s
+[2026-10-27 08:17:47] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9475 - Aggregation Time: 0.0032s
+[2026-10-27 08:17:49] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8696 - Aggregation Time: 0.0031s
+[2026-10-27 08:17:49] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9423 - Aggregation Time: 0.0022s
+[2026-10-27 08:17:49] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9490 - Aggregation Time: 0.0025s
+[2026-10-27 08:17:51] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9182 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:51] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9562 - Aggregation Time: 0.0021s
+[2026-10-27 08:17:52] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9540 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:53] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8800 - Aggregation Time: 0.0018s
+[2026-10-27 08:17:53] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9463 - Aggregation Time: 0.0018s
+[2026-10-27 08:17:53] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9544 - Aggregation Time: 0.0033s
+[2026-10-27 08:17:55] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9266 - Aggregation Time: 0.0018s
+[2026-10-27 08:17:55] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9584 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:55] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9592 - Aggregation Time: 0.0017s
+[2026-10-27 08:17:57] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8560 - Aggregation Time: 0.0019s
+[2026-10-27 08:17:57] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9604 - Aggregation Time: 0.0031s
+[2026-10-27 08:17:57] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9592 - Aggregation Time: 0.0034s
+[2026-10-27 08:17:59] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9367 - Aggregation Time: 0.002s
+[2026-10-27 08:18:00] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9582 - Aggregation Time: 0.0032s
+[2026-10-27 08:18:00] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9645 - Aggregation Time: 0.0027s
+[2026-10-27 08:18:01] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9324 - Aggregation Time: 0.002s
+[2026-10-27 08:18:02] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9569 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:02] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9704 - Aggregation Time: 0.0029s
+[2026-10-27 08:18:03] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9451 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:04] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9674 - Aggregation Time: 0.0031s
+[2026-10-27 08:18:04] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9599 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:05] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.1870 - Aggregation Time: 0.0026s
+[2026-10-27 08:18:06] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9655 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:06] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9617 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:07] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.7525 - Aggregation Time: 0.002s
+[2026-10-27 08:18:08] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9679 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:08] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9641 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:09] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8767 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:10] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9646 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:10] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9639 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:11] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9243 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:12] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9688 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:12] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9639 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:14] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9425 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:14] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9667 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:14] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9634 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:16] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9392 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:16] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9681 - Aggregation Time: 0.0021s
+[2026-10-27 08:18:16] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9619 - Aggregation Time: 0.003s
+[2026-10-27 08:18:18] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9195 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:18] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9675 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:18] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9656 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:20] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9451 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:20] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9682 - Aggregation Time: 0.002s
+[2026-10-27 08:18:20] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9666 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:22] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9503 - Aggregation Time: 0.0025s
+[2026-10-27 08:18:22] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9646 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:22] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9709 - Aggregation Time: 0.0032s
+[2026-10-27 08:18:23] [fedids_bench] [INFO] Starting experiment: transfer__cse_cic_ids2018__s0 (mode=federated)
+[2026-10-27 08:18:24] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9573 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:24] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9666 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:25] [fedids_bench] [INFO] Starting experiment: transfer__cse_cic_ids2018__s2 (mode=federated)
+[2026-10-27 08:18:25] [fedids_bench] [INFO] Starting experiment: transfer__cse_cic_ids2018__s1 (mode=federated)
+[2026-10-27 08:18:29] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.8184 - Aggregation Time: 0.002s
+[2026-10-27 08:18:31] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.8307 - Aggregation Time: 0.0021s
+[2026-10-27 08:18:31] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.7817 - Aggregation Time: 0.0029s
+[2026-10-27 08:18:34] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8209 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:36] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8266 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:36] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8250 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:39] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8307 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:41] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8340 - Aggregation Time: 0.0021s
+[2026-10-27 08:18:41] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8315 - Aggregation Time: 0.002s
+[2026-10-27 08:18:44] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8336 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:45] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8351 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:46] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8367 - Aggregation Time: 0.0028s
+[2026-10-27 08:18:49] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8397 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:50] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8406 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:51] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8433 - Aggregation Time: 0.0018s
+[2026-10-27 08:18:53] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8434 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:55] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8402 - Aggregation Time: 0.0021s
+[2026-10-27 08:18:56] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8385 - Aggregation Time: 0.0019s
+[2026-10-27 08:18:58] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8404 - Aggregation Time: 0.0018s
+[2026-10-27 08:19:00] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8804 - Aggregation Time: 0.0035s
+[2026-10-27 08:19:00] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8468 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:03] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8425 - Aggregation Time: 0.0018s
+[2026-10-27 08:19:04] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8439 - Aggregation Time: 0.0032s
+[2026-10-27 08:19:05] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8487 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:08] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8416 - Aggregation Time: 0.0032s
+[2026-10-27 08:19:09] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8419 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:10] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8482 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:12] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8418 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:14] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8811 - Aggregation Time: 0.0022s
+[2026-10-27 08:19:15] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8433 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:17] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8398 - Aggregation Time: 0.0022s
+[2026-10-27 08:19:19] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8460 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:19] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8502 - Aggregation Time: 0.0017s
+[2026-10-27 08:19:22] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8450 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:24] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8455 - Aggregation Time: 0.0035s
+[2026-10-27 08:19:24] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8496 - Aggregation Time: 0.0018s
+[2026-10-27 08:19:27] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8432 - Aggregation Time: 0.0018s
+[2026-10-27 08:19:29] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8482 - Aggregation Time: 0.002s
+[2026-10-27 08:19:29] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8540 - Aggregation Time: 0.0018s
+[2026-10-27 08:19:31] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8478 - Aggregation Time: 0.0031s
+[2026-10-27 08:19:34] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8930 - Aggregation Time: 0.0018s
+[2026-10-27 08:19:34] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8524 - Aggregation Time: 0.0018s
+[2026-10-27 08:19:37] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8444 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:39] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8531 - Aggregation Time: 0.0031s
+[2026-10-27 08:19:39] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8560 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:42] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8495 - Aggregation Time: 0.0033s
+[2026-10-27 08:19:43] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8528 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:44] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8554 - Aggregation Time: 0.0031s
+[2026-10-27 08:19:47] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8523 - Aggregation Time: 0.0021s
+[2026-10-27 08:19:48] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9006 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:49] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8541 - Aggregation Time: 0.0024s
+[2026-10-27 08:19:51] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8512 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:53] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8549 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:54] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8577 - Aggregation Time: 0.0032s
+[2026-10-27 08:19:56] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8530 - Aggregation Time: 0.0018s
+[2026-10-27 08:19:58] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8550 - Aggregation Time: 0.0019s
+[2026-10-27 08:19:59] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8556 - Aggregation Time: 0.0021s
+[2026-10-27 08:20:01] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8564 - Aggregation Time: 0.0031s
+[2026-10-27 08:20:02] [fedids_bench] [INFO] Starting experiment: transfer__iot23__s0 (mode=federated)
+[2026-10-27 08:20:03] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8573 - Aggregation Time: 0.0022s
+[2026-10-27 08:20:04] [fedids_bench] [INFO] Starting experiment: transfer__iot23__s2 (mode=federated)
+[2026-10-27 08:20:04] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9708 - Aggregation Time: 0.0033s
+[2026-10-27 08:20:04] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8579 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:06] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9703 - Aggregation Time: 0.0039s
+[2026-10-27 08:20:06] [fedids_bench] [INFO] Starting experiment: transfer__iot23__s1 (mode=federated)
+[2026-10-27 08:20:06] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9678 - Aggregation Time: 0.0021s
+[2026-10-27 08:20:08] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9755 - Aggregation Time: 0.002s
+[2026-10-27 08:20:08] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9788 - Aggregation Time: 0.0021s
+[2026-10-27 08:20:08] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9704 - Aggregation Time: 0.002s
+[2026-10-27 08:20:09] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9793 - Aggregation Time: 0.003s
+[2026-10-27 08:20:09] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9776 - Aggregation Time: 0.0033s
+[2026-10-27 08:20:10] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9715 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:11] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9771 - Aggregation Time: 0.002s
+[2026-10-27 08:20:11] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9798 - Aggregation Time: 0.0021s
+[2026-10-27 08:20:12] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9720 - Aggregation Time: 0.0021s
+[2026-10-27 08:20:13] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9771 - Aggregation Time: 0.0034s
+[2026-10-27 08:20:13] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9798 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:13] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9736 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:15] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9777 - Aggregation Time: 0.0036s
+[2026-10-27 08:20:15] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9798 - Aggregation Time: 0.002s
+[2026-10-27 08:20:15] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9736 - Aggregation Time: 0.0018s
+[2026-10-27 08:20:16] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9777 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:16] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9798 - Aggregation Time: 0.002s
+[2026-10-27 08:20:17] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9736 - Aggregation Time: 0.002s
+[2026-10-27 08:20:18] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9777 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:18] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9798 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:18] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9736 - Aggregation Time: 0.0018s
+[2026-10-27 08:20:19] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9777 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:20] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9798 - Aggregation Time: 0.0018s
+[2026-10-27 08:20:20] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9730 - Aggregation Time: 0.0021s
+[2026-10-27 08:20:21] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9771 - Aggregation Time: 0.0018s
+[2026-10-27 08:20:22] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9798 - Aggregation Time: 0.0021s
+[2026-10-27 08:20:22] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9736 - Aggregation Time: 0.0034s
+[2026-10-27 08:20:23] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9771 - Aggregation Time: 0.002s
+[2026-10-27 08:20:23] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9798 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:24] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9736 - Aggregation Time: 0.0035s
+[2026-10-27 08:20:25] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9766 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:25] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9793 - Aggregation Time: 0.0034s
+[2026-10-27 08:20:25] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9736 - Aggregation Time: 0.0025s
+[2026-10-27 08:20:26] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9771 - Aggregation Time: 0.0018s
+[2026-10-27 08:20:27] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9798 - Aggregation Time: 0.002s
+[2026-10-27 08:20:27] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9736 - Aggregation Time: 0.002s
+[2026-10-27 08:20:28] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9771 - Aggregation Time: 0.0036s
+[2026-10-27 08:20:28] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9798 - Aggregation Time: 0.0032s
+[2026-10-27 08:20:29] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9736 - Aggregation Time: 0.0036s
+[2026-10-27 08:20:29] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9771 - Aggregation Time: 0.0022s
+[2026-10-27 08:20:30] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9798 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:30] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9736 - Aggregation Time: 0.0034s
+[2026-10-27 08:20:31] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9771 - Aggregation Time: 0.002s
+[2026-10-27 08:20:32] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9798 - Aggregation Time: 0.0034s
+[2026-10-27 08:20:32] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9736 - Aggregation Time: 0.002s
+[2026-10-27 08:20:33] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9771 - Aggregation Time: 0.0033s
+[2026-10-27 08:20:33] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9798 - Aggregation Time: 0.0034s
+[2026-10-27 08:20:34] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9736 - Aggregation Time: 0.0021s
+[2026-10-27 08:20:34] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9766 - Aggregation Time: 0.0018s
+[2026-10-27 08:20:35] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9798 - Aggregation Time: 0.0032s
+[2026-10-27 08:20:35] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9736 - Aggregation Time: 0.0034s
+[2026-10-27 08:20:36] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9771 - Aggregation Time: 0.0036s
+[2026-10-27 08:20:36] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9804 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:37] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9736 - Aggregation Time: 0.0036s
+[2026-10-27 08:20:37] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9771 - Aggregation Time: 0.0029s
+[2026-10-27 08:20:38] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9798 - Aggregation Time: 0.0035s
+[2026-10-27 08:20:38] [fedids_bench] [INFO] Starting experiment: transfer__ton_iot__s0 (mode=federated)
+[2026-10-27 08:20:39] [fedids_bench] [INFO] Starting experiment: transfer__ton_iot__s2 (mode=federated)
+[2026-10-27 08:20:40] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9798 - Aggregation Time: 0.0035s
+[2026-10-27 08:20:41] [fedids_bench] [INFO] Starting experiment: transfer__ton_iot__s1 (mode=federated)
+[2026-10-27 08:20:45] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9801 - Aggregation Time: 0.002s
+[2026-10-27 08:20:46] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.8716 - Aggregation Time: 0.0033s
+[2026-10-27 08:20:48] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9785 - Aggregation Time: 0.0017s
+[2026-10-27 08:20:52] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9860 - Aggregation Time: 0.0026s
+[2026-10-27 08:20:52] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9857 - Aggregation Time: 0.0019s
+[2026-10-27 08:20:55] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9893 - Aggregation Time: 0.0027s
+[2026-10-27 08:20:58] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9810 - Aggregation Time: 0.0026s
+[2026-10-27 08:20:59] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9895 - Aggregation Time: 0.0033s
+[2026-10-27 08:21:01] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9856 - Aggregation Time: 0.0033s
+[2026-10-27 08:21:04] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9866 - Aggregation Time: 0.0019s
+[2026-10-27 08:21:05] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9926 - Aggregation Time: 0.0019s
+[2026-10-27 08:21:07] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9934 - Aggregation Time: 0.0026s
+[2026-10-27 08:21:11] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9887 - Aggregation Time: 0.0033s
+[2026-10-27 08:21:11] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9911 - Aggregation Time: 0.0019s
+[2026-10-27 08:21:14] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9941 - Aggregation Time: 0.0034s
+[2026-10-27 08:21:17] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9881 - Aggregation Time: 0.0032s
+[2026-10-27 08:21:17] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9934 - Aggregation Time: 0.002s
+[2026-10-27 08:21:20] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9927 - Aggregation Time: 0.0019s
+[2026-10-27 08:21:23] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9890 - Aggregation Time: 0.0019s
+[2026-10-27 08:21:24] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9946 - Aggregation Time: 0.0019s
+[2026-10-27 08:21:26] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9889 - Aggregation Time: 0.0034s
+[2026-10-27 08:21:29] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9896 - Aggregation Time: 0.0021s
+[2026-10-27 08:21:30] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9928 - Aggregation Time: 0.0021s
+[2026-10-27 08:21:32] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9932 - Aggregation Time: 0.002s
+[2026-10-27 08:21:35] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9657 - Aggregation Time: 0.0034s
+[2026-10-27 08:21:36] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9945 - Aggregation Time: 0.0018s
+[2026-10-27 08:21:39] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9927 - Aggregation Time: 0.0035s
+[2026-10-27 08:21:42] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9901 - Aggregation Time: 0.0019s
+[2026-10-27 08:21:42] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9948 - Aggregation Time: 0.0031s
+[2026-10-27 08:21:45] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9944 - Aggregation Time: 0.0034s
+[2026-10-27 08:21:48] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9919 - Aggregation Time: 0.0034s
+[2026-10-27 08:21:48] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9948 - Aggregation Time: 0.0019s
+[2026-10-27 08:21:51] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9940 - Aggregation Time: 0.0021s
+[2026-10-27 08:21:54] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9932 - Aggregation Time: 0.002s
+[2026-10-27 08:21:55] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9942 - Aggregation Time: 0.0033s
+[2026-10-27 08:21:58] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9917 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:00] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9926 - Aggregation Time: 0.0022s
+[2026-10-27 08:22:01] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9944 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:04] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9919 - Aggregation Time: 0.002s
+[2026-10-27 08:22:07] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9923 - Aggregation Time: 0.0022s
+[2026-10-27 08:22:07] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9953 - Aggregation Time: 0.0033s
+[2026-10-27 08:22:10] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9946 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:13] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9914 - Aggregation Time: 0.0036s
+[2026-10-27 08:22:13] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9951 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:16] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9938 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:19] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9914 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:20] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9946 - Aggregation Time: 0.002s
+[2026-10-27 08:22:23] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9936 - Aggregation Time: 0.0034s
+[2026-10-27 08:22:25] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9924 - Aggregation Time: 0.0035s
+[2026-10-27 08:22:26] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9932 - Aggregation Time: 0.0018s
+[2026-10-27 08:22:29] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9944 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:32] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9941 - Aggregation Time: 0.0022s
+[2026-10-27 08:22:32] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9922 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:36] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9945 - Aggregation Time: 0.002s
+[2026-10-27 08:22:38] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9935 - Aggregation Time: 0.0019s
+[2026-10-27 08:22:38] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9926 - Aggregation Time: 0.002s
+[2026-10-27 08:22:42] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9948 - Aggregation Time: 0.002s
+[2026-10-27 08:22:44] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9947 - Aggregation Time: 0.0021s
+[2026-10-27 08:22:44] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9911 - Aggregation Time: 0.0033s
+transfer 'transfer': 5 corpora x 5 seeds -> results\runs\transfer
+ok     transfer__unsw_nb15__s2
+ok     transfer__cicids2017__s2
+ok     transfer__cse_cic_ids2018__s2
+ok     transfer__iot23__s2
+ok     transfer__ton_iot__s2
+ok     transfer__unsw_nb15__s0
+ok     transfer__cicids2017__s0
+ok     transfer__cse_cic_ids2018__s0
+ok     transfer__iot23__s0
+ok     transfer__ton_iot__s0
+[2026-10-27 08:22:48] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9945 - Aggregation Time: 0.003s
+ok     transfer__unsw_nb15__s1
+ok     transfer__cicids2017__s1
+ok     transfer__cse_cic_ids2018__s1
+ok     transfer__iot23__s1
+ok     transfer__ton_iot__s1
+[2026-10-27 08:22:53] [fedids_bench] [INFO] Starting experiment: transfer__unsw_nb15__s3 (mode=federated)
+[2026-10-27 08:22:53] [fedids_bench] [INFO] Starting experiment: transfer__unsw_nb15__s4 (mode=federated)
+[2026-10-27 08:22:59] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.7780 - Aggregation Time: 0.0033s
+[2026-10-27 08:22:59] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.7638 - Aggregation Time: 0.0033s
+[2026-10-27 08:23:05] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.7978 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:05] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8199 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:11] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.7959 - Aggregation Time: 0.002s
+[2026-10-27 08:23:11] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8294 - Aggregation Time: 0.0018s
+[2026-10-27 08:23:16] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8082 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:16] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8296 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:22] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.7796 - Aggregation Time: 0.002s
+[2026-10-27 08:23:22] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8388 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:27] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8228 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:27] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8372 - Aggregation Time: 0.002s
+[2026-10-27 08:23:33] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8414 - Aggregation Time: 0.0018s
+[2026-10-27 08:23:33] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8133 - Aggregation Time: 0.0018s
+[2026-10-27 08:23:39] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8397 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:39] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8220 - Aggregation Time: 0.0018s
+[2026-10-27 08:23:45] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8466 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:45] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8263 - Aggregation Time: 0.0019s
+[2026-10-27 08:23:50] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8360 - Aggregation Time: 0.0034s
+[2026-10-27 08:23:50] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8303 - Aggregation Time: 0.0018s
+[2026-10-27 08:23:56] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8436 - Aggregation Time: 0.0031s
+[2026-10-27 08:23:56] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8282 - Aggregation Time: 0.002s
+[2026-10-27 08:24:02] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8279 - Aggregation Time: 0.0031s
+[2026-10-27 08:24:02] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8297 - Aggregation Time: 0.0021s
+[2026-10-27 08:24:08] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8417 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:08] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8447 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:14] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8479 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:14] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8342 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:19] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8373 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:20] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8390 - Aggregation Time: 0.002s
+[2026-10-27 08:24:26] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8264 - Aggregation Time: 0.0032s
+[2026-10-27 08:24:26] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8368 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:32] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8416 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:32] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8272 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:37] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8442 - Aggregation Time: 0.002s
+[2026-10-27 08:24:38] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8371 - Aggregation Time: 0.0022s
+[2026-10-27 08:24:43] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8455 - Aggregation Time: 0.002s
+[2026-10-27 08:24:44] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8423 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:49] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8466 - Aggregation Time: 0.0031s
+[2026-10-27 08:24:50] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8392 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:50] [fedids_bench] [INFO] Starting experiment: transfer__cicids2017__s4 (mode=federated)
+[2026-10-27 08:24:51] [fedids_bench] [INFO] Starting experiment: transfer__cicids2017__s3 (mode=federated)
+[2026-10-27 08:24:53] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.0000 - Aggregation Time: 0.0017s
+[2026-10-27 08:24:53] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.8738 - Aggregation Time: 0.0033s
+[2026-10-27 08:24:55] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9220 - Aggregation Time: 0.0018s
+[2026-10-27 08:24:55] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9402 - Aggregation Time: 0.0031s
+[2026-10-27 08:24:57] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9223 - Aggregation Time: 0.0029s
+[2026-10-27 08:24:57] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9488 - Aggregation Time: 0.0018s
+[2026-10-27 08:24:59] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9227 - Aggregation Time: 0.0019s
+[2026-10-27 08:24:59] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9541 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:01] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9551 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:01] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9509 - Aggregation Time: 0.0021s
+[2026-10-27 08:25:03] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9547 - Aggregation Time: 0.0029s
+[2026-10-27 08:25:03] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9639 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:05] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9576 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:05] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9640 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:07] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9545 - Aggregation Time: 0.002s
+[2026-10-27 08:25:07] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9611 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:09] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9595 - Aggregation Time: 0.0023s
+[2026-10-27 08:25:09] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9675 - Aggregation Time: 0.002s
+[2026-10-27 08:25:10] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9652 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:11] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9657 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:12] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9667 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:12] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9666 - Aggregation Time: 0.002s
+[2026-10-27 08:25:14] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9671 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:14] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9683 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:16] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9674 - Aggregation Time: 0.0017s
+[2026-10-27 08:25:16] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9621 - Aggregation Time: 0.0027s
+[2026-10-27 08:25:18] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9681 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:18] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9665 - Aggregation Time: 0.0023s
+[2026-10-27 08:25:20] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9655 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:20] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9720 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:22] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9667 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:22] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9644 - Aggregation Time: 0.002s
+[2026-10-27 08:25:23] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9765 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:24] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9709 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:25] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9736 - Aggregation Time: 0.0031s
+[2026-10-27 08:25:26] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9734 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:27] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9738 - Aggregation Time: 0.0032s
+[2026-10-27 08:25:28] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9693 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:29] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9752 - Aggregation Time: 0.0032s
+[2026-10-27 08:25:30] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9724 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:31] [fedids_bench] [INFO] Starting experiment: transfer__cse_cic_ids2018__s4 (mode=federated)
+[2026-10-27 08:25:31] [fedids_bench] [INFO] Starting experiment: transfer__cse_cic_ids2018__s3 (mode=federated)
+[2026-10-27 08:25:36] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.8090 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:36] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.8041 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:40] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8155 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:41] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.8233 - Aggregation Time: 0.0019s
+[2026-10-27 08:25:45] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8426 - Aggregation Time: 0.0021s
+[2026-10-27 08:25:45] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.8220 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:49] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8429 - Aggregation Time: 0.0029s
+[2026-10-27 08:25:50] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.8232 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:54] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8437 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:54] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.8300 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:58] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8453 - Aggregation Time: 0.0018s
+[2026-10-27 08:25:59] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.8343 - Aggregation Time: 0.0031s
+[2026-10-27 08:26:03] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8420 - Aggregation Time: 0.003s
+[2026-10-27 08:26:03] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.8286 - Aggregation Time: 0.0029s
+[2026-10-27 08:26:07] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8472 - Aggregation Time: 0.0018s
+[2026-10-27 08:26:07] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.8779 - Aggregation Time: 0.002s
+[2026-10-27 08:26:11] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8501 - Aggregation Time: 0.0019s
+[2026-10-27 08:26:12] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.8347 - Aggregation Time: 0.0018s
+[2026-10-27 08:26:16] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8467 - Aggregation Time: 0.0019s
+[2026-10-27 08:26:17] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.8369 - Aggregation Time: 0.003s
+[2026-10-27 08:26:21] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8451 - Aggregation Time: 0.0018s
+[2026-10-27 08:26:21] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.8819 - Aggregation Time: 0.0018s
+[2026-10-27 08:26:25] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9019 - Aggregation Time: 0.0018s
+[2026-10-27 08:26:26] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.8383 - Aggregation Time: 0.0022s
+[2026-10-27 08:26:30] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8518 - Aggregation Time: 0.0019s
+[2026-10-27 08:26:30] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.8397 - Aggregation Time: 0.0019s
+[2026-10-27 08:26:34] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8542 - Aggregation Time: 0.0033s
+[2026-10-27 08:26:35] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.8491 - Aggregation Time: 0.0035s
+[2026-10-27 08:26:39] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8443 - Aggregation Time: 0.0019s
+[2026-10-27 08:26:39] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.8835 - Aggregation Time: 0.0018s
+[2026-10-27 08:26:43] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8546 - Aggregation Time: 0.0018s
+[2026-10-27 08:26:44] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.8446 - Aggregation Time: 0.0021s
+[2026-10-27 08:26:48] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8497 - Aggregation Time: 0.0019s
+[2026-10-27 08:26:48] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.8898 - Aggregation Time: 0.0022s
+[2026-10-27 08:26:52] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8513 - Aggregation Time: 0.0017s
+[2026-10-27 08:26:53] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.8546 - Aggregation Time: 0.0033s
+[2026-10-27 08:26:57] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8529 - Aggregation Time: 0.0018s
+[2026-10-27 08:26:57] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.8429 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:01] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8491 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:02] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.8499 - Aggregation Time: 0.0031s
+[2026-10-27 08:27:02] [fedids_bench] [INFO] Starting experiment: transfer__iot23__s4 (mode=federated)
+[2026-10-27 08:27:03] [fedids_bench] [INFO] Starting experiment: transfer__iot23__s3 (mode=federated)
+[2026-10-27 08:27:04] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9779 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:05] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9746 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:06] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9801 - Aggregation Time: 0.0032s
+[2026-10-27 08:27:07] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9767 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:07] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9806 - Aggregation Time: 0.0035s
+[2026-10-27 08:27:08] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9784 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:09] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9795 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:10] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9789 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:11] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9811 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:11] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9805 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:12] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9811 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:13] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9805 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:14] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9811 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:14] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9805 - Aggregation Time: 0.0032s
+[2026-10-27 08:27:15] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9806 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:16] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9794 - Aggregation Time: 0.0033s
+[2026-10-27 08:27:17] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9811 - Aggregation Time: 0.0026s
+[2026-10-27 08:27:17] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9805 - Aggregation Time: 0.002s
+[2026-10-27 08:27:18] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9811 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:19] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9805 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:20] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9811 - Aggregation Time: 0.002s
+[2026-10-27 08:27:20] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9805 - Aggregation Time: 0.0024s
+[2026-10-27 08:27:21] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9811 - Aggregation Time: 0.0032s
+[2026-10-27 08:27:22] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9805 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:23] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9811 - Aggregation Time: 0.0031s
+[2026-10-27 08:27:23] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9810 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:24] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9811 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:25] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9810 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:26] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9811 - Aggregation Time: 0.002s
+[2026-10-27 08:27:26] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9805 - Aggregation Time: 0.002s
+[2026-10-27 08:27:27] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9811 - Aggregation Time: 0.002s
+[2026-10-27 08:27:28] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9810 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:29] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9801 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:29] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9810 - Aggregation Time: 0.0032s
+[2026-10-27 08:27:30] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9811 - Aggregation Time: 0.0031s
+[2026-10-27 08:27:31] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9805 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:32] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9811 - Aggregation Time: 0.0022s
+[2026-10-27 08:27:32] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9805 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:33] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9806 - Aggregation Time: 0.0021s
+[2026-10-27 08:27:34] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9810 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:34] [fedids_bench] [INFO] Starting experiment: transfer__ton_iot__s4 (mode=federated)
+[2026-10-27 08:27:35] [fedids_bench] [INFO] Starting experiment: transfer__ton_iot__s3 (mode=federated)
+[2026-10-27 08:27:41] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9676 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:41] [fedids_bench] [INFO] Round 1/20 - Global test F1: 0.9766 - Aggregation Time: 0.0022s
+[2026-10-27 08:27:46] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9788 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:47] [fedids_bench] [INFO] Round 2/20 - Global test F1: 0.9843 - Aggregation Time: 0.0032s
+[2026-10-27 08:27:52] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9740 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:53] [fedids_bench] [INFO] Round 3/20 - Global test F1: 0.9872 - Aggregation Time: 0.0018s
+[2026-10-27 08:27:58] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9778 - Aggregation Time: 0.0019s
+[2026-10-27 08:27:58] [fedids_bench] [INFO] Round 4/20 - Global test F1: 0.9857 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:04] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9889 - Aggregation Time: 0.0029s
+[2026-10-27 08:28:04] [fedids_bench] [INFO] Round 5/20 - Global test F1: 0.9872 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:09] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9861 - Aggregation Time: 0.003s
+[2026-10-27 08:28:10] [fedids_bench] [INFO] Round 6/20 - Global test F1: 0.9880 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:15] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9860 - Aggregation Time: 0.0018s
+[2026-10-27 08:28:16] [fedids_bench] [INFO] Round 7/20 - Global test F1: 0.9910 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:21] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9802 - Aggregation Time: 0.0032s
+[2026-10-27 08:28:22] [fedids_bench] [INFO] Round 8/20 - Global test F1: 0.9888 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:27] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9864 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:27] [fedids_bench] [INFO] Round 9/20 - Global test F1: 0.9920 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:32] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9869 - Aggregation Time: 0.0018s
+[2026-10-27 08:28:33] [fedids_bench] [INFO] Round 10/20 - Global test F1: 0.9914 - Aggregation Time: 0.002s
+[2026-10-27 08:28:38] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9874 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:39] [fedids_bench] [INFO] Round 11/20 - Global test F1: 0.9918 - Aggregation Time: 0.0018s
+[2026-10-27 08:28:44] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9867 - Aggregation Time: 0.0035s
+[2026-10-27 08:28:45] [fedids_bench] [INFO] Round 12/20 - Global test F1: 0.9913 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:50] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9864 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:51] [fedids_bench] [INFO] Round 13/20 - Global test F1: 0.9920 - Aggregation Time: 0.002s
+[2026-10-27 08:28:56] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9915 - Aggregation Time: 0.0019s
+[2026-10-27 08:28:57] [fedids_bench] [INFO] Round 14/20 - Global test F1: 0.9919 - Aggregation Time: 0.0018s
+[2026-10-27 08:29:01] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9920 - Aggregation Time: 0.0018s
+[2026-10-27 08:29:02] [fedids_bench] [INFO] Round 15/20 - Global test F1: 0.9909 - Aggregation Time: 0.002s
+[2026-10-27 08:29:07] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9921 - Aggregation Time: 0.0026s
+[2026-10-27 08:29:08] [fedids_bench] [INFO] Round 16/20 - Global test F1: 0.9926 - Aggregation Time: 0.0033s
+[2026-10-27 08:29:13] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9896 - Aggregation Time: 0.0033s
+[2026-10-27 08:29:14] [fedids_bench] [INFO] Round 17/20 - Global test F1: 0.9911 - Aggregation Time: 0.0019s
+[2026-10-27 08:29:19] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9853 - Aggregation Time: 0.0022s
+[2026-10-27 08:29:20] [fedids_bench] [INFO] Round 18/20 - Global test F1: 0.9924 - Aggregation Time: 0.0019s
+[2026-10-27 08:29:25] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9900 - Aggregation Time: 0.0019s
+[2026-10-27 08:29:26] [fedids_bench] [INFO] Round 19/20 - Global test F1: 0.9935 - Aggregation Time: 0.0018s
+[2026-10-27 08:29:31] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9918 - Aggregation Time: 0.0018s
+ok     transfer__unsw_nb15__s4
+ok     transfer__cicids2017__s4
+ok     transfer__cse_cic_ids2018__s4
+ok     transfer__iot23__s4
+ok     transfer__ton_iot__s4
+[2026-10-27 08:29:32] [fedids_bench] [INFO] Round 20/20 - Global test F1: 0.9920 - Aggregation Time: 0.0019s
+ok     transfer__unsw_nb15__s3
+ok     transfer__cicids2017__s3
+ok     transfer__cse_cic_ids2018__s3
+ok     transfer__iot23__s3
+ok     transfer__ton_iot__s3
+transfer finished -> {'ok': 25, 'cached': 0, 'error': 0}
+
+[transfer] exit 0 after 873 s -> results/logs/transfer.txt

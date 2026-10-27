@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Robustness on CICIDS2017: balanced accuracy.}
+\label{tab:robust_cicids2017}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcccccc}
+\toprule
+Attack & FedAvg & Equal-w. & Clip & Trim & Median & Krum \\
+\midrule
+None & .980$\pm$.011 & \textbf{.981$\pm$.006} & .979$\pm$.012 & .978$\pm$.010 & .975$\pm$.014 & .905$\pm$.127 \\
+Label flip & .741$\pm$.242 & .710$\pm$.219 & .859$\pm$.252 & \textbf{.978$\pm$.006} & .975$\pm$.010 & .902$\pm$.121 \\
+Poison ($\gamma{=}5$) & .500$\pm$.000 & .500$\pm$.000 & .872$\pm$.259 & \textbf{.952$\pm$.051} & .933$\pm$.099 & .912$\pm$.125 \\
+Byzantine ($\sigma{=}1$) & .971$\pm$.015 & \textbf{.977$\pm$.009} & .970$\pm$.016 & .975$\pm$.010 & .968$\pm$.024 & .834$\pm$.238 \\
+Backdoor & .977$\pm$.012 & .978$\pm$.008 & \textbf{.980$\pm$.006} & .977$\pm$.011 & .977$\pm$.013 & .890$\pm$.118 \\
+Inflate+poison & .500$\pm$.000 & .500$\pm$.000 & .453$\pm$.131 & \textbf{.952$\pm$.051} & .933$\pm$.099 & .912$\pm$.125 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over 5 seeds; 20\% of the clients are malicious (Krum: $f{=}2$). Bold = best defense for that attack. }
+\end{table}

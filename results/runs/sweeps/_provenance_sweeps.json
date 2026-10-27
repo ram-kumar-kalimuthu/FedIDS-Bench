@@ -1,0 +1,798 @@
+{
+  "written_utc": "2026-10-26T21:09:31Z",
+  "git_revision": "69e6d39b6a74e751d16bb348aa15078aceddfb98",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "cpu_count": 8,
+  "torch": "2.14.1+cpu",
+  "numpy": "2.5.4",
+  "pandas": "3.1.0",
+  "sklearn": "1.9.1",
+  "argv": [
+    "scripts\\run_grid.py",
+    "--spec",
+    "configs/grids/sweeps.yaml",
+    "--data-dir",
+    "D:\\Research paper\\fedids-bench\\src\\fedids_bench\\data",
+    "--n-jobs",
+    "3"
+  ],
+  "spec_path": "D:\\fedids-run\\FedIDS-Bench\\configs\\grids\\sweeps.yaml",
+  "spec": {
+    "name": "sweeps",
+    "datasets": [
+      "unsw_nb15",
+      "cicids2017",
+      "cse_cic_ids2018",
+      "iot23",
+      "ton_iot"
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "base": {
+      "dataset": {
+        "n_samples": 50000,
+        "test_fraction": 0.15,
+        "val_fraction": 0.15,
+        "eval_on": "test",
+        "row_role": "report",
+        "pool": "all",
+        "feature_set": "core",
+        "deduplicate": true
+      },
+      "partitioning": {
+        "strategy": "dirichlet",
+        "alpha": 0.5,
+        "num_clients": 10,
+        "heldout_client_fraction": 0.0
+      },
+      "model": {
+        "architecture": "mlp",
+        "hidden_dims": [
+          64,
+          32
+        ]
+      },
+      "federated": {
+        "algorithm": "fedavg",
+        "rounds": 20,
+        "clients_per_round": 10,
+        "trust_client_sample_counts": true
+      }
+    },
+    "matrices": [
+      {
+        "prefix": "gamma",
+        "group": "fedavg",
+        "factors": {
+          "gamma": [
+            {
+              "name": "g1",
+              "overrides": {
+                "attack": {
+                  "type": "model_poison",
+                  "malicious_fraction": 0.2,
+                  "strength": 1.0
+                }
+              }
+            },
+            {
+              "name": "g5",
+              "overrides": {
+                "attack": {
+                  "type": "model_poison",
+                  "malicious_fraction": 0.2,
+                  "strength": 5.0
+                }
+              }
+            },
+            {
+              "name": "g10",
+              "overrides": {
+                "attack": {
+                  "type": "model_poison",
+                  "malicious_fraction": 0.2,
+                  "strength": 10.0
+                }
+              }
+            }
+          ],
+          "defense": [
+            {
+              "name": "fedavg",
+              "overrides": {
+                "defense": {
+                  "type": "none"
+                }
+              }
+            },
+            {
+              "name": "median",
+              "overrides": {
+                "defense": {
+                  "type": "median"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prefix": "sigma",
+        "group": "fedavg",
+        "factors": {
+          "sigma": [
+            {
+              "name": "s0.5",
+              "overrides": {
+                "attack": {
+                  "type": "byzantine",
+                  "malicious_fraction": 0.2,
+                  "strength": 0.5
+                }
+              }
+            },
+            {
+              "name": "s1",
+              "overrides": {
+                "attack": {
+                  "type": "byzantine",
+                  "malicious_fraction": 0.2,
+                  "strength": 1.0
+                }
+              }
+            },
+            {
+              "name": "s5",
+              "overrides": {
+                "attack": {
+                  "type": "byzantine",
+                  "malicious_fraction": 0.2,
+                  "strength": 5.0
+                }
+              }
+            }
+          ],
+          "defense": [
+            {
+              "name": "fedavg",
+              "overrides": {
+                "defense": {
+                  "type": "none"
+                }
+              }
+            },
+            {
+              "name": "median",
+              "overrides": {
+                "defense": {
+                  "type": "median"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "prefix": "frac",
+        "group": "fedavg",
+        "factors": {
+          "fraction": [
+            {
+              "name": "m10",
+              "overrides": {
+                "attack": {
+                  "type": "model_poison",
+                  "malicious_fraction": 0.1,
+                  "strength": 5.0
+                },
+                "defense": {
+                  "krum_f": 1
+                }
+              }
+            },
+            {
+              "name": "m20",
+              "overrides": {
+                "attack": {
+                  "type": "model_poison",
+                  "malicious_fraction": 0.2,
+                  "strength": 5.0
+                },
+                "defense": {
+                  "krum_f": 2
+                }
+              }
+            },
+            {
+              "name": "m30",
+              "overrides": {
+                "attack": {
+                  "type": "model_poison",
+                  "malicious_fraction": 0.3,
+                  "strength": 5.0
+                },
+                "defense": {
+                  "krum_f": 3
+                }
+              }
+            },
+            {
+              "name": "m40",
+              "overrides": {
+                "attack": {
+                  "type": "model_poison",
+                  "malicious_fraction": 0.4,
+                  "strength": 5.0
+                },
+                "defense": {
+                  "krum_f": 4
+                }
+              }
+            }
+          ],
+          "defense": [
+            {
+              "name": "fedavg",
+              "overrides": {
+                "defense": {
+                  "type": "none"
+                }
+              }
+            },
+            {
+              "name": "median",
+              "overrides": {
+                "defense": {
+                  "type": "median"
+                }
+              }
+            },
+            {
+              "name": "trimmed",
+              "overrides": {
+                "defense": {
+                  "type": "trimmed_mean",
+                  "trim_ratio": 0.2
+                }
+              }
+            },
+            {
+              "name": "krum",
+              "overrides": {
+                "defense": {
+                  "type": "krum"
+                }
+              }
+            }
+          ]
+        },
+        "exclude": [
+          {
+            "fraction": "m40",
+            "defense": "krum"
+          }
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "name": "gamma__g1__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 1.0
+          },
+          "defense": {
+            "type": "none"
+          }
+        },
+        "factors": {
+          "gamma": "g1",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "gamma__g1__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 1.0
+          },
+          "defense": {
+            "type": "median"
+          }
+        },
+        "factors": {
+          "gamma": "g1",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "gamma__g5__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 5.0
+          },
+          "defense": {
+            "type": "none"
+          }
+        },
+        "factors": {
+          "gamma": "g5",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "gamma__g5__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 5.0
+          },
+          "defense": {
+            "type": "median"
+          }
+        },
+        "factors": {
+          "gamma": "g5",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "gamma__g10__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 10.0
+          },
+          "defense": {
+            "type": "none"
+          }
+        },
+        "factors": {
+          "gamma": "g10",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "gamma__g10__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 10.0
+          },
+          "defense": {
+            "type": "median"
+          }
+        },
+        "factors": {
+          "gamma": "g10",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "sigma__s0.5__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "byzantine",
+            "malicious_fraction": 0.2,
+            "strength": 0.5
+          },
+          "defense": {
+            "type": "none"
+          }
+        },
+        "factors": {
+          "sigma": "s0.5",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "sigma__s0.5__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "byzantine",
+            "malicious_fraction": 0.2,
+            "strength": 0.5
+          },
+          "defense": {
+            "type": "median"
+          }
+        },
+        "factors": {
+          "sigma": "s0.5",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "sigma__s1__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "byzantine",
+            "malicious_fraction": 0.2,
+            "strength": 1.0
+          },
+          "defense": {
+            "type": "none"
+          }
+        },
+        "factors": {
+          "sigma": "s1",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "sigma__s1__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "byzantine",
+            "malicious_fraction": 0.2,
+            "strength": 1.0
+          },
+          "defense": {
+            "type": "median"
+          }
+        },
+        "factors": {
+          "sigma": "s1",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "sigma__s5__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "byzantine",
+            "malicious_fraction": 0.2,
+            "strength": 5.0
+          },
+          "defense": {
+            "type": "none"
+          }
+        },
+        "factors": {
+          "sigma": "s5",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "sigma__s5__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "byzantine",
+            "malicious_fraction": 0.2,
+            "strength": 5.0
+          },
+          "defense": {
+            "type": "median"
+          }
+        },
+        "factors": {
+          "sigma": "s5",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "frac__m10__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.1,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 1,
+            "type": "none"
+          }
+        },
+        "factors": {
+          "fraction": "m10",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "frac__m10__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.1,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 1,
+            "type": "median"
+          }
+        },
+        "factors": {
+          "fraction": "m10",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "frac__m10__trimmed",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.1,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 1,
+            "type": "trimmed_mean",
+            "trim_ratio": 0.2
+          }
+        },
+        "factors": {
+          "fraction": "m10",
+          "defense": "trimmed"
+        }
+      },
+      {
+        "name": "frac__m10__krum",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.1,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 1,
+            "type": "krum"
+          }
+        },
+        "factors": {
+          "fraction": "m10",
+          "defense": "krum"
+        }
+      },
+      {
+        "name": "frac__m20__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 2,
+            "type": "none"
+          }
+        },
+        "factors": {
+          "fraction": "m20",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "frac__m20__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 2,
+            "type": "median"
+          }
+        },
+        "factors": {
+          "fraction": "m20",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "frac__m20__trimmed",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 2,
+            "type": "trimmed_mean",
+            "trim_ratio": 0.2
+          }
+        },
+        "factors": {
+          "fraction": "m20",
+          "defense": "trimmed"
+        }
+      },
+      {
+        "name": "frac__m20__krum",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.2,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 2,
+            "type": "krum"
+          }
+        },
+        "factors": {
+          "fraction": "m20",
+          "defense": "krum"
+        }
+      },
+      {
+        "name": "frac__m30__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.3,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 3,
+            "type": "none"
+          }
+        },
+        "factors": {
+          "fraction": "m30",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "frac__m30__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.3,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 3,
+            "type": "median"
+          }
+        },
+        "factors": {
+          "fraction": "m30",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "frac__m30__trimmed",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.3,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 3,
+            "type": "trimmed_mean",
+            "trim_ratio": 0.2
+          }
+        },
+        "factors": {
+          "fraction": "m30",
+          "defense": "trimmed"
+        }
+      },
+      {
+        "name": "frac__m30__krum",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.3,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 3,
+            "type": "krum"
+          }
+        },
+        "factors": {
+          "fraction": "m30",
+          "defense": "krum"
+        }
+      },
+      {
+        "name": "frac__m40__fedavg",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.4,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 4,
+            "type": "none"
+          }
+        },
+        "factors": {
+          "fraction": "m40",
+          "defense": "fedavg"
+        }
+      },
+      {
+        "name": "frac__m40__median",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.4,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 4,
+            "type": "median"
+          }
+        },
+        "factors": {
+          "fraction": "m40",
+          "defense": "median"
+        }
+      },
+      {
+        "name": "frac__m40__trimmed",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "model_poison",
+            "malicious_fraction": 0.4,
+            "strength": 5.0
+          },
+          "defense": {
+            "krum_f": 4,
+            "type": "trimmed_mean",
+            "trim_ratio": 0.2
+          }
+        },
+        "factors": {
+          "fraction": "m40",
+          "defense": "trimmed"
+        }
+      }
+    ]
+  },
+  "overrides_cli": {
+    "dataset": {
+      "data_dir": "D:\\Research paper\\fedids-bench\\src\\fedids_bench\\data"
+    }
+  },
+  "tuned_path": "D:\\fedids-run\\FedIDS-Bench\\results\\tuned_hparams.json",
+  "tuned_sha256": "03f95e9fc251a9626ffdecc6f5768197b000a93c3c77ca52c7127c7049a22163"
+}

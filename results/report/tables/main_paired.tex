@@ -1,0 +1,22 @@
+\begin{table}[t]
+\caption{Paired differences in balanced accuracy (same seed $\Rightarrow$ same data, split, partition, initial weights).}
+\label{tab:main_paired}
+\centering
+\small
+\setlength{\tabcolsep}{2pt}
+\fittable{\begin{tabular}{llccccc}
+\toprule
+Comparison & Partition & UNSW & CIC17 & CSE18 & IoT23 & ToN \\
+\midrule
+FedProx $-$ FedAvg & Dir(0.1) & .046$\pm$.087 & .003$\pm$.043 & .033$\pm$.120 & -.000$\pm$.001 & .022$\pm$.037 \\
+FedProx $-$ FedAvg & Dir(0.5) & -.001$\pm$.004 & -.007$\pm$.006 & -.008$\pm$.031 & .000$\pm$.001 & .001$\pm$.001 \\
+FedProx $-$ FedAvg & IID & .000$\pm$.001 & -.006$\pm$.003 & .002$\pm$.001 & -.000$\pm$.001 & .000$\pm$.001 \\
+FedAdam $-$ FedAvg & Dir(0.1) & -.037$\pm$.069 & -.092$\pm$.182 & -.032$\pm$.127 & -.001$\pm$.002 & -.098$\pm$.198 \\
+FedAdam $-$ FedAvg & Dir(0.5) & -.017$\pm$.018 & -.031$\pm$.065 & -.005$\pm$.004 & -.001$\pm$.002 & -.057$\pm$.125 \\
+FedAdam $-$ FedAvg & IID & -.009$\pm$.007 & -.005$\pm$.004 & -.007$\pm$.002$^{\dagger}$ & -.000$\pm$.001 & -.001$\pm$.005 \\
+FedAvg: IID $-$ Dir(0.1) & -- & .095$\pm$.098 & .043$\pm$.046 & .080$\pm$.118 & .001$\pm$.001 & .036$\pm$.052 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean difference $\pm$ 95\% CI over seeds. $^{\dagger}$ = Holm-adjusted paired $t$-test $p<0.05$ (family: every comparison in this table). Short corpus names: UNSW = UNSW-NB15, CIC17 = CICIDS2017, CSE18 = CSE-CIC-IDS2018, IoT23 = IoT-23, ToN = ToN-IoT.}
+\end{table}

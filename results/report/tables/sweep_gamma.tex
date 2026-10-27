@@ -1,0 +1,18 @@
+\begin{table}[t]
+\caption{Sensitivity to model-poisoning strength $\gamma$ (20\% attackers): balanced accuracy, macro-average over corpora.}
+\label{tab:sweep_gamma}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcc}
+\toprule
+Level & FedAvg & Median \\
+\midrule
+$\gamma{=}1$ & .814$\pm$.105 & .890$\pm$.065 \\
+$\gamma{=}5$ & .542$\pm$.049 & .893$\pm$.064 \\
+$\gamma{=}10$ & .522$\pm$.051 & .895$\pm$.056 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over seeds.}
+\end{table}

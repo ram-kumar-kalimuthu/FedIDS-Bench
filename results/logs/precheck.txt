@@ -1,0 +1,8 @@
+corpus           effective_n  pool_rows dups_dropped attack_share classes  seconds
+unsw_nb15              50000     214470       113488       0.4588      10        4
+cicids2017             50000     500373        71737       0.1920      15       16
+cse_cic_ids2018        50000     501330       100137       0.1383      15       92
+iot23                  12274     610322       598048       0.5108       9      626
+ton_iot                50000     168424        86105       0.7724      10        2
+
+[precheck] exit 0 after 820 s -> results/logs/precheck.txt

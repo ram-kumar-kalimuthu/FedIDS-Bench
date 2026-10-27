@@ -1,0 +1,375 @@
+[2026-10-25 00:36:14] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedavg__t02__s1001 (mode=federated)
+[2026-10-25 00:36:14] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedavg__t01__s1001 (mode=federated)
+[2026-10-25 00:36:14] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedavg__t00__s1001 (mode=federated)
+[2026-10-25 00:36:14] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.2886 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:14] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.2140 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:14] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.7526 - Aggregation Time: 0.0011s
+[2026-10-25 00:36:14] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.1860 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:14] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.7549 - Aggregation Time: 0.001s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7608 - Aggregation Time: 0.001s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.1833 - Aggregation Time: 0.0017s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.1870 - Aggregation Time: 0.001s
+REHEARSAL (--quick / --set): outputs go to results\rehearsal\tuning and results\rehearsal\tuned_hparams.json, NOT to results/tuning; never paper results.
+tuning: 60 runs = 5 corpora x 4 algorithms x 3 trials x 1 seeds (n_samples=3000, rounds=5) -> results\rehearsal\tuning\runs
+[1/60] ok     tuning__unsw_nb15__fedavg__t00__s1001
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedprox__t00__s1001 (mode=federated)
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7957 - Aggregation Time: 0.0014s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7755 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.2886 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7983 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.2140 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7797 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7941 - Aggregation Time: 0.001s
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.1860 - Aggregation Time: 0.0017s
+[2/60] ok     tuning__unsw_nb15__fedavg__t01__s1001
+[2026-10-25 00:36:15] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedprox__t01__s1001 (mode=federated)
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.1833 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.1870 - Aggregation Time: 0.0009s
+[3/60] ok     tuning__unsw_nb15__fedprox__t00__s1001
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.7043 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedprox__t02__s1001 (mode=federated)
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7794 - Aggregation Time: 0.0012s
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7288 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7510 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7907 - Aggregation Time: 0.001s
+[4/60] ok     tuning__unsw_nb15__fedavg__t02__s1001
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedadam__t00__s1001 (mode=federated)
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7670 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:16] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.7621 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.2970 - Aggregation Time: 0.0124s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7673 - Aggregation Time: 0.0016s
+[5/60] ok     tuning__unsw_nb15__fedprox__t01__s1001
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedadam__t01__s1001 (mode=federated)
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.1985 - Aggregation Time: 0.0034s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7674 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.1870 - Aggregation Time: 0.0018s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0028s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0651 - Aggregation Time: 0.0035s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.0000 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7126 - Aggregation Time: 0.0035s
+[6/60] ok     tuning__unsw_nb15__fedadam__t00__s1001
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__fedadam__t02__s1001 (mode=federated)
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7780 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:17] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7549 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7596 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.6158 - Aggregation Time: 0.002s
+[7/60] ok     tuning__unsw_nb15__fedadam__t01__s1001
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__centralized__t00__s1001 (mode=centralized)
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7298 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7862 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7436 - Aggregation Time: 0.0034s
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7951 - Aggregation Time: 0.0009s
+[8/60] ok     tuning__unsw_nb15__centralized__t00__s1001
+[9/60] ok     tuning__unsw_nb15__fedprox__t02__s1001
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__centralized__t01__s1001 (mode=centralized)
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Starting experiment: tuning__unsw_nb15__centralized__t02__s1001 (mode=centralized)
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7602 - Aggregation Time: 0.003s
+[2026-10-25 00:36:18] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7647 - Aggregation Time: 0.0019s
+[10/60] ok     tuning__unsw_nb15__fedadam__t02__s1001
+[2026-10-25 00:36:19] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedavg__t00__s1001 (mode=federated)
+[11/60] ok     tuning__unsw_nb15__centralized__t02__s1001
+[2026-10-25 00:36:19] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedavg__t01__s1001 (mode=federated)
+[2026-10-25 00:36:19] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:19] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:19] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.0012s
+[2026-10-25 00:36:20] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0000 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:20] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.2268 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:20] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.0000 - Aggregation Time: 0.0009s
+[12/60] ok     tuning__cicids2017__fedavg__t00__s1001
+[2026-10-25 00:36:20] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedavg__t02__s1001 (mode=federated)
+[2026-10-25 00:36:20] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.6165 - Aggregation Time: 0.0009s
+[13/60] ok     tuning__unsw_nb15__centralized__t01__s1001
+[2026-10-25 00:36:20] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedprox__t00__s1001 (mode=federated)
+[2026-10-25 00:36:20] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7742 - Aggregation Time: 0.0013s
+[2026-10-25 00:36:20] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.8075 - Aggregation Time: 0.0015s
+[2026-10-25 00:36:21] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.001s
+[2026-10-25 00:36:21] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.8537 - Aggregation Time: 0.001s
+[14/60] ok     tuning__cicids2017__fedavg__t01__s1001
+[2026-10-25 00:36:21] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0012s
+[2026-10-25 00:36:21] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedprox__t01__s1001 (mode=federated)
+[2026-10-25 00:36:21] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:21] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.001s
+[2026-10-25 00:36:21] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7448 - Aggregation Time: 0.001s
+[2026-10-25 00:36:21] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0000 - Aggregation Time: 0.001s
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.001s
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.0000 - Aggregation Time: 0.0017s
+[15/60] ok     tuning__cicids2017__fedprox__t00__s1001
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedprox__t02__s1001 (mode=federated)
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7397 - Aggregation Time: 0.0013s
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.3269 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.6000 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7500 - Aggregation Time: 0.001s
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.8027 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7453 - Aggregation Time: 0.0016s
+[16/60] ok     tuning__cicids2017__fedprox__t01__s1001
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedadam__t00__s1001 (mode=federated)
+[2026-10-25 00:36:22] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.1505 - Aggregation Time: 0.001s
+[2026-10-25 00:36:23] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7755 - Aggregation Time: 0.0013s
+[17/60] ok     tuning__cicids2017__fedavg__t02__s1001
+[2026-10-25 00:36:23] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedadam__t01__s1001 (mode=federated)
+[2026-10-25 00:36:23] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.5203 - Aggregation Time: 0.0015s
+[2026-10-25 00:36:23] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0049s
+[2026-10-25 00:36:23] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.002s
+[2026-10-25 00:36:23] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7453 - Aggregation Time: 0.001s
+[2026-10-25 00:36:23] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.0021s
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0000 - Aggregation Time: 0.002s
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0037s
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.0000 - Aggregation Time: 0.0019s
+[18/60] ok     tuning__cicids2017__fedadam__t00__s1001
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__fedadam__t02__s1001 (mode=federated)
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.0021s
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.8161 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.0034s
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0000 - Aggregation Time: 0.002s
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.2245 - Aggregation Time: 0.0029s
+[19/60] ok     tuning__cicids2017__fedadam__t01__s1001
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.8343 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__centralized__t00__s1001 (mode=centralized)
+[20/60] ok     tuning__cicids2017__fedprox__t02__s1001
+[2026-10-25 00:36:24] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__centralized__t01__s1001 (mode=centralized)
+[2026-10-25 00:36:25] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0652 - Aggregation Time: 0.002s
+[2026-10-25 00:36:25] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.0029s
+[2026-10-25 00:36:25] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.0034s
+[2026-10-25 00:36:25] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.2245 - Aggregation Time: 0.0019s
+[21/60] ok     tuning__cicids2017__centralized__t00__s1001
+[2026-10-25 00:36:25] [fedids_bench] [INFO] Starting experiment: tuning__cicids2017__centralized__t02__s1001 (mode=centralized)
+[2026-10-25 00:36:25] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.2245 - Aggregation Time: 0.0033s
+[22/60] ok     tuning__cicids2017__fedadam__t02__s1001
+[2026-10-25 00:36:25] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedavg__t00__s1001 (mode=federated)
+[2026-10-25 00:36:26] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0017s
+[23/60] ok     tuning__cicids2017__centralized__t02__s1001
+[2026-10-25 00:36:26] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedavg__t01__s1001 (mode=federated)
+[2026-10-25 00:36:26] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:26] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:26] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0000 - Aggregation Time: 0.0014s
+[24/60] ok     tuning__cicids2017__centralized__t01__s1001
+[2026-10-25 00:36:27] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.0000 - Aggregation Time: 0.0015s
+[2026-10-25 00:36:27] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedavg__t02__s1001 (mode=federated)
+[25/60] ok     tuning__cse_cic_ids2018__fedavg__t00__s1001
+[2026-10-25 00:36:27] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedprox__t00__s1001 (mode=federated)
+[2026-10-25 00:36:27] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.8376 - Aggregation Time: 0.0014s
+[2026-10-25 00:36:27] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7407 - Aggregation Time: 0.001s
+[2026-10-25 00:36:27] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:27] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7826 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.7963 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7826 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0000 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.0000 - Aggregation Time: 0.0009s
+[26/60] ok     tuning__cse_cic_ids2018__fedprox__t00__s1001
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedprox__t01__s1001 (mode=federated)
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.8120 - Aggregation Time: 0.0017s
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7634 - Aggregation Time: 0.0016s
+[27/60] ok     tuning__cse_cic_ids2018__fedavg__t01__s1001
+[2026-10-25 00:36:28] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedprox__t02__s1001 (mode=federated)
+[2026-10-25 00:36:29] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7463 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:29] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0017s
+[2026-10-25 00:36:29] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7937 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:29] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.8264 - Aggregation Time: 0.0008s
+[2026-10-25 00:36:29] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.8480 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:29] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7338 - Aggregation Time: 0.0011s
+[2026-10-25 00:36:29] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7338 - Aggregation Time: 0.001s
+[2026-10-25 00:36:29] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7538 - Aggregation Time: 0.0018s
+[2026-10-25 00:36:30] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7338 - Aggregation Time: 0.0015s
+[2026-10-25 00:36:30] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7883 - Aggregation Time: 0.001s
+[28/60] ok     tuning__cse_cic_ids2018__fedprox__t01__s1001
+[2026-10-25 00:36:30] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedadam__t00__s1001 (mode=federated)
+[29/60] ok     tuning__cse_cic_ids2018__fedavg__t02__s1001
+[2026-10-25 00:36:30] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedadam__t01__s1001 (mode=federated)
+[2026-10-25 00:36:30] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7500 - Aggregation Time: 0.0012s
+[2026-10-25 00:36:30] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0042s
+[2026-10-25 00:36:30] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0000 - Aggregation Time: 0.0023s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.004s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.7826 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.0000 - Aggregation Time: 0.0023s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.0039s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.0000 - Aggregation Time: 0.0041s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0000 - Aggregation Time: 0.004s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.0000 - Aggregation Time: 0.0039s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.0000 - Aggregation Time: 0.004s
+[30/60] ok     tuning__cse_cic_ids2018__fedadam__t00__s1001
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7826 - Aggregation Time: 0.002s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__fedadam__t02__s1001 (mode=federated)
+[31/60] ok     tuning__cse_cic_ids2018__fedprox__t02__s1001
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.0000 - Aggregation Time: 0.0024s
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__centralized__t00__s1001 (mode=centralized)
+[32/60] ok     tuning__cse_cic_ids2018__fedadam__t01__s1001
+[2026-10-25 00:36:31] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__centralized__t01__s1001 (mode=centralized)
+[2026-10-25 00:36:32] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.0342 - Aggregation Time: 0.0083s
+[2026-10-25 00:36:33] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.3488 - Aggregation Time: 0.0023s
+[33/60] ok     tuning__cse_cic_ids2018__centralized__t00__s1001
+[2026-10-25 00:36:33] [fedids_bench] [INFO] Starting experiment: tuning__cse_cic_ids2018__centralized__t02__s1001 (mode=centralized)
+[2026-10-25 00:36:33] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.5714 - Aggregation Time: 0.004s
+[2026-10-25 00:36:33] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.8065 - Aggregation Time: 0.0037s
+[2026-10-25 00:36:33] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.7937 - Aggregation Time: 0.002s
+[34/60] ok     tuning__cse_cic_ids2018__fedadam__t02__s1001
+[2026-10-25 00:36:33] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedavg__t00__s1001 (mode=federated)
+[35/60] ok     tuning__cse_cic_ids2018__centralized__t02__s1001
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedavg__t01__s1001 (mode=federated)
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.4156 - Aggregation Time: 0.0018s
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.4013 - Aggregation Time: 0.0017s
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9732 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.4026 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.4026 - Aggregation Time: 0.0008s
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9813 - Aggregation Time: 0.0009s
+[36/60] ok     tuning__cse_cic_ids2018__centralized__t01__s1001
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.4235 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedavg__t02__s1001 (mode=federated)
+[37/60] ok     tuning__iot23__fedavg__t00__s1001
+[2026-10-25 00:36:34] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedprox__t00__s1001 (mode=federated)
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9748 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.4156 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9732 - Aggregation Time: 0.0008s
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9813 - Aggregation Time: 0.0017s
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.4013 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.4026 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9769 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9812 - Aggregation Time: 0.0009s
+[38/60] ok     tuning__iot23__fedavg__t01__s1001
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedprox__t01__s1001 (mode=federated)
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.4026 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.4235 - Aggregation Time: 0.0009s
+[39/60] ok     tuning__iot23__fedprox__t00__s1001
+[2026-10-25 00:36:35] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedprox__t02__s1001 (mode=federated)
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9291 - Aggregation Time: 0.0015s
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9792 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9751 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9731 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9732 - Aggregation Time: 0.0015s
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9791 - Aggregation Time: 0.0017s
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9727 - Aggregation Time: 0.0017s
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9792 - Aggregation Time: 0.0009s
+[40/60] ok     tuning__iot23__fedprox__t01__s1001
+[2026-10-25 00:36:36] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedadam__t00__s1001 (mode=federated)
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9749 - Aggregation Time: 0.0018s
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.4156 - Aggregation Time: 0.0022s
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9813 - Aggregation Time: 0.0017s
+[41/60] ok     tuning__iot23__fedavg__t02__s1001
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedadam__t01__s1001 (mode=federated)
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.4013 - Aggregation Time: 0.0041s
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.4437 - Aggregation Time: 0.004s
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9792 - Aggregation Time: 0.001s
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.6721 - Aggregation Time: 0.0022s
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.6667 - Aggregation Time: 0.0021s
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.6950 - Aggregation Time: 0.0025s
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.6721 - Aggregation Time: 0.0039s
+[42/60] ok     tuning__iot23__fedadam__t00__s1001
+[2026-10-25 00:36:37] [fedids_bench] [INFO] Starting experiment: tuning__iot23__fedadam__t02__s1001 (mode=federated)
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9707 - Aggregation Time: 0.0024s
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9792 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9705 - Aggregation Time: 0.0023s
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.3230 - Aggregation Time: 0.0039s
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9792 - Aggregation Time: 0.004s
+[43/60] ok     tuning__iot23__fedadam__t01__s1001
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.7031 - Aggregation Time: 0.0039s
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Starting experiment: tuning__iot23__centralized__t00__s1001 (mode=centralized)
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9770 - Aggregation Time: 0.0011s
+[44/60] ok     tuning__iot23__fedprox__t02__s1001
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.7263 - Aggregation Time: 0.003s
+[2026-10-25 00:36:38] [fedids_bench] [INFO] Starting experiment: tuning__iot23__centralized__t01__s1001 (mode=centralized)
+[2026-10-25 00:36:39] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9711 - Aggregation Time: 0.0024s
+[45/60] ok     tuning__iot23__centralized__t00__s1001
+[2026-10-25 00:36:39] [fedids_bench] [INFO] Starting experiment: tuning__iot23__centralized__t02__s1001 (mode=centralized)
+[2026-10-25 00:36:39] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9732 - Aggregation Time: 0.0035s
+[46/60] ok     tuning__iot23__fedadam__t02__s1001
+[2026-10-25 00:36:39] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedavg__t00__s1001 (mode=federated)
+[2026-10-25 00:36:39] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.8697 - Aggregation Time: 0.0011s
+[2026-10-25 00:36:40] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.8725 - Aggregation Time: 0.0019s
+[47/60] ok     tuning__iot23__centralized__t02__s1001
+[2026-10-25 00:36:40] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.8725 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:40] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedavg__t01__s1001 (mode=federated)
+[2026-10-25 00:36:40] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.8725 - Aggregation Time: 0.0011s
+[2026-10-25 00:36:40] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.8725 - Aggregation Time: 0.0011s
+[48/60] ok     tuning__ton_iot__fedavg__t00__s1001
+[2026-10-25 00:36:40] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedavg__t02__s1001 (mode=federated)
+[2026-10-25 00:36:40] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9812 - Aggregation Time: 0.0015s
+[49/60] ok     tuning__iot23__centralized__t01__s1001
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9831 - Aggregation Time: 0.001s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedprox__t00__s1001 (mode=federated)
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9872 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9815 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.8697 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.8725 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9871 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.8725 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9843 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.8725 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9858 - Aggregation Time: 0.0016s
+[50/60] ok     tuning__ton_iot__fedavg__t01__s1001
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.8725 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedprox__t01__s1001 (mode=federated)
+[51/60] ok     tuning__ton_iot__fedprox__t00__s1001
+[2026-10-25 00:36:41] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedprox__t02__s1001 (mode=federated)
+[2026-10-25 00:36:42] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9870 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:42] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9554 - Aggregation Time: 0.0016s
+[2026-10-25 00:36:42] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9771 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:42] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9477 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:42] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9802 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:42] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9843 - Aggregation Time: 0.0008s
+[2026-10-25 00:36:42] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9857 - Aggregation Time: 0.0015s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9755 - Aggregation Time: 0.0015s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9843 - Aggregation Time: 0.0009s
+[52/60] ok     tuning__ton_iot__fedavg__t02__s1001
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedadam__t00__s1001 (mode=federated)
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9815 - Aggregation Time: 0.0016s
+[53/60] ok     tuning__ton_iot__fedprox__t01__s1001
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedadam__t01__s1001 (mode=federated)
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9062 - Aggregation Time: 0.0021s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.8725 - Aggregation Time: 0.0019s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.8725 - Aggregation Time: 0.002s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9870 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.8725 - Aggregation Time: 0.0021s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.8725 - Aggregation Time: 0.0035s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.8725 - Aggregation Time: 0.0027s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9857 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9412 - Aggregation Time: 0.0035s
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.8725 - Aggregation Time: 0.0033s
+[54/60] ok     tuning__ton_iot__fedadam__t00__s1001
+[2026-10-25 00:36:43] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__fedadam__t02__s1001 (mode=federated)
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9429 - Aggregation Time: 0.0028s
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9857 - Aggregation Time: 0.0009s
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9799 - Aggregation Time: 0.0034s
+[55/60] ok     tuning__ton_iot__fedprox__t02__s1001
+[56/60] ok     tuning__ton_iot__fedadam__t01__s1001
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__centralized__t00__s1001 (mode=centralized)
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Round 1/5 - Global val F1: 0.9153 - Aggregation Time: 0.0023s
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__centralized__t01__s1001 (mode=centralized)
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Round 2/5 - Global val F1: 0.9392 - Aggregation Time: 0.0018s
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Round 3/5 - Global val F1: 0.9661 - Aggregation Time: 0.0034s
+[57/60] ok     tuning__ton_iot__centralized__t00__s1001
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Starting experiment: tuning__ton_iot__centralized__t02__s1001 (mode=centralized)
+[2026-10-25 00:36:44] [fedids_bench] [INFO] Round 4/5 - Global val F1: 0.9757 - Aggregation Time: 0.002s
+[2026-10-25 00:36:45] [fedids_bench] [INFO] Round 5/5 - Global val F1: 0.9741 - Aggregation Time: 0.0032s
+[58/60] ok     tuning__ton_iot__fedadam__t02__s1001
+[59/60] ok     tuning__ton_iot__centralized__t02__s1001
+[60/60] ok     tuning__ton_iot__centralized__t01__s1001
+finished 60 jobs in 45.1s -> {'ok': 60, 'cached': 0, 'error': 0}
+
+selected (validation split of tuning rows):
+        dataset       group  val_balanced_accuracy_default  val_balanced_accuracy_best  gain_over_default  beats_majority
+     cicids2017 centralized                          0.500                       0.966              0.466            True
+     cicids2017     fedadam                          0.500                       0.563              0.063            True
+     cicids2017      fedavg                          0.500                       0.896              0.396            True
+     cicids2017     fedprox                          0.500                       0.903              0.403            True
+cse_cic_ids2018 centralized                          0.500                       0.941              0.441            True
+cse_cic_ids2018     fedadam                          0.500                       0.896              0.396            True
+cse_cic_ids2018      fedavg                          0.500                       0.926              0.426            True
+cse_cic_ids2018     fedprox                          0.500                       0.919              0.419            True
+          iot23 centralized                          0.769                       0.982              0.213            True
+          iot23     fedadam                          0.750                       0.978              0.228            True
+          iot23      fedavg                          0.632                       0.980              0.348            True
+          iot23     fedprox                          0.632                       0.978              0.346            True
+        ton_iot centralized                          0.805                       0.984              0.179            True
+        ton_iot     fedadam                          0.500                       0.956              0.456            True
+        ton_iot      fedavg                          0.500                       0.963              0.463            True
+        ton_iot     fedprox                          0.500                       0.968              0.468            True
+      unsw_nb15 centralized                          0.735                       0.840              0.105            True
+      unsw_nb15     fedadam                          0.500                       0.750              0.250            True
+      unsw_nb15      fedavg                          0.523                       0.794              0.271            True
+      unsw_nb15     fedprox                          0.523                       0.790              0.268            True
+
+wrote results\rehearsal\tuned_hparams.json, results\rehearsal\tuning/trials.csv, results\rehearsal\tuning/selected.csv
+
+[rh_tune] exit 0 after 50 s -> results/logs/rh_tune.txt

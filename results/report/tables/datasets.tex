@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{The five corpora as read from the files (all days/files pooled), and the number of flows sampled per run.}
+\label{tab:datasets}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lrccccc}
+\toprule
+Corpus & Flows & Cols & Classes & Attack share & Sampled & Dup. rate \\
+\midrule
+UNSW-NB15 & 257,673 & 45 & 10 & 0.639 & 50,000 & 0.509 \\
+CICIDS2017 & 2,830,743 & 79 & 15 & 0.197 & 50,000 & 0.108 \\
+CSE-CIC-IDS2018 & 16,232,943 & 80 & 15 & 0.169 & 50,000 & 0.152 \\
+IoT-23 & 325,309,946 & 21 & 17 & 0.905 & 12,274 & 0.973 \\
+ToN-IoT & 211,043 & 44 & 10 & 0.763 & 50,000 & 0.513 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Counts come from \texttt{scripts/describe\_datasets.py}. Dup. rate = share of rows whose eight harmonized fields duplicate an earlier row (exact duplicates are removed BEFORE splitting). Sampled = flows drawn per run (stratified by attack category, then split 70/15/15).}
+\end{table}

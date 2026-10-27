@@ -1,0 +1,450 @@
+{
+  "written_utc": "2026-10-26T18:18:12Z",
+  "git_revision": "69e6d39b6a74e751d16bb348aa15078aceddfb98",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "cpu_count": 8,
+  "torch": "2.14.1+cpu",
+  "numpy": "2.5.4",
+  "pandas": "3.1.0",
+  "sklearn": "1.9.1",
+  "argv": [
+    "scripts\\run_grid.py",
+    "--spec",
+    "configs/grids/inflation.yaml",
+    "--data-dir",
+    "D:\\Research paper\\fedids-bench\\src\\fedids_bench\\data",
+    "--n-jobs",
+    "3"
+  ],
+  "spec_path": "D:\\fedids-run\\FedIDS-Bench\\configs\\grids\\inflation.yaml",
+  "spec": {
+    "name": "inflation",
+    "datasets": [
+      "unsw_nb15",
+      "cicids2017",
+      "cse_cic_ids2018",
+      "iot23",
+      "ton_iot"
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "base": {
+      "dataset": {
+        "n_samples": 50000,
+        "test_fraction": 0.15,
+        "val_fraction": 0.15,
+        "eval_on": "test",
+        "row_role": "report",
+        "pool": "all",
+        "feature_set": "core",
+        "deduplicate": true
+      },
+      "partitioning": {
+        "num_clients": 10,
+        "heldout_client_fraction": 0.0
+      },
+      "model": {
+        "architecture": "mlp",
+        "hidden_dims": [
+          64,
+          32
+        ]
+      },
+      "federated": {
+        "algorithm": "fedavg",
+        "rounds": 20,
+        "clients_per_round": 10
+      },
+      "defense": {
+        "type": "none"
+      }
+    },
+    "matrix": {
+      "prefix": "infl",
+      "group": "fedavg",
+      "factors": {
+        "payload": [
+          {
+            "name": "honest",
+            "overrides": {
+              "attack": {
+                "type": "sample_inflation",
+                "malicious_fraction": 0.2,
+                "reported_count": 1000000,
+                "combine_with": "none"
+              }
+            }
+          },
+          {
+            "name": "labelflip",
+            "overrides": {
+              "attack": {
+                "type": "sample_inflation",
+                "malicious_fraction": 0.2,
+                "reported_count": 1000000,
+                "combine_with": "label_flip"
+              }
+            }
+          },
+          {
+            "name": "poison5",
+            "overrides": {
+              "attack": {
+                "type": "sample_inflation",
+                "malicious_fraction": 0.2,
+                "reported_count": 1000000,
+                "combine_with": "model_poison",
+                "strength": 5.0
+              }
+            }
+          }
+        ],
+        "weights": [
+          {
+            "name": "weighted",
+            "overrides": {
+              "federated": {
+                "trust_client_sample_counts": true
+              }
+            }
+          },
+          {
+            "name": "uniform",
+            "overrides": {
+              "federated": {
+                "trust_client_sample_counts": false
+              }
+            }
+          }
+        ],
+        "partition": [
+          {
+            "name": "dir0.5",
+            "overrides": {
+              "partitioning": {
+                "strategy": "dirichlet",
+                "alpha": 0.5
+              }
+            }
+          },
+          {
+            "name": "pareto1.5",
+            "overrides": {
+              "partitioning": {
+                "strategy": "pareto",
+                "beta": 1.5
+              }
+            }
+          }
+        ]
+      }
+    },
+    "variants": [
+      {
+        "name": "infl__honest__weighted__dir0.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "none"
+          },
+          "federated": {
+            "trust_client_sample_counts": true
+          },
+          "partitioning": {
+            "strategy": "dirichlet",
+            "alpha": 0.5
+          }
+        },
+        "factors": {
+          "payload": "honest",
+          "weights": "weighted",
+          "partition": "dir0.5"
+        }
+      },
+      {
+        "name": "infl__honest__weighted__pareto1.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "none"
+          },
+          "federated": {
+            "trust_client_sample_counts": true
+          },
+          "partitioning": {
+            "strategy": "pareto",
+            "beta": 1.5
+          }
+        },
+        "factors": {
+          "payload": "honest",
+          "weights": "weighted",
+          "partition": "pareto1.5"
+        }
+      },
+      {
+        "name": "infl__honest__uniform__dir0.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "none"
+          },
+          "federated": {
+            "trust_client_sample_counts": false
+          },
+          "partitioning": {
+            "strategy": "dirichlet",
+            "alpha": 0.5
+          }
+        },
+        "factors": {
+          "payload": "honest",
+          "weights": "uniform",
+          "partition": "dir0.5"
+        }
+      },
+      {
+        "name": "infl__honest__uniform__pareto1.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "none"
+          },
+          "federated": {
+            "trust_client_sample_counts": false
+          },
+          "partitioning": {
+            "strategy": "pareto",
+            "beta": 1.5
+          }
+        },
+        "factors": {
+          "payload": "honest",
+          "weights": "uniform",
+          "partition": "pareto1.5"
+        }
+      },
+      {
+        "name": "infl__labelflip__weighted__dir0.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "label_flip"
+          },
+          "federated": {
+            "trust_client_sample_counts": true
+          },
+          "partitioning": {
+            "strategy": "dirichlet",
+            "alpha": 0.5
+          }
+        },
+        "factors": {
+          "payload": "labelflip",
+          "weights": "weighted",
+          "partition": "dir0.5"
+        }
+      },
+      {
+        "name": "infl__labelflip__weighted__pareto1.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "label_flip"
+          },
+          "federated": {
+            "trust_client_sample_counts": true
+          },
+          "partitioning": {
+            "strategy": "pareto",
+            "beta": 1.5
+          }
+        },
+        "factors": {
+          "payload": "labelflip",
+          "weights": "weighted",
+          "partition": "pareto1.5"
+        }
+      },
+      {
+        "name": "infl__labelflip__uniform__dir0.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "label_flip"
+          },
+          "federated": {
+            "trust_client_sample_counts": false
+          },
+          "partitioning": {
+            "strategy": "dirichlet",
+            "alpha": 0.5
+          }
+        },
+        "factors": {
+          "payload": "labelflip",
+          "weights": "uniform",
+          "partition": "dir0.5"
+        }
+      },
+      {
+        "name": "infl__labelflip__uniform__pareto1.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "label_flip"
+          },
+          "federated": {
+            "trust_client_sample_counts": false
+          },
+          "partitioning": {
+            "strategy": "pareto",
+            "beta": 1.5
+          }
+        },
+        "factors": {
+          "payload": "labelflip",
+          "weights": "uniform",
+          "partition": "pareto1.5"
+        }
+      },
+      {
+        "name": "infl__poison5__weighted__dir0.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "model_poison",
+            "strength": 5.0
+          },
+          "federated": {
+            "trust_client_sample_counts": true
+          },
+          "partitioning": {
+            "strategy": "dirichlet",
+            "alpha": 0.5
+          }
+        },
+        "factors": {
+          "payload": "poison5",
+          "weights": "weighted",
+          "partition": "dir0.5"
+        }
+      },
+      {
+        "name": "infl__poison5__weighted__pareto1.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "model_poison",
+            "strength": 5.0
+          },
+          "federated": {
+            "trust_client_sample_counts": true
+          },
+          "partitioning": {
+            "strategy": "pareto",
+            "beta": 1.5
+          }
+        },
+        "factors": {
+          "payload": "poison5",
+          "weights": "weighted",
+          "partition": "pareto1.5"
+        }
+      },
+      {
+        "name": "infl__poison5__uniform__dir0.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "model_poison",
+            "strength": 5.0
+          },
+          "federated": {
+            "trust_client_sample_counts": false
+          },
+          "partitioning": {
+            "strategy": "dirichlet",
+            "alpha": 0.5
+          }
+        },
+        "factors": {
+          "payload": "poison5",
+          "weights": "uniform",
+          "partition": "dir0.5"
+        }
+      },
+      {
+        "name": "infl__poison5__uniform__pareto1.5",
+        "group": "fedavg",
+        "overrides": {
+          "attack": {
+            "type": "sample_inflation",
+            "malicious_fraction": 0.2,
+            "reported_count": 1000000,
+            "combine_with": "model_poison",
+            "strength": 5.0
+          },
+          "federated": {
+            "trust_client_sample_counts": false
+          },
+          "partitioning": {
+            "strategy": "pareto",
+            "beta": 1.5
+          }
+        },
+        "factors": {
+          "payload": "poison5",
+          "weights": "uniform",
+          "partition": "pareto1.5"
+        }
+      }
+    ]
+  },
+  "overrides_cli": {
+    "dataset": {
+      "data_dir": "D:\\Research paper\\fedids-bench\\src\\fedids_bench\\data"
+    }
+  },
+  "tuned_path": "D:\\fedids-run\\FedIDS-Bench\\results\\tuned_hparams.json",
+  "tuned_sha256": "03f95e9fc251a9626ffdecc6f5768197b000a93c3c77ca52c7127c7049a22163"
+}

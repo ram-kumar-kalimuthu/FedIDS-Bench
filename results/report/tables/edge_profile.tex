@@ -1,0 +1,18 @@
+\begin{table}[t]
+\caption{Edge cost of one local inference pass, computed from the trained model.}
+\label{tab:edge}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lccrr}
+\toprule
+Device & TDP (W) & Peak (GFLOP/s) & Latency (ms/sample) & Energy (mJ/batch) \\
+\midrule
+Raspberry Pi 4 & 5 & 13.5 & 0.0062--0.0621 & 0.994--9.939 \\
+NVIDIA Jetson Orin Nano 8GB & 15 & 1280 & 0.0001--0.0007 & 0.031--0.314 \\
+x86 laptop CPU\,\placeholdertext{CPU model?} & 45 & 220 & 0.0004--0.0038 & 0.549--5.489 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Model 31-64-32-2: 4,194 parameters (16,776 bytes), 8,386 FLOPs per sample, 33,552 bytes per client per round. Latency = FLOPs / (peak $\times\,\eta$), $\eta\in[0.01,0.1]$; energy = batch 32 $\times$ latency $\times$ TDP (an upper bound). These are analytical ESTIMATES, not measurements; TDP and peak rates marked as assumptions in the CSV are not manufacturer ratings. Raspberry Pi 4: Cortex-A72, 4 cores @ 1.5 GHz; NVIDIA Jetson Orin Nano 8GB: 1024 CUDA cores. Measured on the build host: 0.00196 ms/sample (NumPy).}
+\end{table}

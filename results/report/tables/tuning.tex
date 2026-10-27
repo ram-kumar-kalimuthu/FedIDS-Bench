@@ -1,0 +1,35 @@
+\begin{table}[t]
+\caption{Hyper-parameter tuning: validation balanced accuracy of the repository defaults and of the selected configuration.}
+\label{tab:tuning}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{llccc}
+\toprule
+Corpus & Method & Default & Tuned & Gain \\
+\midrule
+UNSW-NB15 & Central. & 0.805 & 0.876 & +0.071 \\
+ & FedAvg & 0.740 & 0.854 & +0.114 \\
+ & FedProx & 0.740 & 0.847 & +0.107 \\
+ & FedAdam & 0.714 & 0.846 & +0.132 \\
+CICIDS2017 & Central. & 0.977 & 0.989 & +0.012 \\
+ & FedAvg & 0.746 & 0.977 & +0.231 \\
+ & FedProx & 0.745 & 0.977 & +0.232 \\
+ & FedAdam & 0.941 & 0.973 & +0.031 \\
+CSE-CIC-IDS2018 & Central. & 0.931 & 0.952 & +0.021 \\
+ & FedAvg & 0.678 & 0.936 & +0.258 \\
+ & FedProx & 0.677 & 0.938 & +0.261 \\
+ & FedAdam & 0.665 & 0.931 & +0.266 \\
+IoT-23 & Central. & 0.975 & 0.980 & +0.005 \\
+ & FedAvg & 0.869 & 0.979 & +0.111 \\
+ & FedProx & 0.869 & 0.979 & +0.110 \\
+ & FedAdam & 0.975 & 0.979 & +0.004 \\
+ToN-IoT & Central. & 0.968 & 0.989 & +0.021 \\
+ & FedAvg & 0.890 & 0.966 & +0.075 \\
+ & FedProx & 0.890 & 0.969 & +0.079 \\
+ & FedAdam & 0.916 & 0.978 & +0.062 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Selected on the validation split of tuning rows only (rows that never occur in a reported test split); the same number of random trials for every method; every trial is in the supplementary CSV.}
+\end{table}

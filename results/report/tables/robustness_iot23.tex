@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Robustness on IoT-23: balanced accuracy.}
+\label{tab:robust_iot23}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcccccc}
+\toprule
+Attack & FedAvg & Equal-w. & Clip & Trim & Median & Krum \\
+\midrule
+None & .979$\pm$.004 & \textbf{.979$\pm$.004} & .979$\pm$.004 & .978$\pm$.005 & .978$\pm$.005 & .864$\pm$.225 \\
+Label flip & .784$\pm$.325 & .973$\pm$.006 & .783$\pm$.326 & \textbf{.975$\pm$.007} & .972$\pm$.012 & .863$\pm$.214 \\
+Poison ($\gamma{=}5$) & .596$\pm$.267 & .500$\pm$.000 & .897$\pm$.208 & \textbf{.972$\pm$.010} & .880$\pm$.221 & .866$\pm$.216 \\
+Byzantine ($\sigma{=}1$) & .978$\pm$.005 & .976$\pm$.006 & \textbf{.978$\pm$.004} & .975$\pm$.007 & .973$\pm$.010 & .863$\pm$.215 \\
+Backdoor & .979$\pm$.004 & .979$\pm$.004 & \textbf{.979$\pm$.004} & .978$\pm$.004 & .976$\pm$.004 & .864$\pm$.215 \\
+Inflate+poison & .500$\pm$.000 & .500$\pm$.000 & .513$\pm$.068 & \textbf{.972$\pm$.010} & .880$\pm$.221 & .866$\pm$.216 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over 5 seeds; 20\% of the clients are malicious (Krum: $f{=}2$). Bold = best defense for that attack. }
+\end{table}

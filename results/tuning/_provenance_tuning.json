@@ -1,0 +1,1671 @@
+{
+  "written_utc": "2026-10-25T16:38:45Z",
+  "git_revision": "69e6d39b6a74e751d16bb348aa15078aceddfb98",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "cpu_count": 8,
+  "torch": "2.14.1+cpu",
+  "numpy": "2.5.4",
+  "pandas": "3.1.0",
+  "sklearn": "1.9.1",
+  "argv": [
+    "scripts\\tune_hparams.py",
+    "--data-dir",
+    "D:\\Research paper\\fedids-bench\\src\\fedids_bench\\data",
+    "--n-jobs",
+    "3"
+  ],
+  "spec": {
+    "name": "tuning",
+    "datasets": [
+      "unsw_nb15",
+      "cicids2017",
+      "cse_cic_ids2018",
+      "iot23",
+      "ton_iot"
+    ],
+    "seeds": [
+      1001,
+      1002
+    ],
+    "variants": [
+      {
+        "name": "fedavg__t00",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t01",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.45066
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t02",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01804
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t03",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01031
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t04",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.2779
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t05",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.06527
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t06",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.10239
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t07",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02392
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t08",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.1493
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t09",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00633
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t10",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00307
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t11",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.053
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t12",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02464
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t13",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.05262
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t14",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00543
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t15",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.14927
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t16",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.044
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t17",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01414
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t18",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.2687
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t19",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01922
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t20",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.14456
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t21",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.26451
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t22",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00593
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedavg__t23",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01494
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "algorithm": "fedavg"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t00",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "mu": 0.01,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t01",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.0719
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "mu": 0.1,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t02",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.04836
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "mu": 0.1,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t03",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00461
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t04",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.0807
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t05",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.08581
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t06",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00767
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "mu": 1.0,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t07",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02664
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "mu": 1.0,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t08",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00976
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "mu": 0.1,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t09",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00881
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t10",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.09511
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "mu": 0.01,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t11",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.03579
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t12",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02193
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t13",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00468
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t14",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.43751
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "mu": 1.0,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t15",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01109
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t16",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.06145
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t17",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02389
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "mu": 0.1,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t18",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.17045
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "mu": 0.1,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t19",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02786
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "mu": 1.0,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t20",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01395
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "mu": 0.01,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t21",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.03304
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "mu": 0.001,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t22",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00604
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "mu": 0.01,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedprox__t23",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.03928
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "mu": 0.01,
+            "algorithm": "fedprox"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t00",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t01",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01269
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "server_lr": 0.14411,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t02",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.47558
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "server_lr": 0.0082,
+            "tau": 0.01,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t03",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.11987
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "server_lr": 0.01081,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t04",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01696
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "server_lr": 0.06749,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t05",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01346
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "server_lr": 0.01489,
+            "tau": 0.01,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t06",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02298
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "server_lr": 0.0689,
+            "tau": 0.01,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t07",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00409
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "server_lr": 0.02019,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t08",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00324
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "server_lr": 0.00748,
+            "tau": 0.1,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t09",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.21649
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "server_lr": 0.0979,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t10",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.11013
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "server_lr": 0.08656,
+            "tau": 0.01,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t11",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.11844
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "server_lr": 0.02686,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t12",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00725
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "server_lr": 0.01525,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t13",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.20612
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "server_lr": 0.04638,
+            "tau": 0.01,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t14",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.14465
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "server_lr": 0.10283,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t15",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00738
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "server_lr": 0.05203,
+            "tau": 0.01,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t16",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.09072
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.9,
+            "server_lr": 0.00353,
+            "tau": 0.1,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t17",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.35597
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "server_lr": 0.07216,
+            "tau": 0.1,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t18",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.08196
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "server_lr": 0.26465,
+            "tau": 0.1,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t19",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.04948
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "server_lr": 0.00507,
+            "tau": 0.1,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t20",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00443
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "server_lr": 0.00408,
+            "tau": 0.01,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t21",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.11393
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0,
+            "server_lr": 0.15669,
+            "tau": 0.1,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t22",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.05298
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.9,
+            "server_lr": 0.12716,
+            "tau": 0.001,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "fedadam__t23",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00584
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0,
+            "server_lr": 0.00603,
+            "tau": 0.1,
+            "algorithm": "fedadam"
+          }
+        }
+      },
+      {
+        "name": "centralized__t00",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t01",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01519
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t02",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.23601
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t03",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.03247
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t04",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01531
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t05",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.41234
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t06",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00358
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t07",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02542
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t08",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.02271
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t09",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.03005
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t10",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00922
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t11",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01502
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t12",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.13183
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t13",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.04056
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t14",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00505
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "balanced",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t15",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00689
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t16",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.04781
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t17",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.10167
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 32,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t18",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.01516
+          },
+          "federated": {
+            "local_epochs": 5,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t19",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.27204
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.9
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t20",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.0172
+          },
+          "federated": {
+            "local_epochs": 3,
+            "batch_size": 128,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t21",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.00509
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 64,
+            "class_weight": "none",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t22",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.16562
+          },
+          "federated": {
+            "local_epochs": 1,
+            "batch_size": 64,
+            "class_weight": "balanced",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      },
+      {
+        "name": "centralized__t23",
+        "group": null,
+        "overrides": {
+          "model": {
+            "learning_rate": 0.19591
+          },
+          "federated": {
+            "local_epochs": 2,
+            "batch_size": 128,
+            "class_weight": "balanced",
+            "client_momentum": 0.0
+          },
+          "mode": "centralized"
+        }
+      }
+    ],
+    "base": {
+      "dataset": {
+        "n_samples": 30000,
+        "test_fraction": 0.15,
+        "val_fraction": 0.15,
+        "eval_on": "val",
+        "row_role": "tune",
+        "pool": "all",
+        "feature_set": "core",
+        "data_dir": "D:\\Research paper\\fedids-bench\\src\\fedids_bench\\data"
+      },
+      "partitioning": {
+        "strategy": "dirichlet",
+        "alpha": 0.5,
+        "num_clients": 10,
+        "heldout_client_fraction": 0.0
+      },
+      "model": {
+        "architecture": "mlp",
+        "hidden_dims": [
+          64,
+          32
+        ]
+      },
+      "federated": {
+        "rounds": 20,
+        "clients_per_round": 10
+      }
+    }
+  },
+  "overrides_cli": {}
+}

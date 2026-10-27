@@ -1,0 +1,18 @@
+\begin{table}[t]
+\caption{Sensitivity to Byzantine noise scale $\sigma$ (20\% attackers): balanced accuracy, macro-average over corpora.}
+\label{tab:sweep_sigma}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcc}
+\toprule
+Level & FedAvg & Median \\
+\midrule
+$\sigma{=}0.5$ & .940$\pm$.009 & .933$\pm$.022 \\
+$\sigma{=}1$ & .939$\pm$.009 & .936$\pm$.015 \\
+$\sigma{=}5$ & .842$\pm$.080 & .937$\pm$.010 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over seeds.}
+\end{table}

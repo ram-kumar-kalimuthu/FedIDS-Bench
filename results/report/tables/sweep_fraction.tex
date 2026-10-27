@@ -1,0 +1,19 @@
+\begin{table}[t]
+\caption{Sensitivity to share of malicious clients (model poisoning, $\gamma{=}5$): balanced accuracy, macro-average over corpora.}
+\label{tab:sweep_fraction}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcccc}
+\toprule
+Level & FedAvg & Trim & Median & Krum \\
+\midrule
+10\% & .770$\pm$.089 & .937$\pm$.011 & .934$\pm$.016 & .894$\pm$.047 \\
+20\% & .542$\pm$.049 & .921$\pm$.022 & .893$\pm$.064 & .888$\pm$.053 \\
+30\% & .514$\pm$.053 & .601$\pm$.093 & .886$\pm$.092 & .876$\pm$.068 \\
+40\% & .512$\pm$.060 & .500$\pm$.000 & .767$\pm$.114 & -- \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over seeds. Krum uses $f$ = the true number of attackers; (40\%, Krum) violates $n>2f+2$ and is not run.}
+\end{table}

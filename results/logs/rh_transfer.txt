@@ -1,0 +1,75 @@
+[2026-10-25 00:52:02] [fedids_bench] [INFO] Starting experiment: transfer__unsw_nb15__s1 (mode=federated)
+[2026-10-25 00:52:02] [fedids_bench] [INFO] Starting experiment: transfer__unsw_nb15__s0 (mode=federated)
+[2026-10-25 00:52:02] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.5410 - Aggregation Time: 0.0009s
+[2026-10-25 00:52:02] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.7107 - Aggregation Time: 0.0009s
+[2026-10-25 00:52:02] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.7145 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:02] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.6245 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:02] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.7530 - Aggregation Time: 0.0012s
+[2026-10-25 00:52:02] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.6547 - Aggregation Time: 0.0012s
+[2026-10-25 00:52:03] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.7648 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:03] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.6457 - Aggregation Time: 0.0009s
+[2026-10-25 00:52:03] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.7824 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:03] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.7264 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:03] [fedids_bench] [INFO] Starting experiment: transfer__cicids2017__s1 (mode=federated)
+[2026-10-25 00:52:03] [fedids_bench] [INFO] Starting experiment: transfer__cicids2017__s0 (mode=federated)
+[2026-10-25 00:52:04] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.8188 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:04] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.6330 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:04] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.8313 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:04] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.7714 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:04] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.8471 - Aggregation Time: 0.0012s
+[2026-10-25 00:52:04] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.8055 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:05] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.8469 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:05] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.8276 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:05] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.8562 - Aggregation Time: 0.0013s
+[2026-10-25 00:52:05] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.8351 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:05] [fedids_bench] [INFO] Starting experiment: transfer__cse_cic_ids2018__s1 (mode=federated)
+[2026-10-25 00:52:05] [fedids_bench] [INFO] Starting experiment: transfer__cse_cic_ids2018__s0 (mode=federated)
+[2026-10-25 00:52:06] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.7511 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:06] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.1186 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:06] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.7574 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:06] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.7100 - Aggregation Time: 0.0014s
+[2026-10-25 00:52:06] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.7951 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:06] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.7930 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:06] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.8017 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:07] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.8019 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:07] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.8326 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:07] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.8119 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:07] [fedids_bench] [INFO] Starting experiment: transfer__iot23__s1 (mode=federated)
+[2026-10-25 00:52:07] [fedids_bench] [INFO] Starting experiment: transfer__iot23__s0 (mode=federated)
+[2026-10-25 00:52:08] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.9375 - Aggregation Time: 0.0014s
+[2026-10-25 00:52:08] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.9759 - Aggregation Time: 0.0013s
+[2026-10-25 00:52:08] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.9683 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:08] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.9771 - Aggregation Time: 0.0014s
+[2026-10-25 00:52:09] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.9748 - Aggregation Time: 0.0013s
+[2026-10-25 00:52:09] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.9811 - Aggregation Time: 0.002s
+[2026-10-25 00:52:10] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.9735 - Aggregation Time: 0.0009s
+[2026-10-25 00:52:10] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.9798 - Aggregation Time: 0.0009s
+[2026-10-25 00:52:10] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.9748 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:10] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.9772 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:11] [fedids_bench] [INFO] Starting experiment: transfer__ton_iot__s1 (mode=federated)
+[2026-10-25 00:52:11] [fedids_bench] [INFO] Starting experiment: transfer__ton_iot__s0 (mode=federated)
+[2026-10-25 00:52:12] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.9820 - Aggregation Time: 0.0014s
+[2026-10-25 00:52:12] [fedids_bench] [INFO] Round 1/5 - Global test F1: 0.9801 - Aggregation Time: 0.0013s
+[2026-10-25 00:52:12] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.9854 - Aggregation Time: 0.0013s
+[2026-10-25 00:52:12] [fedids_bench] [INFO] Round 2/5 - Global test F1: 0.9879 - Aggregation Time: 0.0013s
+[2026-10-25 00:52:13] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.9862 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:13] [fedids_bench] [INFO] Round 3/5 - Global test F1: 0.9820 - Aggregation Time: 0.0007s
+[2026-10-25 00:52:13] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.9871 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:13] [fedids_bench] [INFO] Round 4/5 - Global test F1: 0.9861 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:14] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.9879 - Aggregation Time: 0.0008s
+[2026-10-25 00:52:14] [fedids_bench] [INFO] Round 5/5 - Global test F1: 0.9794 - Aggregation Time: 0.0008s
+REHEARSAL (--set): runs go to results\rehearsal\transfer, NOT to results/runs; they are never paper results.
+transfer 'transfer': 5 corpora x 2 seeds -> results\rehearsal\transfer
+ok     transfer__unsw_nb15__s1
+ok     transfer__cicids2017__s1
+ok     transfer__cse_cic_ids2018__s1
+ok     transfer__iot23__s1
+ok     transfer__ton_iot__s1
+ok     transfer__unsw_nb15__s0
+ok     transfer__cicids2017__s0
+ok     transfer__cse_cic_ids2018__s0
+ok     transfer__iot23__s0
+ok     transfer__ton_iot__s0
+transfer finished -> {'ok': 10, 'cached': 0, 'error': 0}
+
+[rh_transfer] exit 0 after 26 s -> results/logs/rh_transfer.txt

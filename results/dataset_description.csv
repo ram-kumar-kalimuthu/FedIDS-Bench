@@ -1,0 +1,6 @@
+dataset,files,rows,native_columns,label_classes,attack_share,canonical_duplicate_rate,fields_missing
+unsw_nb15,2,257673,45,10,0.6391,0.5094,dst_port;flag_fin;flag_syn;flag_rst;flag_ack
+cicids2017,8,2830743,79,15,0.197,0.1085,protocol;service;conn_state
+cse_cic_ids2018,10,16232943,80,15,0.1693,0.1522,service;conn_state
+iot23,23,325309946,21,17,0.9051,0.973,flag_fin;flag_syn;flag_rst;flag_ack
+ton_iot,1,211043,44,10,0.7631,0.513,flag_fin;flag_syn;flag_rst;flag_ack

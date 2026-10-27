@@ -1,0 +1,10 @@
+model taken from main__unsw_nb15__fl__fedavg__iid__s0.json: 31 features, hidden [64, 32]
+
+model 31-64-32-2: 4,194 parameters, 16,776 bytes, 8,386 FLOPs/sample, 33,552 bytes per client per round
+  rpi4                   latency 0.00621..0.06212 ms/sample   energy 0.9939..9.9390 mJ/batch  [estimate]
+  jetson_orin_nano_8gb   latency 0.00007..0.00066 ms/sample   energy 0.0314..0.3145 mJ/batch  [estimate]
+  x86_laptop             latency 0.00038..0.00381 ms/sample   energy 0.5489..5.4890 mJ/batch  [estimate]
+
+wrote results/rehearsal/edge_profile.csv
+
+[rh_edge] exit 0 after 0 s -> results/logs/rh_edge.txt

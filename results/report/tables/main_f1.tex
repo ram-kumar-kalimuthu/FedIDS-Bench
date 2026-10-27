@@ -1,0 +1,34 @@
+\begin{table}[t]
+\caption{Detection quality (attack-class F1) of the centralized reference and the three federated algorithms.}
+\label{tab:main_f1}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{llcccc}
+\toprule
+Corpus & Partition & Central. & FedAvg & FedProx & FedAdam \\
+\midrule
+UNSW-NB15 & IID & .864$\pm$.005 & .853$\pm$.003 & \textbf{.854$\pm$.004} & .843$\pm$.010 \\
+ & Dir(0.5) &  & \textbf{.844$\pm$.005} & .844$\pm$.010 & .823$\pm$.034 \\
+ & Dir(0.1) &  & .716$\pm$.178 & \textbf{.816$\pm$.042} & .631$\pm$.246 \\
+\midrule
+CICIDS2017 & IID & .973$\pm$.007 & .966$\pm$.007 & \textbf{.973$\pm$.005} & .953$\pm$.013 \\
+ & Dir(0.5) &  & \textbf{.968$\pm$.009} & .967$\pm$.006 & .930$\pm$.085 \\
+ & Dir(0.1) &  & .916$\pm$.063 & \textbf{.924$\pm$.043} & .753$\pm$.408 \\
+\midrule
+CSE-CIC-IDS2018 & IID & .920$\pm$.004 & .846$\pm$.009 & \textbf{.851$\pm$.009} & .819$\pm$.011 \\
+ & Dir(0.5) &  & .854$\pm$.005 & \textbf{.857$\pm$.006} & .837$\pm$.010 \\
+ & Dir(0.1) &  & .809$\pm$.162 & \textbf{.824$\pm$.028} & .664$\pm$.461 \\
+\midrule
+IoT-23 & IID & .979$\pm$.003 & \textbf{.978$\pm$.004} & .978$\pm$.004 & .978$\pm$.004 \\
+ & Dir(0.5) &  & .978$\pm$.004 & \textbf{.979$\pm$.004} & .978$\pm$.005 \\
+ & Dir(0.1) &  & \textbf{.977$\pm$.003} & .977$\pm$.004 & .977$\pm$.004 \\
+\midrule
+ToN-IoT & IID & .995$\pm$.001 & .991$\pm$.001 & .992$\pm$.002 & \textbf{.994$\pm$.001} \\
+ & Dir(0.5) &  & .993$\pm$.002 & \textbf{.993$\pm$.002} & .978$\pm$.033 \\
+ & Dir(0.1) &  & .985$\pm$.014 & \textbf{.985$\pm$.019} & .960$\pm$.062 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% Student-$t$ CI over 5 seeds, attack-class F1 on the held-out test split. The majority-class baseline scores 0 where benign flows are the majority and $2p/(1{+}p)$ where attack flows are ($p$ = attack share; the star test uses the value of each run). $^{\ast}$ = not above that baseline with 95\% confidence. Bold = highest mean among the federated algorithms (differences are tested in the paired table). The centralized model does not depend on the partition.}
+\end{table}

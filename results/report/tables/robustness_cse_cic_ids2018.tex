@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Robustness on CSE-CIC-IDS2018: balanced accuracy.}
+\label{tab:robust_cse_cic_ids2018}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcccccc}
+\toprule
+Attack & FedAvg & Equal-w. & Clip & Trim & Median & Krum \\
+\midrule
+None & .932$\pm$.004 & \textbf{.937$\pm$.004} & .931$\pm$.008 & .936$\pm$.002 & .935$\pm$.003 & .908$\pm$.019 \\
+Label flip & .905$\pm$.092 & .856$\pm$.138 & .898$\pm$.103 & \textbf{.924$\pm$.028} & .900$\pm$.094 & .837$\pm$.234 \\
+Poison ($\gamma{=}5$) & .557$\pm$.276 & .500$\pm$.000 & .902$\pm$.042 & .915$\pm$.050 & .892$\pm$.110 & \textbf{.916$\pm$.015} \\
+Byzantine ($\sigma{=}1$) & .931$\pm$.004 & \textbf{.936$\pm$.002} & .931$\pm$.004 & .933$\pm$.005 & .927$\pm$.023 & .863$\pm$.145 \\
+Backdoor & .930$\pm$.010 & \textbf{.937$\pm$.004} & .930$\pm$.010 & .936$\pm$.003 & .935$\pm$.003 & .902$\pm$.023 \\
+Inflate+poison & .500$\pm$.000 & .500$\pm$.000 & .492$\pm$.023 & .915$\pm$.050 & .892$\pm$.110 & \textbf{.916$\pm$.015} \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over 5 seeds; 20\% of the clients are malicious (Krum: $f{=}2$). Bold = best defense for that attack. }
+\end{table}

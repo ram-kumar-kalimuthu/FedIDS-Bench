@@ -1,0 +1,24 @@
+== unsw_nb15
+   2 file(s), 257,673 rows, 45 columns, 10 label classes, attack share 0.639
+   top labels: Normal: 93,000, Generic: 58,871, Exploits: 44,525, Fuzzers: 24,246, DoS: 16,353
+   harmonized fields missing: ['dst_port', 'flag_fin', 'flag_syn', 'flag_rst', 'flag_ack']; duplicate rate 0.5094
+== cicids2017
+   8 file(s), 2,830,743 rows, 79 columns, 15 label classes, attack share 0.197
+   top labels: BENIGN: 2,273,097, DoS Hulk: 231,073, PortScan: 158,930, DDoS: 128,027, DoS GoldenEye: 10,293
+   harmonized fields missing: ['protocol', 'service', 'conn_state']; duplicate rate 0.1085
+== cse_cic_ids2018
+   10 file(s), 16,232,943 rows, 80 columns, 15 label classes, attack share 0.169
+   top labels: Benign: 13,484,708, DDOS attack-HOIC: 686,012, DDoS attacks-LOIC-HTTP: 576,191, DoS attacks-Hulk: 461,912, Bot: 286,191
+   harmonized fields missing: ['service', 'conn_state']; duplicate rate 0.1522
+== iot23
+   23 file(s), 325,309,946 rows, 21 columns, 17 label classes, attack share 0.905
+   top labels: PartOfAHorizontalPortScan: 213,852,924, Okiru: 60,990,708, Benign: 30,858,735, DDoS: 19,538,713, C&C-HeartBeat: 33,673
+   harmonized fields missing: ['flag_fin', 'flag_syn', 'flag_rst', 'flag_ack']; duplicate rate 0.973
+== ton_iot
+   1 file(s), 211,043 rows, 44 columns, 10 label classes, attack share 0.763
+   top labels: normal: 50,000, backdoor: 20,000, ddos: 20,000, dos: 20,000, injection: 20,000
+   harmonized fields missing: ['flag_fin', 'flag_syn', 'flag_rst', 'flag_ack']; duplicate rate 0.513
+
+wrote results/rehearsal/dataset_description.json / .csv for 5 corpus/corpora
+
+[rh_describe] exit 0 after 346 s -> results/logs/rh_describe.txt

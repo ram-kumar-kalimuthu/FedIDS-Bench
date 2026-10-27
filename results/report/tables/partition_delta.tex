@@ -1,0 +1,22 @@
+\begin{table}[t]
+\caption{Clean-case cost of equal aggregation weights: balanced accuracy of equal-weight minus count-weighted FedAvg.}
+\label{tab:partition_delta}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcccccc}
+\toprule
+Partition & UNSW & CIC17 & CSE18 & IoT23 & ToN & Macro \\
+\midrule
+IID & .000$\pm$.001 & -.000$\pm$.002 & .000$\pm$.000 & -.000$\pm$.000 & .000$\pm$.001 & .000$\pm$.000 \\
+Dir(0.5) & -.004$\pm$.006 & .001$\pm$.012 & .005$\pm$.006 & .000$\pm$.000 & .001$\pm$.004 & .001$\pm$.002 \\
+Dir(0.1) & .062$\pm$.093 & .006$\pm$.043 & .047$\pm$.118 & -.001$\pm$.004 & .026$\pm$.044 & .028$\pm$.034 \\
+Qty-skew & .001$\pm$.015 & -.001$\pm$.002 & -.005$\pm$.006 & -.000$\pm$.001 & -.002$\pm$.002 & -.002$\pm$.002 \\
+Pareto(1.5) & -.002$\pm$.004 & -.001$\pm$.001 & -.002$\pm$.004 & -.000$\pm$.000 & -.002$\pm$.002 & -.001$\pm$.001 \\
+Domain-2 & -.058$\pm$.016$^{\dagger}$ & -.042$\pm$.147 & -.019$\pm$.041 & -.004$\pm$.004 & -.004$\pm$.003 & -.025$\pm$.030 \\
+Domain-1 & .057$\pm$.139 & .031$\pm$.122 & .091$\pm$.229 & -.001$\pm$.005 & .009$\pm$.058 & .037$\pm$.063 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Paired over seeds, mean difference $\pm$ 95\% CI. $^{\dagger}$ = Holm-adjusted $p<0.05$ across corpora and partitions. Macro = per-seed average over the five corpora.}
+\end{table}

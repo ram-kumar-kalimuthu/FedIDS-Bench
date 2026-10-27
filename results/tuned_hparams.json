@@ -1,0 +1,263 @@
+{
+  "_meta": {
+    "trials": 24,
+    "seeds": [
+      1001,
+      1002
+    ],
+    "n_samples": 30000,
+    "rounds": 20,
+    "hidden": [
+      64,
+      32
+    ],
+    "space_seed": 2026,
+    "row_role": "tune",
+    "selection": "mean validation balanced accuracy"
+  },
+  "cicids2017": {
+    "centralized": {
+      "model": {
+        "learning_rate": 0.00505
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 32,
+        "class_weight": "balanced",
+        "client_momentum": 0.9
+      }
+    },
+    "fedadam": {
+      "model": {
+        "learning_rate": 0.08196
+      },
+      "federated": {
+        "local_epochs": 5,
+        "batch_size": 128,
+        "class_weight": "balanced",
+        "client_momentum": 0.0,
+        "server_lr": 0.26465,
+        "tau": 0.1
+      }
+    },
+    "fedavg": {
+      "model": {
+        "learning_rate": 0.1493
+      },
+      "federated": {
+        "local_epochs": 2,
+        "batch_size": 128,
+        "class_weight": "balanced",
+        "client_momentum": 0.9
+      }
+    },
+    "fedprox": {
+      "model": {
+        "learning_rate": 0.09511
+      },
+      "federated": {
+        "local_epochs": 5,
+        "batch_size": 128,
+        "class_weight": "none",
+        "client_momentum": 0.9,
+        "mu": 0.01
+      }
+    }
+  },
+  "cse_cic_ids2018": {
+    "centralized": {
+      "model": {
+        "learning_rate": 0.02542
+      },
+      "federated": {
+        "local_epochs": 5,
+        "batch_size": 32,
+        "class_weight": "none",
+        "client_momentum": 0.0
+      }
+    },
+    "fedadam": {
+      "model": {
+        "learning_rate": 0.47558
+      },
+      "federated": {
+        "local_epochs": 2,
+        "batch_size": 32,
+        "class_weight": "balanced",
+        "client_momentum": 0.0,
+        "server_lr": 0.0082,
+        "tau": 0.01
+      }
+    },
+    "fedavg": {
+      "model": {
+        "learning_rate": 0.02464
+      },
+      "federated": {
+        "local_epochs": 5,
+        "batch_size": 128,
+        "class_weight": "balanced",
+        "client_momentum": 0.9
+      }
+    },
+    "fedprox": {
+      "model": {
+        "learning_rate": 0.06145
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 64,
+        "class_weight": "balanced",
+        "client_momentum": 0.9,
+        "mu": 0.001
+      }
+    }
+  },
+  "iot23": {
+    "centralized": {
+      "model": {
+        "learning_rate": 0.03247
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 32,
+        "class_weight": "balanced",
+        "client_momentum": 0.9
+      }
+    },
+    "fedadam": {
+      "model": {
+        "learning_rate": 0.11987
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 32,
+        "class_weight": "balanced",
+        "client_momentum": 0.9,
+        "server_lr": 0.01081,
+        "tau": 0.001
+      }
+    },
+    "fedavg": {
+      "model": {
+        "learning_rate": 0.45066
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 32,
+        "class_weight": "balanced",
+        "client_momentum": 0.0
+      }
+    },
+    "fedprox": {
+      "model": {
+        "learning_rate": 0.09511
+      },
+      "federated": {
+        "local_epochs": 5,
+        "batch_size": 128,
+        "class_weight": "none",
+        "client_momentum": 0.9,
+        "mu": 0.01
+      }
+    }
+  },
+  "ton_iot": {
+    "centralized": {
+      "model": {
+        "learning_rate": 0.01516
+      },
+      "federated": {
+        "local_epochs": 5,
+        "batch_size": 128,
+        "class_weight": "balanced",
+        "client_momentum": 0.9
+      }
+    },
+    "fedadam": {
+      "model": {
+        "learning_rate": 0.21649
+      },
+      "federated": {
+        "local_epochs": 2,
+        "batch_size": 64,
+        "class_weight": "balanced",
+        "client_momentum": 0.0,
+        "server_lr": 0.0979,
+        "tau": 0.001
+      }
+    },
+    "fedavg": {
+      "model": {
+        "learning_rate": 0.45066
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 32,
+        "class_weight": "balanced",
+        "client_momentum": 0.0
+      }
+    },
+    "fedprox": {
+      "model": {
+        "learning_rate": 0.06145
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 64,
+        "class_weight": "balanced",
+        "client_momentum": 0.9,
+        "mu": 0.001
+      }
+    }
+  },
+  "unsw_nb15": {
+    "centralized": {
+      "model": {
+        "learning_rate": 0.04781
+      },
+      "federated": {
+        "local_epochs": 5,
+        "batch_size": 64,
+        "class_weight": "none",
+        "client_momentum": 0.9
+      }
+    },
+    "fedadam": {
+      "model": {
+        "learning_rate": 0.00409
+      },
+      "federated": {
+        "local_epochs": 2,
+        "batch_size": 32,
+        "class_weight": "balanced",
+        "client_momentum": 0.9,
+        "server_lr": 0.02019,
+        "tau": 0.001
+      }
+    },
+    "fedavg": {
+      "model": {
+        "learning_rate": 0.2687
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 32,
+        "class_weight": "balanced",
+        "client_momentum": 0.0
+      }
+    },
+    "fedprox": {
+      "model": {
+        "learning_rate": 0.06145
+      },
+      "federated": {
+        "local_epochs": 3,
+        "batch_size": 64,
+        "class_weight": "balanced",
+        "client_momentum": 0.9,
+        "mu": 0.001
+      }
+    }
+  }
+}

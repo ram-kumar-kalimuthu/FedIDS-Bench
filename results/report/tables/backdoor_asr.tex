@@ -1,0 +1,16 @@
+\begin{table}[t]
+\caption{Backdoor attack success rate (share of triggered attack flows classified benign), macro-average over corpora.}
+\label{tab:backdoor_asr}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{cccccc}
+\toprule
+FedAvg & Equal-w. & Clip & Trim & Median & Krum \\
+\midrule
+.979$\pm$.021 & .994$\pm$.005 & .961$\pm$.086 & .962$\pm$.041 & .934$\pm$.062 & .620$\pm$.189 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Mean $\pm$ 95\% CI over seeds; lower is better.}
+\end{table}

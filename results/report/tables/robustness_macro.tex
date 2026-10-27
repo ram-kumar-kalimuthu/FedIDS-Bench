@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Robustness: balanced accuracy for every attack and defense (macro-average over corpora).}
+\label{tab:robust_macro}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\fittable{\begin{tabular}{lcccccc}
+\toprule
+Attack & FedAvg & Equal-w. & Clip & Trim & Median & Krum \\
+\midrule
+None & .946$\pm$.002 & \textbf{.947$\pm$.002} & .945$\pm$.004 & .945$\pm$.003 & .944$\pm$.004 & .881$\pm$.045 \\
+Label flip & .837$\pm$.107 & .860$\pm$.051 & .856$\pm$.057 & \textbf{.939$\pm$.008} & .931$\pm$.022 & .869$\pm$.084 \\
+Poison ($\gamma{=}5$) & .542$\pm$.049 & .500$\pm$.000 & .872$\pm$.095 & \textbf{.921$\pm$.022} & .893$\pm$.064 & .888$\pm$.053 \\
+Byzantine ($\sigma{=}1$) & .939$\pm$.009 & \textbf{.942$\pm$.005} & .939$\pm$.009 & .941$\pm$.004 & .936$\pm$.015 & .856$\pm$.088 \\
+Backdoor & .944$\pm$.005 & \textbf{.946$\pm$.001} & .945$\pm$.005 & .945$\pm$.003 & .944$\pm$.005 & .883$\pm$.038 \\
+Inflate+poison & .500$\pm$.000 & .500$\pm$.000 & .499$\pm$.024 & \textbf{.921$\pm$.022} & .893$\pm$.064 & .888$\pm$.053 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+{\footnotesize Macro-average over the corpora per seed, then mean $\pm$ 95\% CI over 5 seeds; 20\% of the clients are malicious (Krum: $f{=}2$). Bold = best defense for that attack. }
+\end{table}
